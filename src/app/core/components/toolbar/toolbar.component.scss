@@ -1,0 +1,13 @@
+.toolbar-main-menu{
+  p{
+    cursor: pointer;
+    border: 1px solid rgba(0,0,0,0.0);
+    transition: 0.5s;
+    padding: 5px 15px;
+    &:hover{
+      border: 1px solid rgba(0,0,0,0.8);
+      transition: 0.5s;
+      background: #eeeeee;
+    }
+  }
+}

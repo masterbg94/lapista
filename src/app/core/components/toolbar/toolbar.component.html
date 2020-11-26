@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="container">
-    <div class="row d-flex justify-content-center my-2">
-      <img src="assets/img/lapista-logo.jpg" alt="lapista-logo" class="img-fluid" style="height: 80px">
+    <div class="toolbar-logo d-flex justify-content-center">
+      <img src="assets/img/lapista-logo.jpg" alt="lapista-logo" class="img-fluid">
     </div>
-    <div class="row my-2">
-      <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-between">
-        <p *ngFor="let m of menu"
+    <div class="toolbar-container d-flex justify-content-center">
+      <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
+        <p class="toolbar-main-menu-item" *ngFor="let m of menu"
            [routerLink]="m.route"
         >{{m.name}}</p>
       </div>

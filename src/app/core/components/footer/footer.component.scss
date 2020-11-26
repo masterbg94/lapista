@@ -1,0 +1,41 @@
+@import "~src/app/styles/paleta";
+
+p {
+  font-size: 15px;
+  font-family: $main-font;
+  color: $app-header-font;
+}
+
+.footer-content{
+  .newsletter {
+    .subscribe-inputs {
+      margin-top: 10px;
+
+      input {
+        border: none;
+        border-bottom: 1px solid black;
+        font-size: 12px;
+      }
+
+      button {
+        -webkit-border-radius: none;
+        -moz-border-radius: none;
+        border-radius: none;
+        border: none;
+        background-color: black;
+        color: white;
+      }
+    }
+  }
+  .col-md-3{
+    p:first-of-type{
+      margin-bottom: 10px;
+      cursor: default;
+    }
+    p:not(:first-of-type){
+      cursor: pointer;
+    }
+  }
+}
+
+

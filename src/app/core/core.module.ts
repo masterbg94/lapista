@@ -21,7 +21,7 @@ import { ProductService } from './services/product.service';
     ProductService,
   ],
   declarations: [ToolbarComponent, FooterComponent, SingleItemComponent],
-  exports: [ToolbarComponent],
+  exports: [ToolbarComponent, FooterComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

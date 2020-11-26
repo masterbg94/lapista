@@ -15,12 +15,12 @@ export class ToolbarComponent implements OnInit {
       name: 'Home'
     },
     {
-      route: '',
-      name: 'About'
+      route: '/products',
+      name: 'Shoes'
     },
     {
-      route: '/products',
-      name: 'Products'
+      route: '',
+      name: 'About'
     },
     {
       route: '',

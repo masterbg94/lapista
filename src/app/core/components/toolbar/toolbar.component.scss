@@ -1,12 +1,32 @@
-.toolbar-main-menu{
-  p{
+@import "~src/app/styles/paleta";
+
+*{
+  font-family: $main-font;
+}
+.toolbar-logo {
+  margin: 15px auto;
+
+  img {
+    height: 80px
+  }
+}
+
+.toolbar-main-menu {
+  max-width: 800px;
+
+  p.toolbar-main-menu-item {
     cursor: pointer;
-    border: 1px solid rgba(0,0,0,0.0);
-    transition: 0.5s;
-    padding: 5px 15px;
-    &:hover{
-      border: 1px solid rgba(0,0,0,0.8);
-      transition: 0.5s;
+    border: 1px solid rgba(0, 0, 0, 0.0);
+    //transition: 0.5s;
+    padding: 5px 25px;
+    color: $app-header-font;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+
+    &:hover {
+      //border: 1px solid rgba(0,0,0,0.8);
+      //transition: 0.5s;
       background: #eeeeee;
     }
   }

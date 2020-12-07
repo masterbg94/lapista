@@ -19,7 +19,7 @@ export class ToolbarComponent implements OnInit {
       name: 'Shoes'
     },
     {
-      route: '',
+      route: '/about',
       name: 'About'
     },
     {

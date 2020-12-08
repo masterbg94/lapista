@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { SingleItemComponent } from './components/single-item/single-item.component';
+import { ToolbarComponent } from '../core/components/toolbar/toolbar.component';
+import { FooterComponent } from '../core/components/footer/footer.component';
+import { SingleItemComponent } from '../core/components/single-item/single-item.component';
 import { RouterModule } from '@angular/router';
-import { ProductService } from './services/product.service';
+import { ProductService } from '../core/services/product.service';
+import { DataService } from '../core/services/data.service';
 
 /**
  * The core module is used to hold all root-level providers.
@@ -19,8 +20,13 @@ import { ProductService } from './services/product.service';
   providers: [
     // Provide your app wide services here
     ProductService,
+    DataService,
   ],
-  declarations: [ToolbarComponent, FooterComponent, SingleItemComponent],
+  declarations: [
+    ToolbarComponent,
+    FooterComponent,
+    SingleItemComponent,
+  ],
   exports: [ToolbarComponent, FooterComponent],
 })
 export class CoreModule {

@@ -1,4 +1,4 @@
-@import "~src/app/styles/paleta";
+@import "src/app/styles/paleta";
 
 p {
   font-size: 15px;
@@ -34,6 +34,9 @@ p {
     }
     p:not(:first-of-type){
       cursor: pointer;
+    }
+    &:not(:first-of-type){
+      border-left: 1px solid $app-header-font;
     }
   }
 }

@@ -27,7 +27,7 @@ export class ToolbarComponent implements OnInit {
       name: 'Support'
     },
     {
-      route: '',
+      route: '/contact',
       name: 'Contact'
     }
   ];

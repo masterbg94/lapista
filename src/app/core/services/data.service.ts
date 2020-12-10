@@ -17,4 +17,8 @@ export class DataService {
   getAllCategoriesWithDetails() {
     return this.http.get(api_endpoint + 'category/details');
   }
+
+  getAllItems() {
+    return this.http.get(api_endpoint + 'item');
+  }
 }

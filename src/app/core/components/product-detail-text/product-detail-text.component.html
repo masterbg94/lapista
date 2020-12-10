@@ -1,0 +1,6 @@
+<p>{{detailText.name}}</p>
+<p>{{detailText.description}}</p>
+<p>{{detailText.price}}</p>
+<div class="d-flex flex-column">
+  <p *ngFor="let c of detailText.color">{{c.name}} + {{c.status}}</p>
+</div>

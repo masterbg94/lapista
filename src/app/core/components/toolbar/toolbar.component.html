@@ -1,14 +1,23 @@
 <div class="container-fluid">
-  <div class="container">
+  <div class="container toolbar-top d-flex justify-content-between">
+    <div class="col-lg-3">
+      <p style="font-size: 12px">Language option</p>
+    </div>
     <div class="toolbar-logo d-flex justify-content-center">
       <img src="assets/img/lapista-logo.jpg" alt="lapista-logo" class="img-fluid">
     </div>
-    <div class="toolbar-container d-flex justify-content-center">
-      <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
-        <p class="toolbar-main-menu-item" *ngFor="let m of menu"
-           [routerLink]="m.route"
-        >{{m.name}}</p>
-      </div>
+
+    <div class="col-lg-3 d-flex justify-content-end">
+      <img src="https://identitashoes.it/shop.png" alt="" class="img-fluid" style="height: 20px">
+    </div>
+  </div>
+
+  <div class="toolbar-container d-flex justify-content-center">
+    <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
+      <p class="toolbar-main-menu-item" *ngFor="let m of menu"
+         [routerLink]="m.route"
+      >{{m.name}}</p>
     </div>
   </div>
 </div>
+<!--https://identitashoes.it/shop.png-->

@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="container">
+
+    <div class="col-lg-12 d-flex flex-wrap">
+      <div class="col-lg-6 w-50">
+        <!--          <app-product-img-->
+        <!--            *ngIf="data"-->
+        <!--            [detailImage]="data[0]">-->
+        <!--          </app-product-img>-->
+        <app-product-text
+          *ngIf="data"
+          [detailText]="data[1]"></app-product-text>
+      </div>
+      <div class="col-lg-6 w-50">
+        <app-product-text
+          *ngIf="data"
+          [detailText]="data[1]"></app-product-text>
+      </div>
+    </div>
+
+  </div>
+</div>

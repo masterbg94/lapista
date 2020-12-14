@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {api_endpoint} from '../../api.config';
 
@@ -6,6 +6,7 @@ import {api_endpoint} from '../../api.config';
   providedIn: 'root'
 })
 export class DataService {
+  public emitNewColorImage: EventEmitter<string> = new EventEmitter();
 
   constructor(private http: HttpClient) {
   }

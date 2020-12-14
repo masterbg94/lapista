@@ -2,5 +2,5 @@
 <p>{{detailText.description}}</p>
 <p>{{detailText.price}}</p>
 <div class="d-flex flex-column">
-  <p *ngFor="let c of detailText.colors">{{c.name}} + {{c.status}}</p>
+  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>
 </div>

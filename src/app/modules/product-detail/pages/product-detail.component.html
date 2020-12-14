@@ -2,10 +2,10 @@
   <div class="container">
 
     <div class="col-lg-12 d-flex flex-wrap" *ngIf="singleDataObject">
-      <div class="col-lg-6 w-50">
+      <div class="col-lg-6 w-50 d-flex align-items-center justify-content-center">
                   <app-product-img
-                    *ngIf="singleDataObject"
-                    [detailImage]="singleDataObject.image">
+                    *ngIf="detailImage"
+                    [detailImage]="detailImage">
                   </app-product-img>
 <!--        <app-product-text-->
 <!--          *ngIf="data"-->

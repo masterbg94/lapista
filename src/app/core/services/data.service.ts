@@ -21,4 +21,12 @@ export class DataService {
   getAllItems() {
     return this.http.get(api_endpoint + 'item');
   }
+
+  getItemById(id) {
+    return this.http.get(api_endpoint + `item/${id}`);
+  }
+
+  sendMail(data) {
+    return this.http.post(api_endpoint + 'sendmail' , data);
+  }
 }

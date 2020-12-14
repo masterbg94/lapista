@@ -14,12 +14,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataService.getAllCategoriesWithDetails().pipe(take(1)).subscribe(
-      (resp => console.log(resp))
+      (resp: any) => {
+        console.log('categ.with details', resp.data);
+      }
     );
 
     this.dataService.getAllCategories().pipe(take(1)).subscribe(
       (resp: BasicResponse) => {
-        console.log(resp);
+        console.log('categ.', resp.data);
       }
     );
   }

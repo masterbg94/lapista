@@ -9,6 +9,6 @@ export class ProductDetailImageComponent implements OnInit{
   @Input() detailImage;
 
   ngOnInit(): void {
-    console.log('data', this.detailImage);
+    // console.log('data', this.detailImage);
   }
 }

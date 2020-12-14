@@ -8,6 +8,6 @@ import {Component, Input, OnInit} from '@angular/core';
   @Input() detailText;
 
   ngOnInit(): void {
-    console.log('data', this.detailText);
+    // console.log('data', this.detailText);
   }
 }

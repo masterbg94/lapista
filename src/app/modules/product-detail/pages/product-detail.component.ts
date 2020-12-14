@@ -1,23 +1,36 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../../core/services/data.service';
 import {BasicResponse} from '../../../core/models/data.models';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   templateUrl: './product-detail.component.html',
-  styleUrls: ['product-detail.component.scss']
+  styleUrls: ['product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
   data;
-  constructor(private dataService: DataService) {
-  }
+  singleDataObject;
+
+  constructor(
+    private dataService: DataService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.dataService.getAllItems().subscribe(
-      (resp: BasicResponse) => {
-        console.log(resp.data);
-        this.data = resp.data;
-      }, (error: any) => {
-        alert(error);
+    this.route.params.subscribe((r) => {
+      const parId: number = +r.id;
+      this.returnDataById(parId);
+    });
+  }
+
+  returnDataById(id) {
+    this.dataService.getItemById(id).subscribe(
+      (resp: any) => {
+        this.singleDataObject = resp.data;
+        console.log('singleDataObject', this.singleDataObject);
+      } , (error: any) => {
+        console.log('error:', error);
+        alert('error=>read console');
       }
     );
   }

@@ -1,12 +1,12 @@
 <div class="container">
-<div class="row">
-  <div class="col-lg-4 col-md-4 col-sm-6 col-6" *ngFor="let product of allProducts">
-    <div class="prod-item text-center">
-      <img src="{{product.image}}" alt="" class="img-fluid">
-      <p><b>{{product.name}}</b></p>
-      <p>€ {{product.price}}</p>
-      <span style="font-size: 12px">Get {{product.price}} elite points</span>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-6 col-6" *ngFor="let product of allShoes">
+      <div class="prod-item text-center">
+        <img src="{{product.image}}" alt="" class="img-fluid" [routerLink]="'/product/' + product.id">
+        <p><b>{{product.name}}</b></p>
+        <p>€ {{product.price}}</p>
+        <span style="font-size: 12px">Get {{product.price}} elite points</span>
+      </div>
     </div>
   </div>
-</div>
 </div>

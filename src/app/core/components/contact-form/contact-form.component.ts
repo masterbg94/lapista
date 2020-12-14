@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {SendMailModel} from '../../models/data.models';
 
 @Component({
   selector: 'app-contact-form',

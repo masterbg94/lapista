@@ -17,6 +17,6 @@ export class ProductDetailTextComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // console.log('data', this.detailText);
+    console.log('detailText', this.detailText);
   }
 }

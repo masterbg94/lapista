@@ -21,6 +21,10 @@ const ROUTES: Routes = [
   {
     path: 'contact',
     loadChildren: () => import('./modules/contact/contact.module').then(m => m.ContactModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./modules/cart/cart.module').then(m => m.CartModule)
   }
 ];
 

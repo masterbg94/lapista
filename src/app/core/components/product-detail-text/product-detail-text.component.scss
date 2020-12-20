@@ -1,0 +1,57 @@
+.color-choice {
+  .color-box-wrapper {
+    margin-right: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border: 1px solid transparent;
+    padding: 5px;
+
+    &:hover, &-selected {
+      border: 1px solid black;
+    }
+
+    //&-selected {
+    //  background: lightgray;
+    //}
+
+    .color-box {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.shoe-numbers {
+  button.size-number {
+    margin-right: 10px;
+    padding: 4px 8px;
+    width: 60px;
+    border: 1px solid #000000;
+    height: 26px;
+    font-size: 12px;
+    line-height: 12px;
+    background: transparent;
+    outline: none;
+
+    &-selected {
+      background: lightgray;
+    }
+  }
+}
+
+.add-to-cart-button {
+  display: inline;
+  cursor: pointer;
+  border: 1px solid black;
+  background-color: #000;
+  color: white;
+  font-weight: 400;
+  margin: 0 auto;
+  padding: 14px 130px;
+  outline: none;
+  &[disabled] {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+}

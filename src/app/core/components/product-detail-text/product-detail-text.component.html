@@ -28,6 +28,9 @@
         *ngFor="let s of selectedColor?.sizes"
         (click)="selectSize(s)"
         [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
+        [class.size-number-disabled]="s.sizeCount === 0"
+        [ngStyle]="{'text-decoration' : s.sizeCount === 0 ? 'line-through' : 'none'}"
+        [disabled]="s.sizeCount === 0"
       >
         {{ s.sizeName }}
       </button>

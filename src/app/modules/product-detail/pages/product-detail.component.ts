@@ -38,7 +38,7 @@ export class ProductDetailComponent implements OnInit {
     this.dataService.getItemById(id).subscribe(
       (resp: any) => {
         this.singleDataObject = resp.data;
-        this.detailImage = resp.data.image;
+        this.detailImage = resp.data.colors[0].image;
         console.log('singleDataObject', this.singleDataObject);
       },
       (error: any) => {

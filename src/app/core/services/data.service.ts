@@ -19,12 +19,23 @@ export class DataService {
     return this.http.get(api_endpoint + 'category/details');
   }
 
+  // ITEMS
   getAllItems() {
     return this.http.get(api_endpoint + 'item');
   }
 
   getItemById(id) {
     return this.http.get(api_endpoint + `item/${id}`);
+  }
+  // COLORS
+
+  // SIZES
+
+  /*
+  * Working decrement size , also with multi params
+  */
+  decrementSize(id) {
+    return this.http.get(api_endpoint + `size/decrement/${id}`);
   }
 
   sendMail(data) {

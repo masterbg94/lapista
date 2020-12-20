@@ -12,7 +12,6 @@ export class ProductDetailTextComponent implements OnInit {
   public selectedSize;
   public allData;
   public itemForSizeId;
-  buttonDisabled = true;
 
   constructor(private dataService: DataService) {
   }
@@ -27,14 +26,14 @@ export class ProductDetailTextComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('selectedColor', this.selectedColor);
-    this.dataService.getAllItems().subscribe(
-      (resp: any) => {
-        this.allData = resp.data;
-      }, (error: any) => {
-        console.log(error);
-      }
-    );
+    // this.dataService.getAllItems().subscribe(
+    //   (resp: any) => {
+    //     this.allData = resp.data;
+    //   }, (error: any) => {
+    //     console.log(error);
+    //   }
+    // );
+    this.selectedColor = this.detailText.colors[0];
   }
 
   updateCart() {
@@ -59,11 +58,17 @@ export class ProductDetailTextComponent implements OnInit {
     localStorage.setItem('cart', JSON.stringify(a));
 
     console.log(JSON.parse(localStorage.getItem('cart')).length);
+
+    // :TODO : Napraviti da se nakon uslova kupovine (porucivanja) izvrsi sledeci kod ispod
+    //
+    // let testIds = [1, 2, 3];
+    // for (let t of testIds) {
+    //   this.dataService.decrementSize(t).subscribe(
+    //     (res: any) => {
+    //       console.log(res);
+    //     }
+    //   );
+    // }
   }
 
-  returnButtonDisabled() {
-    if (this.selectedColor && this.selectedSize) {
-      this.buttonDisabled = false;
-    }
-  }
 }

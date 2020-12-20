@@ -20,7 +20,7 @@ export class ContactFormComponent implements OnInit {
   public createForm() {
     this.sendMailForm = this.formBuilder.group({
       name: [null, [Validators.required]],
-      email: [null, [Validators.email]],
+      email: [null, [Validators.email, Validators.required]],
       subject: [null, [Validators.required]],
       message: [null, [Validators.required, Validators.maxLength(300)]],
     });

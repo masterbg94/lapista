@@ -40,7 +40,8 @@ export class ProductDetailTextComponent implements OnInit {
     // this.itemForSizeId = this.detailText.colors.filter(
     //   x => x.id === 2
     // );
-    const dataForCart = {
+
+   const dataForCart = {
       name: this.detailText.name,
       price: this.detailText.price,
       image: this.detailText.image,
@@ -61,14 +62,16 @@ export class ProductDetailTextComponent implements OnInit {
 
     // :TODO : Napraviti da se nakon uslova kupovine (porucivanja) izvrsi sledeci kod ispod
     //
-    // let testIds = [1, 2, 3];
-    // for (let t of testIds) {
-    //   this.dataService.decrementSize(t).subscribe(
-    //     (res: any) => {
-    //       console.log(res);
-    //     }
-    //   );
-    // }
+    /*
+    let testIds = [10, 11];
+    for (let t of testIds) {
+      this.dataService.decrementSize(t).subscribe(
+        (res: any) => {
+          console.log(res);
+        }
+      );
+    }
+    */
   }
 
 }

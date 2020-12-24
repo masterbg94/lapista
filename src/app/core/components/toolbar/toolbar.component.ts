@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -6,8 +6,14 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  innerWidth: number;
 
   constructor() { }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
 
   menu = [
     {
@@ -33,6 +39,11 @@ export class ToolbarComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.innerWidth = window.innerWidth;
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }

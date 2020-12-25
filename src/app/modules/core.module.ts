@@ -2,10 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { ToolbarComponent } from '../core/components/toolbar/toolbar.component';
 import { FooterComponent } from '../core/components/footer/footer.component';
-import { SingleItemComponent } from '../core/components/single-item/single-item.component';
 import { RouterModule } from '@angular/router';
 import { ProductService } from '../core/services/product.service';
 import { DataService } from '../core/services/data.service';
+import { MainLayoutComponent } from '../layouts/main/main-layout.component';
+import {AdminLayoutComponent} from '../layouts/admin/admin-layout.component';
 
 /**
  * The core module is used to hold all root-level providers.
@@ -22,12 +23,8 @@ import { DataService } from '../core/services/data.service';
     ProductService,
     DataService,
   ],
-  declarations: [
-    ToolbarComponent,
-    FooterComponent,
-    SingleItemComponent,
-  ],
-  exports: [ToolbarComponent, FooterComponent],
+  declarations: [ToolbarComponent, FooterComponent, MainLayoutComponent, AdminLayoutComponent],
+  exports: [ToolbarComponent, FooterComponent, MainLayoutComponent, AdminLayoutComponent],
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

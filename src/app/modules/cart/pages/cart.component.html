@@ -2,17 +2,43 @@
   <div class="container text-center">
     <h2>Shopping bag</h2>
   </div>
-  <div class="container">
-    <div class="col-12 d-flex">
-      <div class="col-lg-8 d-flex flex-grow-1">
+
+  <div class="container shopping-cart-container">
+    <div
+      class="col-12 d-flex shopping-cart-item"
+      *ngFor="let item of shoppingItems"
+    >
+      <div class="col-lg-7" style="max-height: 250px;">
+        <img
+          [src]="item.image"
+          alt=""
+          class="img-fluid"
+          style="height: 100%;"
+        />
       </div>
-      <div class="col-lg-4 d-flex flex-column flex-grow-1">
-        <p>TOTAL</p>
-        <p>Subtotal</p>
-        <p>Shipping</p>
-        <hr>
-        <p>Total</p>
+      <div class="col-lg-5 d-flex flex-column shopping-item-info">
+        <span>Name:
+          <p>{{ item.name }}</p>
+        </span>
+        <span>Color:
+          <p>{{ item.color }}</p>
+        </span>
+        <span>Size:
+          <p>{{ item.size }}</p>
+        </span>
+        <span>Price:
+          <p>{{ item.price }}</p>
+        </span>
+        <span>Description:
+          <p>{{ item.description }}</p>
+        </span>
       </div>
     </div>
   </div>
+
+  <div class="container d-flex justify-content-end">
+    <button (click)="deleteLocalStorage()">Delete all</button>
+  </div>
+
+
 </div>

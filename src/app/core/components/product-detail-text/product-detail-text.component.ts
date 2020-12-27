@@ -26,13 +26,6 @@ export class ProductDetailTextComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.dataService.getAllItems().subscribe(
-    //   (resp: any) => {
-    //     this.allData = resp.data;
-    //   }, (error: any) => {
-    //     console.log(error);
-    //   }
-    // );
     this.selectedColor = this.detailText.colors[0];
   }
 

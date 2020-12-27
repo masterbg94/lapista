@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
+import {DataService} from '../../services/data.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,8 +9,9 @@ import {Component, HostListener, OnInit} from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   innerWidth: number;
+  subscription: Subscription[] = [];
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
@@ -44,6 +47,10 @@ export class ToolbarComponent implements OnInit {
 
   goBack() {
     window.history.back();
+  }
+
+  returnCountInCart() {
+    return JSON.parse(localStorage.getItem('cart')).length;
   }
 
 }

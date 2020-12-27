@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="container d-flex align-items-center justify-content-center" style="height: 100vh">
+    <div class="col-lg-6 col-sm-10 col-xs-12">
+      <form [formGroup]="login" class="d-flex flex-column">
+        <mat-form-field>
+          <input
+            matInput
+            type="text"
+            placeholder="username"
+            formControlName="username"
+            autocomplete="off"
+          />
+          <mat-error>Please enter your username</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            autocomplete="off"
+          />
+          <mat-error>Please enter your password</mat-error>
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="!login.valid"
+          (click)="checkLogin()"
+        >
+          Log in
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

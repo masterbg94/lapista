@@ -1,0 +1,93 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{ inputData?.what }} edit</h4>
+  <button type="button" class="close" aria-label="Close"
+          (click)="activeModal.close()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <!-- category-->
+  <div class="d-flex" *ngIf="inputData.what === 'category'">
+    <form [formGroup]="categoryGroup">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput matNativeControl formControlName="name">
+      </mat-form-field>
+    </form>
+  </div>
+  <!-- category-->
+
+  <!-- item-->
+  <div class="d-flex" *ngIf="inputData.what === 'item'">
+    <form [formGroup]="itemGroup" class="d-flex flex-column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput matNativeControl formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input matInput matNativeControl formControlName="price">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Sescription</mat-label>
+        <input matInput matNativeControl formControlName="description">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Image</mat-label>
+        <input matInput matNativeControl formControlName="image">
+      </mat-form-field>
+    </form>
+  </div>
+  <!-- item-->
+
+  <!-- color-->
+  <div class="d-flex" *ngIf="inputData.what === 'color'">
+    <form [formGroup]="colorGroup" class="d-flex flex-column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput matNativeControl formControlName="name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Status</mat-label>
+        <input matInput matNativeControl formControlName="status">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Image</mat-label>
+        <input matInput matNativeControl formControlName="image">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Hex</mat-label>
+        <input matInput matNativeControl formControlName="hex">
+      </mat-form-field>
+
+    </form>
+  </div>
+  <!-- color-->
+
+  <!-- size-->
+  <div class="d-flex" *ngIf="inputData.what === 'size'">
+    <form [formGroup]="sizeGroup" class="d-flex flex-column">
+      <mat-form-field class="example-full-width">
+        <mat-label>Size Name</mat-label>
+        <input matInput matNativeControl formControlName="sizeName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Size Count</mat-label>
+        <input matInput matNativeControl formControlName="sizeCount">
+      </mat-form-field>
+    </form>
+  </div>
+  <!-- size-->
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-outline-dark"
+    (click)="activeModal.close()"
+  >
+    Zatvori
+  </button>
+  <button type="button" class="btn btn-outline-dark" (click)="updateForm()">
+    Sacuvaj
+  </button>
+</div>

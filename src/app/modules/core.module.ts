@@ -7,6 +7,7 @@ import { ProductService } from '../core/services/product.service';
 import { DataService } from '../core/services/data.service';
 import { MainLayoutComponent } from '../layouts/main/main-layout.component';
 import {AdminLayoutComponent} from '../layouts/admin/admin-layout.component';
+import {AuthenticationService} from '../core/services/authentication.service';
 
 /**
  * The core module is used to hold all root-level providers.
@@ -22,6 +23,7 @@ import {AdminLayoutComponent} from '../layouts/admin/admin-layout.component';
     // Provide your app wide services here
     ProductService,
     DataService,
+    AuthenticationService
   ],
   declarations: [ToolbarComponent, FooterComponent, MainLayoutComponent, AdminLayoutComponent],
   exports: [ToolbarComponent, FooterComponent, MainLayoutComponent, AdminLayoutComponent],

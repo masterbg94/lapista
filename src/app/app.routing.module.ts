@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {MainLayoutComponent} from './layouts/main/main-layout.component';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
+import {AuthGuard} from './core/guards/auth.guard';
 
 const ROUTES: Routes = [
   {
@@ -37,18 +38,23 @@ const ROUTES: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule)
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
       }
-    ]
+    ],
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(ROUTES) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(ROUTES)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

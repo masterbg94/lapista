@@ -102,6 +102,16 @@ export interface CategoryTable {
     this.modalService.openModal(CustomModalComponent, data, '', '');
   }
 
+  deleteItem(serviceType, id) {
+    this.dataService.deleteById(serviceType, id).subscribe(
+      (res: any) => {
+        alert('Uspesno obrisano');
+      }, (error: any) => {
+        console.log(error);
+      }
+    );
+  }
+
   ngOnInit(): void {
     this.selectedData = 'category';
     this.getDataForSelected(this.selectedData);

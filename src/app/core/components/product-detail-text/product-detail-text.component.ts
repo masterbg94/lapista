@@ -55,7 +55,6 @@ export class ProductDetailTextComponent implements OnInit {
 
     // :TODO : Napraviti da se nakon uslova kupovine (porucivanja) izvrsi sledeci kod ispod
     //
-    /*
     let testIds = [10, 11];
     for (let t of testIds) {
       this.dataService.decrementSize(t).subscribe(
@@ -64,7 +63,6 @@ export class ProductDetailTextComponent implements OnInit {
         }
       );
     }
-    */
   }
 
 }

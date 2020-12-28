@@ -16,6 +16,12 @@ export class CustomModalComponent implements OnInit {
   sizeGroup: FormGroup;
   resolvedForm;
   saveData: any;
+  allCategories;
+  allItems;
+  allColors;
+  allSizes;
+  selectedValue = '';
+  selectedItem;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -31,6 +37,12 @@ export class CustomModalComponent implements OnInit {
     if (this.inputData.type === 'edit') {
       this.setCategory(this.inputData.what);
     }
+    this.getAllCategories();
+    this.getAllItems();
+    this.getAllColors();
+    this.getAllSizes();
+
+
   }
 
   initForm() {
@@ -41,6 +53,7 @@ export class CustomModalComponent implements OnInit {
 
     this.itemGroup = this.formBuilder.group({
       // id: [null],
+      category: [null],
       name: [null],
       price: [null],
       description: [null],
@@ -50,6 +63,7 @@ export class CustomModalComponent implements OnInit {
     this.colorGroup = this.formBuilder.group({
       // id: [null],
       name: [null],
+      item: [null],
       status: [null],
       image: [null],
       hex: [null],
@@ -57,6 +71,8 @@ export class CustomModalComponent implements OnInit {
 
     this.sizeGroup = this.formBuilder.group({
       // id: [null],
+      item: [null],
+      color: [null],
       sizeName: [null],
       sizeCount: [null],
     });
@@ -86,6 +102,7 @@ export class CustomModalComponent implements OnInit {
       case 'item':
         this.itemGroup.setValue({
           // id: data.id,
+          category: data.category.id,
           name: data.name,
           price: data.price,
           description: data.description,
@@ -96,6 +113,7 @@ export class CustomModalComponent implements OnInit {
         this.colorGroup.setValue({
           // id: data.id,
           name: data.name,
+          item: data.item.id,
           status: data.status,
           image: data.image,
           hex: data.hex,
@@ -103,6 +121,8 @@ export class CustomModalComponent implements OnInit {
         break;
       case 'size':
         this.sizeGroup.setValue({
+          item: data.color.item.id,
+          color: data.color.id,
           sizeName: data.sizeName,
           sizeCount: data.sizeCount,
         });
@@ -119,6 +139,7 @@ export class CustomModalComponent implements OnInit {
     } else if (this.inputData.what === 'item') {
       const saveDataRaw = this.itemGroup.getRawValue();
       this.saveData = {
+        category: saveDataRaw.category,
         name: saveDataRaw.name,
         price: saveDataRaw.price,
         description: saveDataRaw.description,
@@ -128,6 +149,7 @@ export class CustomModalComponent implements OnInit {
       const saveDataRaw = this.colorGroup.getRawValue();
       this.saveData = {
         name: saveDataRaw.name,
+        item: saveDataRaw.item,
         status: saveDataRaw.status,
         image: saveDataRaw.image,
         hex: saveDataRaw.hex,
@@ -135,6 +157,8 @@ export class CustomModalComponent implements OnInit {
     } else if (this.inputData.what === 'size') {
       const saveDataRaw = this.sizeGroup.getRawValue();
       this.saveData = {
+        item: saveDataRaw.item,
+        color: saveDataRaw.color,
         sizeName: saveDataRaw.sizeName,
         sizeCount: saveDataRaw.sizeCount,
       };
@@ -165,5 +189,57 @@ export class CustomModalComponent implements OnInit {
         }
       );
     }
+  }
+
+/**
+ * Za Select option dd
+ */
+
+  getAllCategories() {
+    this.dataService.getAllCategories().subscribe(
+      (res: any) => {
+        this.allCategories = res.data;
+        console.log(res);
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllItems() {
+    this.dataService.getAllItems().subscribe(
+      (res: any) => {
+        this.allItems = res.data;
+        console.log(res);
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllColors() {
+    this.dataService.getAllColors().subscribe(
+      (res: any) => {
+        this.allColors = res.data;
+        console.log(res);
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  getAllSizes() {
+    this.dataService.getAllSizes().subscribe(
+      (res: any) => {
+        this.allSizes = res.data;
+        console.log(res);
+      }, (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  changed(e){
+    console.log('changed', e);
   }
 }

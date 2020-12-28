@@ -135,4 +135,8 @@ export class DataService {
     return this.http.get(api_endpoint + `${serviceType}/${id}`);
   }
 
+  deleteById(serviceType, id) {
+    return this.http.delete(api_endpoint + `${serviceType}/${id}`);
+  }
+
 }

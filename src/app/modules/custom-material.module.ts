@@ -9,6 +9,8 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTableModule} from '@angular/material/table';
+import {MAT_SELECT_SCROLL_STRATEGY_PROVIDER, MatSelectModule} from '@angular/material/select';
+import {MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER} from '@angular/material/tooltip';
 
 @NgModule({
   imports: [
@@ -22,7 +24,8 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatToolbarModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
   exports: [
     MatFormFieldModule,
@@ -35,7 +38,8 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatToolbarModule,
     MatTableModule,
-    MatFormFieldModule
-  ],
+    MatFormFieldModule,
+    MatSelectModule
+  ]
 })
 export class CustomMaterialModule {}

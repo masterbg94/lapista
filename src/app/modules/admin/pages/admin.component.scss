@@ -1,3 +1,15 @@
 table {
   width: 100%;
+  td {
+    align-items: center;
+  }
+}
+.table th, .table td{
+  padding: 0.25rem;
+}
+
+.edit-td, .delete-td {
+  width: 100px;
+  align-items: center;
+  justify-content: center;
 }

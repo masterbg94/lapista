@@ -7,7 +7,7 @@ import {CustomMaterialModule} from '../../../modules/custom-material.module';
 @NgModule({
   declarations: [CustomModalComponent],
   imports: [CommonModule, ReactiveFormsModule, FormsModule, CustomMaterialModule],
-  exports: [CustomModalComponent]
+  exports: [CustomModalComponent],
 })
 export class CustomModalModule {
 }

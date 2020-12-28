@@ -20,6 +20,25 @@
   <!-- item-->
   <div class="d-flex" *ngIf="inputData.what === 'item'">
     <form [formGroup]="itemGroup" class="d-flex flex-column">
+<!--      <mat-form-field class="example-full-width">-->
+<!--        <mat-label>Category</mat-label>-->
+<!--        <input matInput matNativeControl formControlName="category">-->
+<!--      </mat-form-field>-->
+
+      <!--<mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+          <mat-option *ngFor="let c of allCategories" [value]="c.id">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>-->
+      <label for="category">Category</label>
+
+      <select name="cars" id="category" formControlName="category">
+        <option *ngFor="let c of allCategories" value="{{c.id}}">{{c.name}}</option>
+      </select>
+
       <mat-form-field class="example-full-width">
         <mat-label>Name</mat-label>
         <input matInput matNativeControl formControlName="name">
@@ -43,6 +62,11 @@
   <!-- color-->
   <div class="d-flex" *ngIf="inputData.what === 'color'">
     <form [formGroup]="colorGroup" class="d-flex flex-column">
+
+      <select name="cars" formControlName="item">
+        <option *ngFor="let i of allItems" value="{{i.id}}">{{i.name}}</option>
+      </select>
+
       <mat-form-field class="example-full-width">
         <mat-label>Name</mat-label>
         <input matInput matNativeControl formControlName="name">
@@ -67,6 +91,15 @@
   <!-- size-->
   <div class="d-flex" *ngIf="inputData.what === 'size'">
     <form [formGroup]="sizeGroup" class="d-flex flex-column">
+
+      <select name="cars" formControlName="item" (change)="changed($event)">
+        <option *ngFor="let i of allItems" value="{{i.id}}">{{i.name}}</option>
+      </select>
+
+      <select name="cars" formControlName="color">
+        <option *ngFor="let c of allColors" value="{{c.id}}">{{c.name}}</option>
+      </select>
+
       <mat-form-field class="example-full-width">
         <mat-label>Size Name</mat-label>
         <input matInput matNativeControl formControlName="sizeName">

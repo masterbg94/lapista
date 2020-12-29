@@ -11,7 +11,9 @@ export class ToolbarComponent implements OnInit {
   innerWidth: number;
   subscription: Subscription[] = [];
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {
+    this.innerWidth = window.innerWidth;
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {

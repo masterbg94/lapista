@@ -4,7 +4,8 @@
   font-family: $main-font;
 }
 .toolbar-logo {
-  margin: 15px auto;
+  //margin: 10px auto;
+  margin-top: 10px;
 
   img {
     height: 80px
@@ -42,4 +43,18 @@
   font-size: 12px;
   line-height: 16px;
   text-align: center;
+}
+.toolbar-top {
+  margin: 0 20px;
+  .cart-image{
+    object-fit: contain;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .toolbar-top {
+    padding: 0 !important;
+    margin: 0 10px !important;
+
+  }
 }

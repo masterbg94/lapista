@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div class="toolbar-container d-flex justify-content-center" *ngIf="innerWidth>768">
+  <div class="toolbar-container mt-3 d-flex justify-content-center" *ngIf="innerWidth>768">
     <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
       <p class="toolbar-main-menu-item" *ngFor="let m of menu"
          [routerLink]="m.route"

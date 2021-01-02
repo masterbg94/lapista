@@ -28,20 +28,40 @@
         *ngFor="let s of selectedColor?.sizes"
         (click)="selectSize(s)"
         [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
-        [class.size-number-disabled]="s.sizeCount <= 0"
+        [class.size-number-disabled]="returnHeelCount(s)"
         [ngStyle]="{'text-decoration' : s.sizeCount <= 0 ? 'line-through' : 'none'}"
-        [disabled]="s.sizeCount <= 0"
+        [disabled]="returnHeelCount(s)"
       >
         {{ s.sizeName }}
       </button>
     </div>
   </div>
+
+  <div class="select-heel d-flex flex-column mt-2">
+    <p class="text-uppercase mb-2">
+      <b>HEEL: </b> {{ selectedHeel?.heelName}}
+    </p>
+    <div class="shoe-heels" *ngIf="selectedSize?.heel.length > 0">
+      <button
+        class="heel-number"
+        *ngFor="let h of selectedSize?.heel"
+        (click)="selectHeel(h)"
+        [class.heel-number-selected]="selectedHeel?.heelName === h?.heelName"
+        [class.heel-number-disabled]="h?.heelCount <= 0"
+        [ngStyle]="{'text-decoration' : h?.heelCount <= 0 ? 'line-through' : 'none'}"
+        [disabled]="h.heelCount <= 0"
+      >
+        {{ h.heelName }}
+      </button>
+    </div>
+  </div>
+
 </div>
 
 <div class="add-to-cart mt-3">
   <button class="add-to-cart-button"
           (click)="updateCart()"
-          [disabled]="!selectedSize"
+          [disabled]="!selectedHeel"
   >
     Add to cart
   </button>

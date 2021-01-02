@@ -10,6 +10,7 @@ export class ProductDetailTextComponent implements OnInit {
   @Input() detailText;
   public selectedColor;
   public selectedSize;
+  public selectedHeel;
   public allData;
   public itemForSizeId;
 
@@ -23,9 +24,17 @@ export class ProductDetailTextComponent implements OnInit {
 
   selectSize(x) {
     this.selectedSize = x;
+    this.selectedHeel = null;
+    console.log(x);
+    this.returnHeelCount(x);
+  }
+
+  selectHeel(heel) {
+    this.selectedHeel = heel;
   }
 
   ngOnInit(): void {
+    console.log(this.detailText);
     this.selectedColor = this.detailText.colors[0];
   }
 
@@ -34,12 +43,13 @@ export class ProductDetailTextComponent implements OnInit {
     //   x => x.id === 2
     // );
 
-   const dataForCart = {
+    const dataForCart = {
       name: this.detailText.name,
       price: this.detailText.price,
       image: this.detailText.image,
       color: this.selectedColor.name,
-      size: this.selectedSize.sizeName
+      size: this.selectedSize.sizeName,
+      heel: this.selectedHeel
     };
 
     let a = [];
@@ -55,6 +65,7 @@ export class ProductDetailTextComponent implements OnInit {
 
     // :TODO : Napraviti da se nakon uslova kupovine (porucivanja) izvrsi sledeci kod ispod
     //
+    /*
     let testIds = [10, 11];
     for (let t of testIds) {
       this.dataService.decrementSize(t).subscribe(
@@ -63,6 +74,41 @@ export class ProductDetailTextComponent implements OnInit {
         }
       );
     }
+    */
+    let ls = JSON.parse(localStorage.getItem('cart'));
+    // console.log(ls);
+    let mapirano = ls.map(x => x?.heel?.id);
+    // console.log(mapirano);
+    this.decrementHeels(mapirano);
+  }
+
+  decrementHeels(ids) {
+    for (let i of ids) {
+      this.dataService.decrementHeelSize(i).subscribe(
+        (res: any) => {
+          console.log(res);
+        }
+      );
+    }
+  }
+
+  returnHeelCount(size) {
+    console.log('szh', size.heel.length);
+    if (size?.heel?.length === 2) {
+      if (size?.heel[0]?.heelCount <= 0 && size?.heel[1]?.heelCount <= 0) {
+        // console.log(false);
+        return true;
+      }
+    } else if (size?.heel?.length === 1) {
+      if (size?.heel[0]?.heelCount <= 0) {
+        // console.log(false);
+        return true;
+      }
+    }
+    // else {
+    //   // console.log(true);
+    //   return true;
+    // }
   }
 
 }

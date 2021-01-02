@@ -139,4 +139,8 @@ export class DataService {
     return this.http.delete(api_endpoint + `${serviceType}/${id}`);
   }
 
+  decrementHeelSize(id) {
+    return this.http.get(api_endpoint + `heel/decrement/${id}`);
+  }
+
 }

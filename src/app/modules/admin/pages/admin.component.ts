@@ -41,6 +41,9 @@ export interface CategoryTable {
     if (x === 'size') {
       this.getAllSizes();
     }
+    if (x === 'heel') {
+      this.getAllHeels();
+    }
   }
 
   // CATEGORIES
@@ -78,6 +81,17 @@ export interface CategoryTable {
     this.dataService.getAllSizes().subscribe(
       (res: any) => {
         this.dataSource = res.data;
+      }, (error: any) => {
+        alert(error);
+      }
+    );
+  }
+
+  getAllHeels() {
+    this.dataService.getAllHeels().subscribe(
+      (res: any) => {
+        this.dataSource = res.data;
+        console.log(this.dataSource);
       }, (error: any) => {
         alert(error);
       }

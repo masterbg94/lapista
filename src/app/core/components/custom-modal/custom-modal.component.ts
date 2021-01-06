@@ -1,7 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {FormBuilder, FormGroup} from '@angular/forms';
-import {DataService} from '../../services/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DataService } from '../../services/data.service';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-custom-modal',
@@ -14,6 +15,7 @@ export class CustomModalComponent implements OnInit {
   itemGroup: FormGroup;
   colorGroup: FormGroup;
   sizeGroup: FormGroup;
+  heelGroup: FormGroup;
   resolvedForm;
   saveData: any;
   allCategories;
@@ -22,6 +24,12 @@ export class CustomModalComponent implements OnInit {
   allSizes;
   selectedValue = '';
   selectedItem;
+  selectedColor;
+  selectedSize;
+
+  // Color picker
+  public color: ThemePalette = 'primary';
+  public touchUi = false;
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -41,8 +49,6 @@ export class CustomModalComponent implements OnInit {
     this.getAllItems();
     this.getAllColors();
     this.getAllSizes();
-
-
   }
 
   initForm() {
@@ -75,6 +81,15 @@ export class CustomModalComponent implements OnInit {
       color: [null],
       sizeName: [null],
       sizeCount: [null],
+    });
+
+    this.heelGroup = this.formBuilder.group({
+      // id: [null],
+      item: [null],
+      color: [null],
+      size: [null],
+      heelName: [null],
+      heelCount: [null],
     });
   }
 
@@ -127,6 +142,15 @@ export class CustomModalComponent implements OnInit {
           sizeCount: data.sizeCount,
         });
         break;
+      case 'heel':
+        this.heelGroup.setValue({
+          item: data.size.color.item.id,
+          color: data.size.color.id,
+          size: data.size.id,
+          heelName: data.heelName,
+          heelCount: data.heelCount,
+        });
+        break;
     }
   }
 
@@ -162,6 +186,16 @@ export class CustomModalComponent implements OnInit {
         sizeName: saveDataRaw.sizeName,
         sizeCount: saveDataRaw.sizeCount,
       };
+    } else if (this.inputData.what === 'heel') {
+      const saveDataRaw = this.heelGroup.getRawValue();
+      this.saveData = {
+        item: saveDataRaw.item,
+        color: saveDataRaw.color,
+        size: saveDataRaw.size,
+        heelName: saveDataRaw.heelName,
+        heelCount: saveDataRaw.heelCount,
+      };
+      console.log(this.saveData);
     }
 
     if (this.inputData.type === 'edit') {
@@ -178,29 +212,32 @@ export class CustomModalComponent implements OnInit {
           }
         );
     } else {
-      this.dataService.createModalItem(this.saveData, this.inputData.what).subscribe(
-        (res: any) => {
-          this.activeModal.close();
-          this.dataService.emitAddNewFromModal.emit(true);
-          alert('Successfully updated');
-        },
-        (error: any) => {
-          console.log('error', error);
-        }
-      );
+      this.dataService
+        .createModalItem(this.saveData, this.inputData.what)
+        .subscribe(
+          (res: any) => {
+            this.activeModal.close();
+            this.dataService.emitAddNewFromModal.emit(true);
+            alert('Successfully updated');
+          },
+          (error: any) => {
+            console.log('error', error);
+          }
+        );
     }
   }
 
-/**
- * Za Select option dd
- */
+  /**
+   * Za Select option dd
+   */
 
   getAllCategories() {
     this.dataService.getAllCategories().subscribe(
       (res: any) => {
         this.allCategories = res.data;
         console.log(res);
-      }, (error) => {
+      },
+      (error) => {
         console.log(error);
       }
     );
@@ -211,7 +248,8 @@ export class CustomModalComponent implements OnInit {
       (res: any) => {
         this.allItems = res.data;
         console.log(res);
-      }, (error) => {
+      },
+      (error) => {
         console.log(error);
       }
     );
@@ -222,7 +260,8 @@ export class CustomModalComponent implements OnInit {
       (res: any) => {
         this.allColors = res.data;
         console.log(res);
-      }, (error) => {
+      },
+      (error) => {
         console.log(error);
       }
     );
@@ -233,13 +272,25 @@ export class CustomModalComponent implements OnInit {
       (res: any) => {
         this.allSizes = res.data;
         console.log(res);
-      }, (error) => {
+      },
+      (error) => {
         console.log(error);
       }
     );
   }
 
-  changed(e){
+  changed(e) {
     console.log('changed', e);
+  }
+
+  setSelectedItem(item) {
+    let ide = parseFloat(item.target.value);
+    this.selectedItem = this.allItems.find((x) => x.id === ide);
+  }
+
+  setSelectedColor(color) {
+    let selColor = parseFloat(color.target.value);
+    this.selectedColor = this.allColors.find((x) => x.id === selColor);
+    console.log('selectedColor', this.selectedColor);
   }
 }

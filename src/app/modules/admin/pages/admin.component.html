@@ -45,6 +45,10 @@
       <mat-list-item (click)="getDataForSelected('size')">
         <a matLine>Velicine</a>
       </mat-list-item>
+
+      <mat-list-item (click)="getDataForSelected('heel')">
+        <a matLine>Stikla</a>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <!-- CONTENT -->
@@ -183,6 +187,37 @@
                 <button type="button" class="btn btn-danger" (click)="deleteItem('size' , s.id)">Delete</button>
               </td>
             </tr>
+          </tbody>
+        </table>
+        <!-- sizes table -->
+
+        <!-- sizes table -->
+        <table class="table" *ngIf="selectedData === 'heel'">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Item</th>
+            <th scope="col">Color</th>
+            <th scope="col">Size</th>
+            <th scope="col">heel Count</th>
+            <th scope="col">heel Name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let s of dataSource">
+            <th scope="row">{{ s.id }}</th>
+            <th scope="row">{{ s?.size?.color?.item?.name }}</th>
+            <th scope="row">{{ s?.size?.color?.name }}</th>
+            <th scope="row">{{ s?.size?.sizeName }}</th>
+            <td>{{ s.heelCount }}</td>
+            <td>{{ s.heelName }}</td>
+            <td class="edit-td">
+              <button type="button" class="btn btn-info" (click)="openEditModal('heel' , s.id)">Edit</button>
+            </td>
+            <td class="delete-td">
+              <button type="button" class="btn btn-danger" (click)="deleteItem('size' , s.id)">Delete</button>
+            </td>
+          </tr>
           </tbody>
         </table>
         <!-- sizes table -->

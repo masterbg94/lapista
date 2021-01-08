@@ -17,9 +17,16 @@ export class ProductDetailTextComponent implements OnInit {
   constructor(private dataService: DataService) {
   }
 
+  ngOnInit(): void {
+    console.log(this.detailText);
+    this.selectedColor = this.detailText.colors[0];
+  }
+
   emitChangedColor(x) {
     this.dataService.emitNewColorImage.emit(x.image);
     this.selectedColor = x;
+    this.selectedSize = null;
+    this.selectedHeel = null;
   }
 
   selectSize(x) {
@@ -33,11 +40,6 @@ export class ProductDetailTextComponent implements OnInit {
     this.selectedHeel = heel;
   }
 
-  ngOnInit(): void {
-    console.log(this.detailText);
-    this.selectedColor = this.detailText.colors[0];
-  }
-
   updateCart() {
     // this.itemForSizeId = this.detailText.colors.filter(
     //   x => x.id === 2
@@ -49,7 +51,8 @@ export class ProductDetailTextComponent implements OnInit {
       image: this.detailText.image,
       color: this.selectedColor.name,
       size: this.selectedSize.sizeName,
-      heel: this.selectedHeel
+      heel: this.selectedHeel,
+      description: this.detailText.description
     };
 
     let a = [];

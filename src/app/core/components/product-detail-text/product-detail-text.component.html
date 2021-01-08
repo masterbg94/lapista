@@ -2,7 +2,7 @@
   <b>{{ detailText.name }}</b>
 </p>
 <p class="mb-2">{{ detailText.price }},00 €</p>
-<p class="mb-2">{{ detailText.description }}</p>
+
 <div class="d-flex flex-column">
   <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
   <p class="text-uppercase"><b>COLOR: </b> {{ selectedColor?.name }}</p>
@@ -28,11 +28,8 @@
         *ngFor="let s of selectedColor?.sizes"
         (click)="selectSize(s)"
         [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
-        [class.size-number-disabled]="returnHeelCount(s)"
-        [ngStyle]="{'text-decoration' : s.sizeCount <= 0 ? 'line-through' : 'none'}"
-        [disabled]="returnHeelCount(s)"
       >
-        {{ s.sizeName }}
+        {{ s?.sizeName }}
       </button>
     </div>
   </div>
@@ -41,7 +38,7 @@
     <p class="text-uppercase mb-2">
       <b>HEEL: </b> {{ selectedHeel?.heelName}}
     </p>
-    <div class="shoe-heels" *ngIf="selectedSize?.heel.length > 0">
+    <div class="shoe-heels">
       <button
         class="heel-number"
         *ngFor="let h of selectedSize?.heel"
@@ -57,6 +54,9 @@
   </div>
 
 </div>
+
+<p class="m-0 p-0"><b>Description:</b></p>
+<p class="mb-2">{{ detailText.description }}</p>
 
 <div class="add-to-cart mt-3">
   <button class="add-to-cart-button"

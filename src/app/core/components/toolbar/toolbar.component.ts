@@ -52,7 +52,9 @@ export class ToolbarComponent implements OnInit {
   }
 
   returnCountInCart() {
-    return JSON.parse(localStorage.getItem('cart')).length;
+    if (localStorage.getItem('cart')) {
+      return JSON.parse(localStorage.getItem('cart')).length;
+    }
   }
 
 }

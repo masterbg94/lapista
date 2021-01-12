@@ -22,4 +22,8 @@ export class CartComponent implements OnInit {
     // this.getItemsFromLocalStorage();
     window.location.reload();
   }
+
+  scrollToId(x) {
+    document.querySelector('x').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
 }

@@ -58,6 +58,10 @@
       }
     }
   }
+
+  .order-buttons{
+    justify-content: flex-end;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -68,4 +72,17 @@
       }
     }
   }
+
+  .order-buttons{
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.empty-cart{
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

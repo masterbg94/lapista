@@ -23,23 +23,23 @@ export class ToolbarComponent implements OnInit {
   menu = [
     {
       route: '',
-      name: 'Home'
+      name: 'Pocetna'
     },
     {
       route: '/products',
-      name: 'Shoes'
+      name: 'Cipele'
     },
     {
       route: '/about',
-      name: 'About'
+      name: 'O nama'
     },
     {
       route: '',
-      name: 'Support'
+      name: 'Pomoc'
     },
     {
       route: '/contact',
-      name: 'Contact'
+      name: 'Kontakt'
     }
   ];
 

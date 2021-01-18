@@ -23,6 +23,8 @@
       border: none;
       background-color: black;
       color: white;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 }
@@ -50,3 +52,11 @@
   }
 }
 
+@media screen and (max-width: 768px){
+  .d-flex.flex-column.align-items-center.text-center .newsletter{
+    width: 100%;
+    .subscribe-inputs{
+      width: 100%;
+    }
+  }
+}

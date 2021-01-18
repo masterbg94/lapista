@@ -66,8 +66,6 @@ export class ProductDetailTextComponent implements OnInit {
 
     console.log(JSON.parse(localStorage.getItem('cart')).length);
 
-    // :TODO : Napraviti da se nakon uslova kupovine (porucivanja) izvrsi sledeci kod ispod
-    //
     /*
     let testIds = [10, 11];
     for (let t of testIds) {
@@ -78,13 +76,17 @@ export class ProductDetailTextComponent implements OnInit {
       );
     }
     */
+    // TODO: Prebaciti na kraj porudzbine
+    /*
     let ls = JSON.parse(localStorage.getItem('cart'));
     // console.log(ls);
     let mapirano = ls.map(x => x?.heel?.id);
     // console.log(mapirano);
     this.decrementHeels(mapirano);
+    */
   }
-
+  // TODO: Prebaciti na kraj porudzbine
+  /*
   decrementHeels(ids) {
     for (let i of ids) {
       this.dataService.decrementHeelSize(i).subscribe(
@@ -94,6 +96,7 @@ export class ProductDetailTextComponent implements OnInit {
       );
     }
   }
+  */
 
   returnHeelCount(size) {
     console.log('szh', size.heel.length);

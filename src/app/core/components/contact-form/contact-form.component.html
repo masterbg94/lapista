@@ -3,9 +3,9 @@
 >
   <div class="container mx-0" style="border-top: 10px solid #f4f4f4;">
     <div class="d-flex flex-column my-3">
-      <p style="font-size: 14px;"><b>Contact Customer Service</b></p>
+      <p style="font-size: 14px;"><b>Potrebna Vam je podrška</b></p>
       <p style="font-size: 14px;">
-        Simply complete the form and click 'send' to submit an enquiry:
+        Jednostavno popunite obrazac i kliknite na 'pošalji' da biste poslali upit
       </p>
     </div>
     <div class="form" style="width: 100%;">
@@ -14,10 +14,10 @@
         <div class="d-flex flex-wrap">
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Name</mat-label>
+              <mat-label>Ime</mat-label>
               <input
                 matInput
-                placeholder="Enter name"
+                placeholder="Unesite Vaše ime"
                 formControlName="name"
               />
             </mat-form-field>
@@ -27,27 +27,27 @@
               <mat-label>Email</mat-label>
               <input
                 matInput
-                placeholder="Enter email"
+                placeholder="Unesite Vaš email"
                 formControlName="email"
               />
             </mat-form-field>
           </div>
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Subject</mat-label>
+              <mat-label>Naslov</mat-label>
               <input
                 matInput
-                placeholder="Enter subject"
+                placeholder="Naslov poruke"
                 formControlName="subject"
               />
             </mat-form-field>
           </div>
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Message</mat-label>
+              <mat-label>Poruka</mat-label>
               <input
                 matInput
-                placeholder="Vasa poruku"
+                placeholder="Vaša poruka"
                 formControlName="message"
               />
               <!--            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
@@ -65,7 +65,7 @@
             (click)="sendMail()"
             [disabled]="!sendMailForm.valid"
           >
-            SEND
+            POŠALjI
           </button>
         </div>
       </form>

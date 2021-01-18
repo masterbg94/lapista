@@ -4,8 +4,8 @@
       <div class="prod-item text-center">
         <img src="{{product?.colors[0]?.image}}" alt="" class="img-fluid" [routerLink]="'/product/' + product.id" style="cursor: pointer">
         <p><b>{{product?.name}}</b></p>
-        <p>€ {{product?.price}}</p>
-        <span style="font-size: 12px">Get {{product.price}} elite points</span>
+        <p>{{product?.price}} €</p>
+<!--        <span style="font-size: 12px">Get {{product.price}} elite points</span>-->
       </div>
     </div>
   </div>

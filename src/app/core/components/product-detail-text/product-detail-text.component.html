@@ -5,7 +5,7 @@
 
 <div class="d-flex flex-column">
   <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
-  <p class="text-uppercase"><b>COLOR: </b> {{ selectedColor?.name }}</p>
+  <p class="text-uppercase"><b>BOJA: </b> {{ selectedColor?.name }}</p>
 
   <div class="color-choice d-flex py-3">
     <div
@@ -20,7 +20,7 @@
 
   <div class="select-size d-flex flex-column mt-2">
     <p class="text-uppercase mb-2">
-      <b>SIZE: </b> {{ selectedSize?.sizeName }}
+      <b>VELIČINA: </b> {{ selectedSize?.sizeName }}
     </p>
     <div class="shoe-numbers" *ngIf="selectedColor">
       <button
@@ -36,7 +36,7 @@
 
   <div class="select-heel d-flex flex-column mt-2">
     <p class="text-uppercase mb-2">
-      <b>HEEL: </b> {{ selectedHeel?.heelName}}
+      <b>VISINA POTPETICE: </b> {{ selectedHeel?.heelName}}
     </p>
     <div class="shoe-heels">
       <button
@@ -55,7 +55,7 @@
 
 </div>
 
-<p class="m-0 p-0"><b>Description:</b></p>
+<p class="m-0 p-0"><b>OPIS:</b></p>
 <p class="mb-2">{{ detailText.description }}</p>
 
 <div class="add-to-cart mt-3">

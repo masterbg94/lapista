@@ -6,7 +6,7 @@ p {
   color: $app-header-font;
 }
 
-.footer-content{
+.footer-content {
   .newsletter {
     .subscribe-inputs {
       margin-top: 10px;
@@ -27,18 +27,34 @@ p {
       }
     }
   }
-  .col-md-3{
-    p:first-of-type{
+
+  .col-md-3 {
+    p:first-of-type {
       margin-bottom: 10px;
       cursor: default;
     }
-    p:not(:first-of-type){
+
+    p:not(:first-of-type) {
       cursor: pointer;
     }
-    &:not(:first-of-type){
+
+    &:not(:first-of-type) {
       border-left: 1px solid $app-header-font;
     }
   }
 }
 
+@media screen and (max-width: 500px) {
+  .footer-content{
+    .newsletter {
+      margin-bottom: 10px;
 
+      .subscribe-inputs {
+        display: flex;
+        input {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

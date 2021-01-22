@@ -1,10 +1,11 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {DataService} from '../../services/data.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-text',
   templateUrl: 'product-detail-text.component.html',
-  styleUrls: ['product-detail-text.component.scss']
+  styleUrls: ['product-detail-text.component.scss'],
 })
 export class ProductDetailTextComponent implements OnInit {
   @Input() detailText;
@@ -13,9 +14,12 @@ export class ProductDetailTextComponent implements OnInit {
   public selectedHeel;
   public allData;
   public itemForSizeId;
+  durationInSeconds = 2;
 
-  constructor(private dataService: DataService) {
-  }
+  constructor(
+    private dataService: DataService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     console.log(this.detailText);
@@ -52,7 +56,7 @@ export class ProductDetailTextComponent implements OnInit {
       color: this.selectedColor.name,
       size: this.selectedSize.sizeName,
       heel: this.selectedHeel,
-      description: this.detailText.description
+      description: this.detailText.description,
     };
 
     let a = [];
@@ -61,10 +65,10 @@ export class ProductDetailTextComponent implements OnInit {
     // Push the new data (whether it be an object or anything else) onto the array
     a.push(dataForCart);
     // Alert the array value
-
     localStorage.setItem('cart', JSON.stringify(a));
-
     console.log(JSON.parse(localStorage.getItem('cart')).length);
+
+    this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
 
     /*
     let testIds = [10, 11];
@@ -85,6 +89,7 @@ export class ProductDetailTextComponent implements OnInit {
     this.decrementHeels(mapirano);
     */
   }
+
   // TODO: Prebaciti na kraj porudzbine
   /*
   decrementHeels(ids) {
@@ -117,4 +122,9 @@ export class ProductDetailTextComponent implements OnInit {
     // }
   }
 
+  openSnackBar(message, action) {
+    this.snackBar.open(message, action, {
+      duration: this.durationInSeconds * 1000,
+    });
+  }
 }

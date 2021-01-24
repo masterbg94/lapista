@@ -1,9 +1,10 @@
 <div class="container-fluid"
 [class.empty-cart]="shoppingItems?.length < 1">
   <div class="container text-center">
-    <h2 *ngIf="shoppingItems && shoppingItems.length > 0 ;else prazna">Shopping cart</h2>
+    <h2 *ngIf="shoppingItems && shoppingItems.length > 0 ;else prazna">Korpa</h2>
     <ng-template #prazna>
-      <h2>Your shopping cart is empty</h2>
+      <h2>Vaša korpa je prazna</h2>
+      <p>Dodajte proizvod da bi ste poručili</p>
     </ng-template>
   </div>
 

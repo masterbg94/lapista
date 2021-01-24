@@ -115,6 +115,10 @@ export class DataService {
     return this.http.post(api_endpoint + 'sendmail', data);
   }
 
+  sendOrder(data) {
+    return this.http.post(api_endpoint + 'sendorder', data);
+  }
+
   /**
    * For modal , to get all data with one same service
    * */

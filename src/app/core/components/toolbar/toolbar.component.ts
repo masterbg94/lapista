@@ -1,6 +1,8 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {DataService} from '../../services/data.service';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs/operators';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,9 +12,17 @@ import {DataService} from '../../services/data.service';
 export class ToolbarComponent implements OnInit {
   innerWidth: number;
   subscription: Subscription[] = [];
+  ruta;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService, private router: Router) {
     this.innerWidth = window.innerWidth;
+
+    router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      console.log('event', event.url);
+      this.ruta = event.url;
+    });
   }
 
   @HostListener('window:resize', ['$event'])
@@ -27,7 +37,11 @@ export class ToolbarComponent implements OnInit {
     },
     {
       route: '/products',
-      name: 'Cipele'
+      name: 'Obuća'
+    },
+    {
+      route: '#',
+      name: 'Torbe'
     },
     {
       route: '/about',
@@ -45,6 +59,7 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
+    // console.log('router', this.router.url);
   }
 
   goBack() {

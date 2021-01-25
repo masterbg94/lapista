@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { DataService } from '../../services/data.service';
-import { ThemePalette } from '@angular/material/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {DataService} from '../../services/data.service';
+import {ThemePalette} from '@angular/material/core';
 
 @Component({
   selector: 'app-custom-modal',
@@ -136,8 +136,8 @@ export class CustomModalComponent implements OnInit {
         break;
       case 'size':
         this.sizeGroup.setValue({
-          item: data.color.item.id,
-          color: data.color.id,
+          item: data.color?.item?.id,
+          color: data.color?.id,
           sizeName: data.sizeName,
           sizeCount: data.sizeCount,
         });
@@ -182,7 +182,7 @@ export class CustomModalComponent implements OnInit {
       const saveDataRaw = this.sizeGroup.getRawValue();
       this.saveData = {
         item: saveDataRaw.item,
-        color: saveDataRaw.color,
+        color: parseFloat(saveDataRaw.color) ,
         sizeName: saveDataRaw.sizeName,
         sizeCount: saveDataRaw.sizeCount,
       };
@@ -205,7 +205,8 @@ export class CustomModalComponent implements OnInit {
           (res: any) => {
             this.activeModal.close();
             this.dataService.emitAddNewFromModal.emit(true);
-            alert('Successfully updated');
+            // alert('Successfully updated');
+            // TODO: Make snackbar if success
           },
           (error: any) => {
             console.log('error', error);
@@ -284,12 +285,13 @@ export class CustomModalComponent implements OnInit {
   }
 
   setSelectedItem(item) {
-    let ide = parseFloat(item.target.value);
+    const ide = parseFloat(item.target.value);
     this.selectedItem = this.allItems.find((x) => x.id === ide);
+    console.log('item', item);
   }
 
   setSelectedColor(color) {
-    let selColor = parseFloat(color.target.value);
+    const selColor = parseFloat(color.target.value);
     this.selectedColor = this.allColors.find((x) => x.id === selColor);
     console.log('selectedColor', this.selectedColor);
   }

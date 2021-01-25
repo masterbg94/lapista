@@ -122,7 +122,6 @@
       <select
         name="color"
         formControlName="color"
-        [disabled]="selectedItem"
 
       >
         <option *ngFor="let c of selectedItem?.colors" value="{{ c.id }}">{{

@@ -13,7 +13,8 @@ export interface CategoryTable {
 @Component({
   templateUrl: 'admin.component.html',
   styleUrls: ['admin.component.scss']
-}) export class AdminComponent implements OnInit{
+})
+export class AdminComponent implements OnInit {
 
   innerWidth;
   dataSource;
@@ -56,6 +57,7 @@ export interface CategoryTable {
       }
     );
   }
+
   // PRODUCTS
   getAllProducts() {
     this.dataService.getAllItems().subscribe(
@@ -66,6 +68,7 @@ export interface CategoryTable {
       }
     );
   }
+
   // COLORS
   getAllColors() {
     this.dataService.getAllColors().subscribe(
@@ -76,6 +79,7 @@ export interface CategoryTable {
       }
     );
   }
+
   // SIZES
   getAllSizes() {
     this.dataService.getAllSizes().subscribe(
@@ -107,7 +111,7 @@ export interface CategoryTable {
     this.modalService.openModal(CustomModalComponent, data, '', '');
   }
 
-  openEditModal(what , id) {
+  openEditModal(what, id) {
     const data = {
       type: 'edit',
       id,
@@ -137,6 +141,6 @@ export interface CategoryTable {
           }
         }
       )
-    )
+    );
   }
 }

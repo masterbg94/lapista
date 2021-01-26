@@ -20,7 +20,7 @@ export class ToolbarComponent implements OnInit {
     router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe((event: NavigationEnd) => {
-      console.log('event', event.url);
+      // console.log('event', event.url);
       this.ruta = event.url;
     });
   }
@@ -36,21 +36,21 @@ export class ToolbarComponent implements OnInit {
       name: 'Pocetna'
     },
     {
-      route: '/products',
+      route: '/products/shoes',
       name: 'Obuća'
     },
     {
-      route: '#',
+      route: '/products/bags',
       name: 'Torbe'
     },
     {
       route: '/about',
       name: 'O nama'
     },
-    {
-      route: '',
-      name: 'Pomoc'
-    },
+    // {
+    //   route: '',
+    //   name: 'Pomoc'
+    // },
     {
       route: '/contact',
       name: 'Kontakt'

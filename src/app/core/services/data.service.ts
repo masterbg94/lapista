@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {api_endpoint} from '../../api.config';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +52,18 @@ export class DataService {
   getAllItems() {
     return this.http.get(api_endpoint + 'item');
   }
+
+/* For item filter ,
+ getFilteredItems(parametar) {
+    return this.http.get<any>(api_endpoint + 'item').pipe(
+      map(
+        (x) => {
+          return x.filter(item => item.category.name == parametar);
+        }
+      )
+    );
+  }
+  */
 
   getItemById(id) {
     return this.http.get(api_endpoint + `item/${id}`);

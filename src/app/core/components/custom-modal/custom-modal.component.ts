@@ -70,7 +70,7 @@ export class CustomModalComponent implements OnInit {
       // id: [null],
       name: [null],
       item: [null],
-      status: [null],
+      // status: [null],
       image: [null],
       hex: [null],
     });
@@ -80,7 +80,7 @@ export class CustomModalComponent implements OnInit {
       item: [null],
       color: [null],
       sizeName: [null],
-      sizeCount: [null],
+      // sizeCount: [null],
     });
 
     this.heelGroup = this.formBuilder.group({
@@ -129,7 +129,7 @@ export class CustomModalComponent implements OnInit {
           // id: data.id,
           name: data.name,
           item: data.item.id,
-          status: data.status,
+          // status: data.status,
           image: data.image,
           hex: data.hex,
         });
@@ -139,7 +139,7 @@ export class CustomModalComponent implements OnInit {
           item: data.color?.item?.id,
           color: data.color?.id,
           sizeName: data.sizeName,
-          sizeCount: data.sizeCount,
+          // sizeCount: data.sizeCount,
         });
         break;
       case 'heel':
@@ -174,7 +174,7 @@ export class CustomModalComponent implements OnInit {
       this.saveData = {
         name: saveDataRaw.name,
         item: saveDataRaw.item,
-        status: saveDataRaw.status,
+        // status: saveDataRaw.status,
         image: saveDataRaw.image,
         hex: saveDataRaw.hex,
       };
@@ -184,7 +184,7 @@ export class CustomModalComponent implements OnInit {
         item: saveDataRaw.item,
         color: parseFloat(saveDataRaw.color) ,
         sizeName: saveDataRaw.sizeName,
-        sizeCount: saveDataRaw.sizeCount,
+        // sizeCount: saveDataRaw.sizeCount,
       };
     } else if (this.inputData.what === 'heel') {
       const saveDataRaw = this.heelGroup.getRawValue();

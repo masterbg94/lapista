@@ -43,7 +43,7 @@
       </mat-list-item>
 
       <mat-list-item (click)="getDataForSelected('size')">
-        <a matLine>Velicine</a>
+        <a matLine>Brojevi</a>
       </mat-list-item>
 
       <mat-list-item (click)="getDataForSelected('heel')">
@@ -77,19 +77,21 @@
       </button>
     </mat-toolbar>
 
-    <div class="container-fluid">
-      <div class="col-12">
+    <div class="container-fluid m-0 p-0">
+      <div class="col-12 m-0 p-0">
         <!-- category table -->
         <table class="table" *ngIf="selectedData === 'category'">
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Name</th>
+              <th scope="col">Naziv kategorije</th>
+<!--              <th></th>-->
+<!--              <th></th>-->
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let a of dataSource">
-              <th scope="row">{{ a.id }}</th>
+              <td scope="row">{{ a.id }}</td>
               <td>{{ a.name }}</td>
               <td class="edit-td">
                 <button type="button" class="btn btn-info" (click)="openEditModal('category' , a.id)">Edit</button>
@@ -107,16 +109,18 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Category</th>
-              <th scope="col">Name</th>
-              <th scope="col">Image</th>
-              <th scope="col">Price</th>
-              <th scope="col">Description</th>
+              <th scope="col">Kategorija</th>
+              <th scope="col">Naziv proizvoda</th>
+              <th scope="col">URL Slika</th>
+              <th scope="col">Cena</th>
+              <th scope="col">Opis</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let p of dataSource">
-              <th scope="row">{{ p.id }}</th>
+              <td scope="row">{{ p.id }}</td>
               <td>{{ p?.category?.name }}</td>
               <td>{{ p?.name }}</td>
               <td>{{ p?.image }}</td>
@@ -138,16 +142,18 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Item</th>
-              <th scope="col">ColorHex</th>
-              <th scope="col">Name</th>
-              <th scope="col">Image</th>
+              <th scope="col">Proizvod</th>
+              <th scope="col">Sifra boje</th>
+              <th scope="col">Naziv boje</th>
+              <th scope="col">URL slika prozivoda</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let c of dataSource">
-              <th scope="row">{{ c.id }}</th>
-              <th scope="row">{{ c.item?.name }}</th>
+              <td scope="row">{{ c.id }}</td>
+              <td scope="row">{{ c.item?.name }}</td>
               <td>{{ c.hex }}</td>
               <td>{{ c.name }}</td>
               <td>{{ c.image }}</td>
@@ -167,18 +173,20 @@
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Color</th>
-              <th scope="col">Item</th>
-              <th scope="col">Size Count</th>
-              <th scope="col">Size Name</th>
+              <th scope="col">Boja</th>
+              <th scope="col">Proizvod</th>
+<!--              <th scope="col">Size Count</th>-->
+              <th scope="col">Velicina</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let s of dataSource">
-              <th scope="row">{{ s.id }}</th>
-              <th scope="row">{{ s.color?.name }}</th>
-              <th scope="row">{{ s.color?.item?.name }}</th>
-              <td>{{ s.sizeCount }}</td>
+              <td scope="row">{{ s.id }}</td>
+              <td scope="row">{{ s.color?.name }}</td>
+              <td scope="row">{{ s.color?.item?.name }}</td>
+<!--              <td>{{ s.sizeCount }}</td>-->
               <td>{{ s.sizeName }}</td>
               <td class="edit-td">
                 <button type="button" class="btn btn-info" (click)="openEditModal('size' , s.id)">Edit</button>
@@ -191,26 +199,28 @@
         </table>
         <!-- sizes table -->
 
-        <!-- sizes table -->
+        <!-- heels table -->
         <table class="table" *ngIf="selectedData === 'heel'">
           <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Item</th>
-            <th scope="col">Color</th>
-            <th scope="col">Size</th>
-            <th scope="col">heel Count</th>
-            <th scope="col">heel Name</th>
+            <th scope="col">Proizvod</th>
+            <th scope="col">Boja</th>
+            <th scope="col">Velicina</th>
+            <th scope="col">Visina podpetice</th>
+            <th scope="col">Komada na stanju</th>
+            <th></th>
+            <th></th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let s of dataSource">
-            <th scope="row">{{ s.id }}</th>
-            <th scope="row">{{ s?.size?.color?.item?.name }}</th>
-            <th scope="row">{{ s?.size?.color?.name }}</th>
-            <th scope="row">{{ s?.size?.sizeName }}</th>
-            <td>{{ s.heelCount }}</td>
+            <td scope="row">{{ s.id }}</td>
+            <td scope="row">{{ s?.size?.color?.item?.name }}</td>
+            <td scope="row">{{ s?.size?.color?.name }}</td>
+            <td scope="row">{{ s?.size?.sizeName }}</td>
             <td>{{ s.heelName }}</td>
+            <td>{{ s.heelCount }}</td>
             <td class="edit-td">
               <button type="button" class="btn btn-info" (click)="openEditModal('heel' , s.id)">Edit</button>
             </td>
@@ -220,7 +230,7 @@
           </tr>
           </tbody>
         </table>
-        <!-- sizes table -->
+        <!-- heels table -->
       </div>
     </div>
   </mat-sidenav-content>

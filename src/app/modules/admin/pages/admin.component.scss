@@ -3,6 +3,29 @@ table {
   td {
     align-items: center;
   }
+  thead{
+    tr th{
+      //background: #dadada;
+      border-right: 1px solid #909090;
+    }
+    //tr th:nth-of-type(odd){
+    //  background: #909090;
+    //  opacity: 0.8;
+    //}
+  }
+  tbody{
+    tr td{
+      background: #b5b5b5;
+    }
+    tr td:nth-of-type(odd){
+      background: #c8c8c8;
+      opacity: 0.8;
+    }
+    //tr th:nth-of-type(2n + 1){
+    //  background: #dddddd;
+    //  opacity: 0.8;
+    //}
+  }
 }
 .table th, .table td{
   padding: 0.25rem;

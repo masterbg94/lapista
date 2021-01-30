@@ -30,7 +30,7 @@
         (click)="selectSize(s)"
         [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
       >
-        {{ s?.sizeName }}
+        <b>{{ s?.sizeName }}</b>
       </button>
     </div>
   </div>
@@ -50,7 +50,7 @@
         [ngStyle]="{'text-decoration' : h?.heelCount <= 0 ? 'line-through' : 'none'}"
         [disabled]="h.heelCount <= 0"
       >
-        {{ h.heelName }}
+        <b>{{ h.heelName }}</b>
       </button>
     </div>
   </div>

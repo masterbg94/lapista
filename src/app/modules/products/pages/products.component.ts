@@ -31,7 +31,18 @@ export class ProductsComponent implements OnInit {
     this.route.params.subscribe((r) => {
       this.parametar = r.category;
       if (this.parametar) {
-        this.getProducts(this.parametar);
+        if (this.parametar === 'all'){
+          this.dataService.getAllColors().subscribe(
+            (res: any) => {
+              this.allShoes = res.data;
+              console.log('all' , this.allShoes);
+            } , (error: any) => {
+              alert('Doslo je do greske , kontaktirajte nas ukoliko uskoro ne bude dostupno');
+          }
+          )
+        } else {
+          this.getProducts(this.parametar);
+        }
       } else {
         this.dataService.getAllItems().subscribe(
           (res: any) => {
@@ -54,19 +65,5 @@ export class ProductsComponent implements OnInit {
       }
     );
   }
-
-  /*
-  getFiltered(param) {
-      this.dataService.getFilteredItems(param).subscribe(
-        (res: any) => {
-          this.allShoes = res.data;
-          console.log('filtered DAta', this.allShoes);
-        }, (error: any) => {
-          console.log('error', error);
-        }
-      );
-    }
-    */
-
 
 }

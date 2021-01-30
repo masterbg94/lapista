@@ -1,11 +1,11 @@
 <p>
-  <b>{{ detailText.name }}</b>
+  <b>{{ detailText.name.toUpperCase() }}</b>
 </p>
 <p class="mb-2">{{ detailText.price }},00 RSD</p>
 
 <div class="d-flex flex-column">
   <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
-  <p class="text-uppercase"><b>BOJA: </b> {{ selectedColor?.name }}</p>
+  <p class="text-uppercase"><b>BOJA: </b> {{ selectedColor?.name.toUpperCase() }}</p>
 
   <div class="color-choice d-flex py-3">
     <div

@@ -27,6 +27,8 @@ export class CustomModalComponent implements OnInit {
   selectedColor;
   selectedSize;
 
+  whatIsSelectedItem;
+
   // Color picker
   public color: ThemePalette = 'primary';
   public touchUi = false;
@@ -49,6 +51,9 @@ export class CustomModalComponent implements OnInit {
     this.getAllItems();
     this.getAllColors();
     this.getAllSizes();
+    // if (this.inputData.type === 'edit' && this.inputData.what === 'color') {
+    //   this.whatIsSelectedItem = this.allItems.find((x) => x.id === this.inputData.id);
+    // }
   }
 
   initForm() {
@@ -249,6 +254,9 @@ export class CustomModalComponent implements OnInit {
       (res: any) => {
         this.allItems = res.data;
         console.log(res);
+        if (this.inputData.type === 'edit' && this.inputData.what === 'color') {
+          this.whatIsSelectedItem = this.allItems.find((x) => x.id === this.inputData.id);
+        }
       },
       (error) => {
         console.log(error);
@@ -294,5 +302,11 @@ export class CustomModalComponent implements OnInit {
     const selColor = parseFloat(color.target.value);
     this.selectedColor = this.allColors.find((x) => x.id === selColor);
     console.log('selectedColor', this.selectedColor);
+  }
+
+  whatIsItem(x){
+    const id = parseFloat(x.target.value);
+    this.whatIsSelectedItem = this.allItems.find((x) => x.id === id);
+    console.log('this.whatIsItem', this.whatIsSelectedItem);
   }
 }

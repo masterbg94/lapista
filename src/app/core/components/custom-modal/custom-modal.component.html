@@ -1,5 +1,7 @@
 <div class="modal-header m-0 p-0">
-  <h4 class="modal-title"> {{inputData?.type === 'new' ? 'Dodaj' : 'Edituj'}} {{ inputData?.what }} </h4>
+  <h4 class="modal-title">
+    {{ inputData?.type === "new" ? "Dodaj" : "Edituj" }} {{ inputData?.what }}
+  </h4>
   <!--  <button type="button" class="close" aria-label="Close"
             (click)="activeModal.close()">
       <span aria-hidden="true">&times;</span>
@@ -52,20 +54,35 @@
   <div class="d-flex" *ngIf="inputData.what === 'color'">
     <form [formGroup]="colorGroup" class="d-flex flex-column">
       <label for="item">Proizvod</label>
-      <select name="item" id="item" formControlName="item">
-        <option *ngFor="let i of allItems" value="{{ i.id }}">{{
-          i.name
-        }}</option>
-      </select>
+      <div class="d-flex flex-column w-100">
+        <select
+          name="item"
+          id="item"
+          formControlName="item"
+          (change)="whatIsItem($event)"
+        >
+          <option *ngFor="let i of allItems" value="{{ i.id }}">
+            {{ i.name }}</option
+          >
+        </select>
+        <span
+          *ngIf="inputData.type === 'edit'"
+          style="font-size: 10px; display: inline-block;">
+          {{ whatIsSelectedItem?.name }} ,
+          {{ whatIsSelectedItem?.description }} ,
+          {{ whatIsSelectedItem?.price }} RSD
+        </span
+        >
+      </div>
 
       <mat-form-field class="example-full-width">
         <mat-label>Naziv boje</mat-label>
         <input matInput matNativeControl formControlName="name" />
       </mat-form-field>
-<!--      <mat-form-field class="example-full-width">-->
-<!--        <mat-label>Status</mat-label>-->
-<!--        <input matInput matNativeControl formControlName="status" />-->
-<!--      </mat-form-field>-->
+      <!--      <mat-form-field class="example-full-width">-->
+      <!--        <mat-label>Status</mat-label>-->
+      <!--        <input matInput matNativeControl formControlName="status" />-->
+      <!--      </mat-form-field>-->
       <mat-form-field class="example-full-width">
         <mat-label>URL Slika</mat-label>
         <input matInput matNativeControl formControlName="image" />
@@ -120,11 +137,7 @@
       </select>
 
       <label for="color">Boja</label>
-      <select
-        name="color"
-        formControlName="color"
-        id="color"
-      >
+      <select name="color" formControlName="color" id="color">
         <option *ngFor="let c of selectedItem?.colors" value="{{ c.id }}">{{
           c.name
         }}</option>
@@ -134,10 +147,10 @@
         <mat-label>Naziv velicine</mat-label>
         <input matInput matNativeControl formControlName="sizeName" />
       </mat-form-field>
-<!--      <mat-form-field class="example-full-width">-->
-<!--        <mat-label>Size Count</mat-label>-->
-<!--        <input matInput matNativeControl formControlName="sizeCount" />-->
-<!--      </mat-form-field>-->
+      <!--      <mat-form-field class="example-full-width">-->
+      <!--        <mat-label>Size Count</mat-label>-->
+      <!--        <input matInput matNativeControl formControlName="sizeCount" />-->
+      <!--      </mat-form-field>-->
     </form>
   </div>
   <!-- size-->
@@ -171,7 +184,12 @@
       </select>
 
       <label for="size">Velicina</label>
-      <select name="size" formControlName="size" id="size" [disabled]="selectedColor">
+      <select
+        name="size"
+        formControlName="size"
+        id="size"
+        [disabled]="selectedColor"
+      >
         <option *ngFor="let s of selectedColor?.sizes" value="{{ s.id }}">{{
           s.sizeName
         }}</option>

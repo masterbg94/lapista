@@ -1,7 +1,7 @@
 <p>
   <b>{{ detailText.name }}</b>
 </p>
-<p class="mb-2">{{ detailText.price }},00 €</p>
+<p class="mb-2">{{ detailText.price }},00 RSD</p>
 
 <div class="d-flex flex-column">
   <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
@@ -18,7 +18,8 @@
     </div>
   </div>
 
-  <div class="select-size d-flex flex-column mt-2">
+  <div class="select-size d-flex flex-column mt-2"
+       *ngIf="!isBag">
     <p class="text-uppercase mb-2">
       <b>VELIČINA: </b> {{ selectedSize?.sizeName }}
     </p>
@@ -34,7 +35,8 @@
     </div>
   </div>
 
-  <div class="select-heel d-flex flex-column mt-2">
+  <div class="select-heel d-flex flex-column mt-2"
+       *ngIf="!isBag">
     <p class="text-uppercase mb-2">
       <b>VISINA POTPETICE: </b> {{ selectedHeel?.heelName}}
     </p>
@@ -59,9 +61,15 @@
 <p class="mb-2">{{ detailText.description }}</p>
 
 <div class="add-to-cart mt-3">
-  <button class="add-to-cart-button"
-          (click)="updateCart()"
+  <button class="add-to-cart-button" *ngIf="!isBag"
+          (click)="updateCart('shoe')"
           [disabled]="!selectedHeel"
+  >
+    DODAJ U KORPU
+  </button>
+  <button class="add-to-cart-button"
+          *ngIf="isBag"
+          (click)="updateCart('bag')"
   >
     DODAJ U KORPU
   </button>

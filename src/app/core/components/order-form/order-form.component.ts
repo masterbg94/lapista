@@ -24,11 +24,12 @@ export class OrderFormComponent {
     this.sendOrderForm = this._formBuilder.group({
       firstName: [null],
       lastName: [null],
-      email: [null],
+      email: [''],
       phone: [null, Validators.maxLength(10)],
       address: [null],
       addressUnit: [null],
       note: [''],
+      data: localStorage.getItem('cart')
     });
   }
 
@@ -39,8 +40,10 @@ export class OrderFormComponent {
     this.dataService.sendOrder(sendDataJson).subscribe(
       (resp: any) => {
         // alert('successfull send');
-        this.openSnackBar('Uspesna porudzbina', 'Zatvori');
+        this.decrementOnPurchase();
+        this.openSnackBar('Uspesno ste izvrsili porudzbinu!', 'Zatvori');
         this.sendOrderForm.reset();
+        localStorage.removeItem('cart');
       },
       (error: any) => {
         console.log(error);
@@ -53,5 +56,17 @@ export class OrderFormComponent {
     this._snackBar.open(message, action, {
       duration: this.durationInSeconds * 1000,
     });
+  }
+
+  decrementOnPurchase(){
+    const cartItems = JSON.parse(localStorage.getItem('cart'));
+    const cartItemsIds = cartItems.map(x => x?.heel?.id);
+    for (let item of cartItemsIds) {
+      this.dataService.decrementHeel(item).subscribe(
+        (res: any) => {
+          console.log(res);
+        }
+      );
+    }
   }
 }

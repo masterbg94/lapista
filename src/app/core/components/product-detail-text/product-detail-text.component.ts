@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import {Component, Input, OnInit} from '@angular/core';
+import {DataService} from '../../services/data.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-text',
@@ -15,6 +15,7 @@ export class ProductDetailTextComponent implements OnInit {
   public allData;
   public itemForSizeId;
   durationInSeconds = 2;
+  isBag = false;
 
   constructor(
     private dataService: DataService,
@@ -24,11 +25,18 @@ export class ProductDetailTextComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.detailText);
     this.selectedColor = this.detailText.colors[0];
+    if ( this.detailText.category.name === 'Bags') {
+      this.isBag = true;
+      console.log('torba', this.isBag);
+    }
   }
 
   emitChangedColor(x) {
     this.dataService.emitNewColorImage.emit(x.image);
     this.selectedColor = x;
+    // TODO kako ova 2 console.loga mogu da sortiraju vrednost koja se prokazuje u HMTL
+    console.log('emitChangedColor', x);
+    console.log('Sort', x?.sizes.sort((one, two) => (one.sizeName > two.sizeName ? 1 : -1)));
     this.selectedSize = null;
     this.selectedHeel = null;
   }
@@ -44,31 +52,54 @@ export class ProductDetailTextComponent implements OnInit {
     this.selectedHeel = heel;
   }
 
-  updateCart() {
+  updateCart(x) {
     // this.itemForSizeId = this.detailText.colors.filter(
     //   x => x.id === 2
     // );
 
-    const dataForCart = {
-      name: this.detailText.name,
-      price: this.detailText.price,
-      image: this.detailText.image,
-      color: this.selectedColor.name,
-      size: this.selectedSize.sizeName,
-      heel: this.selectedHeel,
-      description: this.detailText.description,
-    };
+    if (x === 'bag') {
+      const dataForCart = {
+        name: this.detailText.name,
+        price: this.detailText.price,
+        image:  this.selectedColor ? this.selectedColor.image : this.detailText.image,
+        color: this.selectedColor.name,
+        // size: this.selectedSize.sizeName,
+        // heel: this.selectedHeel,
+        description: this.detailText.description
+      };
+      let a = [];
+      // Parse the serialized data back into an aray of objects
+      a = JSON.parse(localStorage.getItem('cart')) || [];
+      // Push the new data (whether it be an object or anything else) onto the array
+      a.push(dataForCart);
+      // Alert the array value
+      localStorage.setItem('cart', JSON.stringify(a));
+      console.log(JSON.parse(localStorage.getItem('cart')).length);
 
-    let a = [];
-    // Parse the serialized data back into an aray of objects
-    a = JSON.parse(localStorage.getItem('cart')) || [];
-    // Push the new data (whether it be an object or anything else) onto the array
-    a.push(dataForCart);
-    // Alert the array value
-    localStorage.setItem('cart', JSON.stringify(a));
-    console.log(JSON.parse(localStorage.getItem('cart')).length);
+      this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
+    } else {
+      const dataForCart = {
+        name: this.detailText.name,
+        price: this.detailText.price,
+        image:  this.selectedColor ? this.selectedColor.image : this.detailText.image,
+        color: this.selectedColor.name,
+        size: this.selectedSize.sizeName,
+        heel: this.selectedHeel,
+        description: this.detailText.description,
+      };
+      let a = [];
+      // Parse the serialized data back into an aray of objects
+      a = JSON.parse(localStorage.getItem('cart')) || [];
+      // Push the new data (whether it be an object or anything else) onto the array
+      a.push(dataForCart);
+      // Alert the array value
+      localStorage.setItem('cart', JSON.stringify(a));
+      console.log(JSON.parse(localStorage.getItem('cart')).length);
 
-    this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
+      this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
+    }
+
+
 
     /*
     let testIds = [10, 11];

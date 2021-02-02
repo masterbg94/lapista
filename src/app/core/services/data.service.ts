@@ -13,10 +13,6 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  /**
-   * CATEGORY
-   * */
-
   getAllCategories() {
     return this.http.get(api_endpoint + 'category');
   }
@@ -40,10 +36,6 @@ export class DataService {
   updateCategory(id, data) {
     return this.http.put(api_endpoint + `category/${id}`, data);
   }
-
-  /**
-   * ITEMS
-   * */
 
   createItem(data) {
     return this.http.post(api_endpoint + 'item', data);
@@ -77,9 +69,6 @@ export class DataService {
     return this.http.put(api_endpoint + `item/${id}`, data);
   }
 
-  /**
-   *  COLORS
-   * */
 
   getAllColors() {
     return this.http.get(api_endpoint + 'color');
@@ -88,10 +77,6 @@ export class DataService {
   getColorById(id) {
     return this.http.get(api_endpoint + `color/${id}`);
   }
-
-  /**
-   * SIZES
-   * */
 
   getAllSizes() {
     return this.http.get(api_endpoint + 'size');
@@ -132,9 +117,7 @@ export class DataService {
     return this.http.post(api_endpoint + 'sendorder', data);
   }
 
-  /**
-   * For modal , to get all data with one same service
-   * */
+  /** For modal , to get all data with one same service */
 
   getAllItemsForTable(serviceType) {
     return this.http.get(api_endpoint + `${serviceType}`);

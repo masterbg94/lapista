@@ -6,6 +6,6 @@ import {Component} from '@angular/core';
 })
 export class ContactComponent {
   title = 'My first AGM project';
-  lat = 44.809038;
-  lng = 20.403220;
+  lat = 44.806478688037366;
+  lng = 20.40524263327664;
 }

@@ -29,15 +29,17 @@ export class OrderFormComponent {
       address: [null],
       addressUnit: [null],
       note: [''],
-      data: localStorage.getItem('cart')
+      data: [JSON.parse(localStorage.getItem('cart'))]
+      // data: localStorage.getItem('cart')
     });
   }
 
   sendFormData() {
     const sendData = this.sendOrderForm.getRawValue();
     const sendDataJson = JSON.stringify(sendData);
-    console.log('sendData', sendData);
-    this.dataService.sendOrder(sendDataJson).subscribe(
+    // console.log('sendData', sendData);
+    // console.log('sendData', sendDataJson);
+    this.dataService.sendOrder(sendData).subscribe(
       (resp: any) => {
         // alert('successfull send');
         this.decrementOnPurchase();

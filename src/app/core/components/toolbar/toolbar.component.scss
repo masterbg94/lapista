@@ -1,14 +1,15 @@
 @import "~src/app/styles/paleta";
 
-*{
+* {
   font-family: $main-font;
 }
+
 .toolbar-logo {
   //margin: 10px auto;
   margin-top: 10px;
 
   img {
-    height: 80px
+    height: 80px;
   }
 }
 
@@ -17,7 +18,7 @@
 
   p.toolbar-main-menu-item {
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0.0);
+    border: 1px solid rgba(0, 0, 0, 0);
     //transition: 0.5s;
     padding: 5px 25px;
     color: $app-header-font;
@@ -32,7 +33,8 @@
     }
   }
 }
-.count-in-cart{
+
+.count-in-cart {
   position: absolute;
   bottom: -8px;
   //right: -8px;
@@ -44,17 +46,43 @@
   line-height: 16px;
   text-align: center;
 }
+
 .toolbar-top {
   margin: 0 20px;
-  .cart-image{
+
+  .cart-image {
     object-fit: contain;
   }
+}
+
+.lang-container {
+  background: #eeeeee;
+  border-radius: 3px;
+  //width: 200px;
+
+  .lang-content {
+    .lang-item {
+      padding: 4px 10px;
+      align-items: center;
+
+      p {
+        color: #919191;
+        margin: 0;
+      }
+    }
+  }
+}
+
+p.selected-language {
+  font-size: 16px;
+  color: #919191;
+  padding-left: 10px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {
   .toolbar-top {
     padding: 0 !important;
     margin: 0 10px !important;
-
   }
 }

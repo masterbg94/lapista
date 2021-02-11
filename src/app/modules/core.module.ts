@@ -8,6 +8,7 @@ import { DataService } from '../core/services/data.service';
 import { MainLayoutComponent } from '../layouts/main/main-layout.component';
 import {AdminLayoutComponent} from '../layouts/admin/admin-layout.component';
 import {AuthenticationService} from '../core/services/authentication.service';
+import {TranslateModule} from '@ngx-translate/core';
 
 /**
  * The core module is used to hold all root-level providers.
@@ -17,7 +18,8 @@ import {AuthenticationService} from '../core/services/authentication.service';
  */
 @NgModule({
   // Place all forRoot() imports here
-  imports: [CommonModule, RouterModule],
+  // Translate module here to prevent loading app module, but can add in app module also
+  imports: [CommonModule, RouterModule, TranslateModule],
   // Place all services/providers/injection tokens here
   providers: [
     // Provide your app wide services here

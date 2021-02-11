@@ -1,8 +1,9 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {DataService} from '../../services/data.service';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,30 +11,33 @@ import {filter} from 'rxjs/operators';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
+  @ViewChild('languageContainer') languageContainer: ElementRef;
   innerWidth: number;
   subscription: Subscription[] = [];
   ruta;
+  languageMenu = false;
 
-  constructor(private dataService: DataService, private router: Router) {
-    this.innerWidth = window.innerWidth;
+  languages: any[] = [
+    {
+      value: 'sr',
+      name: 'Srpski',
+      nameShort: 'Sr',
+      img: '/assets/img/serbian.png',
+    },
+    {
+      value: 'en',
+      name: 'English',
+      nameShort: 'En',
+      img: 'assets/img/english.png',
+    },
+  ];
 
-    router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe((event: NavigationEnd) => {
-      // console.log('event', event.url);
-      this.ruta = event.url;
-    });
-  }
-
-  @HostListener('window:resize', ['$event'])
-  onResize(event) {
-    this.innerWidth = window.innerWidth;
-  }
+  selectedLanguage = this.languages[0];
 
   menu = [
     {
       route: '',
-      name: 'Pocetna'
+      name: 'TOOLBAR.home'
     },
     {
       route: '/products/shoes',
@@ -57,6 +61,37 @@ export class ToolbarComponent implements OnInit {
     }
   ];
 
+  constructor(private dataService: DataService,
+              private router: Router,
+              private translate: TranslateService) {
+    this.innerWidth = window.innerWidth;
+
+    router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe((event: NavigationEnd) => {
+      // console.log('event', event.url);
+      this.ruta = event.url;
+    });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
+
+  @HostListener('document:click', ['$event.target'])
+  public onClick(target) {
+    if (this.languageContainer) {
+      // View child element
+      const clIn = this.languageContainer.nativeElement;
+      // Cela komponenta
+      // const clickedInside = this.elementRef.nativeElement.contains(target);
+      if (!clIn.contains(target)) {
+        this.languageMenu = false;
+      }
+    }
+  }
+
   ngOnInit(): void {
     this.innerWidth = window.innerWidth;
     // console.log('router', this.router.url);
@@ -70,6 +105,16 @@ export class ToolbarComponent implements OnInit {
     if (localStorage.getItem('cart')) {
       return JSON.parse(localStorage.getItem('cart')).length;
     }
+  }
+
+  showLanguages() {
+    this.languageMenu = !this.languageMenu;
+  }
+
+  setLanguage(language) {
+    this.translate.use(language.value);
+    this.selectedLanguage = language;
+    this.showLanguages();
   }
 
 }

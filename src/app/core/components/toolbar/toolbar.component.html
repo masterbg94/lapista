@@ -1,42 +1,87 @@
 <div class="container-fluid">
   <div class="toolbar-top d-flex justify-content-between align-items-center">
-    <div style="max-width: 25px;" *ngIf="innerWidth>768">
-      <p style="font-size: 12px;display: none">Language option</p>
+    <div style="max-width: 25px;" *ngIf="innerWidth > 768">
+      <div class="d-flex position-relative align-items-center"
+           #languageContainer
+           (click)="showLanguages()">
+        <p
+          class="m-0 selected-language"
+        >
+          {{selectedLanguage.name}}
+        </p>
+        <img class="img-fluid ml-2" [src]="selectedLanguage.img" alt="" style="max-height: 20px">
+      </div>
+      <div class="d-flex position-absolute lang-container" *ngIf="languageMenu">
+       <div class="d-flex flex-column lang-content" >
+         <div class="d-flex justify-content-between lang-item" *ngFor="let l of languages"
+         style="cursor: pointer"
+              (click)="setLanguage(l)">
+           <p >{{l.name}}</p>
+           <img class="img-fluid ml-2" [src]="l.img" alt="" style="max-height: 20px">
+         </div>
+       </div>
+      </div>
     </div>
 
-    <div class="d-flex" style="width: 20px"
-         *ngIf="innerWidth<=768">
-      <img src="assets/img/left-chevron.svg"
-           (click)="goBack()"
-           *ngIf="ruta!== '/'"
-           alt="lapista go back"
-           style="max-height: 20px;min-height: 15px">
+    <div class="d-flex" style="width: 20px;" *ngIf="innerWidth <= 768">
+      <img
+        src="assets/img/left-chevron.svg"
+        (click)="goBack()"
+        *ngIf="ruta !== '/'"
+        alt="lapista go back"
+        style="max-height: 20px; min-height: 15px;"
+      />
     </div>
-    <div class="toolbar-logo d-flex justify-content-center col-lg-6" [routerLink]="'/'" style="cursor:pointer;">
-      <img src="assets/img/svg/lapista-logo-desktop.svg"
-           *ngIf="innerWidth>=500"
-           alt="lapista-logo"
-           class="img-fluid"
-           style="max-height: 120px;object-fit: contain">
-      <img src="assets/img/svg/lapista-logo-mobile.svg"
-           *ngIf="innerWidth<500"
-           alt="lapista-logo"
-           class="img-fluid"
-           style="max-height: 40px;max-width:200px;object-fit: contain">
+    <div
+      class="toolbar-logo d-flex justify-content-center col-lg-6"
+      [routerLink]="'/'"
+      style="cursor: pointer;"
+    >
+      <img
+        src="assets/img/svg/lapista-logo-desktop.svg"
+        *ngIf="innerWidth >= 500"
+        alt="lapista-logo"
+        class="img-fluid"
+        style="max-height: 120px; object-fit: contain;"
+      />
+      <img
+        src="assets/img/svg/lapista-logo-mobile.svg"
+        *ngIf="innerWidth < 500"
+        alt="lapista-logo"
+        class="img-fluid"
+        style="max-height: 40px; max-width: 200px; object-fit: contain;"
+      />
     </div>
     <!-- cart -->
-    <div class="d-flex justify-content-end m-0 p-0 position-relative" [routerLink]="'/cart'" style="cursor: pointer">
-      <img src="https://identitashoes.it/shop.png" alt="" class="img-fluid position-relative cart-image"
-           style="height: 25px">
-      <span class="count-in-cart" *ngIf="returnCountInCart()>0">{{returnCountInCart()}}</span>
+    <div
+      class="d-flex justify-content-end m-0 p-0 position-relative"
+      [routerLink]="'/cart'"
+      style="cursor: pointer;"
+    >
+      <img
+        src="https://identitashoes.it/shop.png"
+        alt=""
+        class="img-fluid position-relative cart-image"
+        style="height: 25px;"
+      />
+      <span class="count-in-cart" *ngIf="returnCountInCart() > 0">{{
+        returnCountInCart()
+      }}</span>
     </div>
   </div>
 
-  <div class="toolbar-container mt-3 d-flex justify-content-center" *ngIf="innerWidth>768">
+  <div
+    class="toolbar-container mt-3 d-flex justify-content-center"
+    *ngIf="innerWidth > 768"
+  >
     <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
-      <p class="toolbar-main-menu-item" *ngFor="let m of menu"
-         [routerLink]="m.route"
-      >{{m.name}}</p>
+      <p
+        class="toolbar-main-menu-item"
+        *ngFor="let m of menu"
+        [routerLink]="m.route"
+      >
+        {{ m.name | translate }}
+      </p>
     </div>
   </div>
 </div>

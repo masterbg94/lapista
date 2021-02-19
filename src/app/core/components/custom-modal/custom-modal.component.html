@@ -17,7 +17,7 @@
       </mat-form-field>
     </form>
   </div>
-  <!-- category-->
+  <!--end category-->
 
   <!-- item-->
   <div class="d-flex" *ngIf="inputData.what === 'item'">
@@ -48,7 +48,7 @@
       </mat-form-field>
     </form>
   </div>
-  <!-- item-->
+  <!--end item-->
 
   <!-- color-->
   <div class="d-flex" *ngIf="inputData.what === 'color'">
@@ -59,7 +59,7 @@
           name="item"
           id="item"
           formControlName="item"
-          (change)="whatIsItem($event)"
+          (ngModelChange)="whatIsItem($event)"
         >
           <option *ngFor="let i of allItems" value="{{ i.id }}">
             {{ i.name }}</option
@@ -120,40 +120,34 @@
       </mat-form-field>-->
     </form>
   </div>
-  <!-- color-->
+  <!--end color-->
 
   <!-- size-->
+  <!--  USE (ngModelChange) instead (change) -->
   <div class="d-flex" *ngIf="inputData.what === 'size'">
     <form [formGroup]="sizeGroup" class="d-flex flex-column">
       <label for="item">Proizvod</label>
       <select
         name="item"
         formControlName="item"
-        (change)="setSelectedItem($event)"
-      >
+        (ngModelChange)="setSelectedItem($event)">
         <option *ngFor="let i of allItems" value="{{ i.id }}">{{
           i.name
-        }}</option>
+          }}</option>
       </select>
-
       <label for="color">Boja</label>
       <select name="color" formControlName="color" id="color">
         <option *ngFor="let c of selectedItem?.colors" value="{{ c.id }}">{{
           c.name
-        }}</option>
+          }}</option>
       </select>
-
       <mat-form-field class="example-full-width">
         <mat-label>Naziv velicine</mat-label>
-        <input matInput matNativeControl formControlName="sizeName" />
+        <input matInput matNativeControl formControlName="sizeName"/>
       </mat-form-field>
-      <!--      <mat-form-field class="example-full-width">-->
-      <!--        <mat-label>Size Count</mat-label>-->
-      <!--        <input matInput matNativeControl formControlName="sizeCount" />-->
-      <!--      </mat-form-field>-->
     </form>
   </div>
-  <!-- size-->
+  <!--end size-->
 
   <!-- heels-->
   <div class="d-flex" *ngIf="inputData.what === 'heel'">
@@ -163,7 +157,7 @@
         name="item"
         id="item"
         formControlName="item"
-        (change)="setSelectedItem($event)"
+        (ngModelChange)="setSelectedItem($event)"
       >
         <option *ngFor="let i of allItems" value="{{ i.id }}">{{
           i.name
@@ -176,7 +170,7 @@
         id="color"
         formControlName="color"
         [disabled]="selectedItem"
-        (change)="setSelectedColor($event)"
+        (ngModelChange)="setSelectedColor($event)"
       >
         <option *ngFor="let c of selectedItem?.colors" value="{{ c.id }}">{{
           c.name
@@ -190,8 +184,8 @@
         id="size"
         [disabled]="selectedColor"
       >
-        <option *ngFor="let s of selectedColor?.sizes" value="{{ s.id }}">{{
-          s.sizeName
+        <option *ngFor="let s of selectedColor?.sizes" value="{{ s?.id }}">{{
+          s?.sizeName
         }}</option>
       </select>
 
@@ -205,7 +199,7 @@
       </mat-form-field>
     </form>
   </div>
-  <!-- heels-->
+  <!--end heels-->
 </div>
 <div class="modal-footer d-flex m-0 p-0">
   <button

@@ -42,18 +42,15 @@ export class CustomModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.inputData);
-
-    if (this.inputData.type === 'edit') {
-      this.setCategory(this.inputData.what);
-    }
     this.getAllCategories();
     this.getAllItems();
     this.getAllColors();
     this.getAllSizes();
-    // if (this.inputData.type === 'edit' && this.inputData.what === 'color') {
-    //   this.whatIsSelectedItem = this.allItems.find((x) => x.id === this.inputData.id);
-    // }
+
+    console.log('this.inputData',this.inputData);
+    if (this.inputData.type === 'edit') {
+      this.setCategory(this.inputData.what);
+    }
   }
 
   initForm() {
@@ -292,21 +289,31 @@ export class CustomModalComponent implements OnInit {
     console.log('changed', e);
   }
 
+  /**
+   * stvarcice oko get / select value / dependent selects
+   * (change) event zamenjen sa (ngModelChange)
+   */
   setSelectedItem(item) {
-    const ide = parseFloat(item.target.value);
-    this.selectedItem = this.allItems.find((x) => x.id === ide);
     console.log('item', item);
+    const ide = parseFloat(item);
+    this.selectedItem = this.allItems.find((x) => x.id === ide);
+    console.log('selectedItem', this.selectedItem);
   }
 
   setSelectedColor(color) {
-    const selColor = parseFloat(color.target.value);
+    console.log('color', color);
+    // below code is changed because use of (ngModelChange)
+    // const selColor = parseFloat(color.target.value);
+    const selColor = parseFloat(color);
     this.selectedColor = this.allColors.find((x) => x.id === selColor);
     console.log('selectedColor', this.selectedColor);
   }
 
+  // color edit modal select (change) showing info about color
   whatIsItem(x){
-    const id = parseFloat(x.target.value);
-    this.whatIsSelectedItem = this.allItems.find((x) => x.id === id);
+    console.log('event', x);
+    const idd = parseFloat(x);
+    this.whatIsSelectedItem = this.allItems.find((item) => item.id === idd);
     console.log('this.whatIsItem', this.whatIsSelectedItem);
   }
 }

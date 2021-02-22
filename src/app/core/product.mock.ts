@@ -2,7 +2,7 @@ import {FootwearModel} from './models/footwear-model';
 
 export const AllProducts: FootwearModel[] = [
   {
-    image: 'https://identitashoes.it/nuovacollezioneok_thumb/daisyzebra1.jpg',
+    image: 'https://identitashoes.com/nuovacollezioneok_thumb/daisyzebra1.jpg',
     name: 'Keita',
     price: 66,
     colors: [
@@ -33,7 +33,7 @@ export const AllProducts: FootwearModel[] = [
     description: 'getAllAccessorizes and Description about',
   },
   {
-    image: 'https://identitashoes.it/nuovacollezioneok_thumb/1.jpg',
+    image: 'https://identitashoes.com/nuovacollezioneok_thumb/1.jpg',
     name: 'Nives',
     price: 105,
     colors: [
@@ -62,7 +62,7 @@ export const AllProducts: FootwearModel[] = [
     description: 'getAllAccessorizes and Description about',
   },
   {
-    image: 'https://identitashoes.it/nuovacollezioneok_thumb/daisynero1.jpg',
+    image: 'https://identitashoes.com/nuovacollezioneok_thumb/daisynero1.jpg',
     name: 'Eve',
     price: 132,
     colors: [
@@ -91,7 +91,7 @@ export const AllProducts: FootwearModel[] = [
     description: 'getAllAccessorizes and Description about',
   },
   {
-    image: 'https://identitashoes.it/nuovacollezioneok_thumb/stivali/asabi/1.jpg',
+    image: 'https://identitashoes.com/nuovacollezioneok_thumb/stivali/asabi/1.jpg',
     name: 'Daisy',
     price: 55,
     colors: [
@@ -120,7 +120,7 @@ export const AllProducts: FootwearModel[] = [
     description: 'getAllAccessorizes and Description about',
   },
   {
-    image: 'https://identitashoes.it/nuovacollezioneok_thumb/pellerosso1.jpg',
+    image: 'https://identitashoes.com/nuovacollezioneok_thumb/pellerosso1.jpg',
     name: 'Swami',
     price: 86,
     colors: [

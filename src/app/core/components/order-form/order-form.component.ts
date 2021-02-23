@@ -26,6 +26,7 @@ export class OrderFormComponent {
       lastName: [null],
       email: [''],
       phone: [null, Validators.maxLength(10)],
+      city: [null],
       address: [null],
       addressUnit: [null],
       note: [''],

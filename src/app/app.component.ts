@@ -28,8 +28,10 @@ export class AppComponent {
     translateService.addLangs(['sr', 'en']);
     translateService.setDefaultLang('sr');
     // default vrednost za jezik koja se izvlaci iz browsera ako ima ako ne onda setuje 'sr'
-    const browserLang = translateService.getBrowserLang();
-    translateService.use(browserLang.match(/sr|en/) ? browserLang : 'sr');
+    // const browserLang = translateService.getBrowserLang();
+    // translateService.use(browserLang.match(/sr|en/) ? browserLang : 'sr');
+    // fixno koristi sr kao pocetni
+    translateService.use('sr');
   }
 
   setLanguage(l) {

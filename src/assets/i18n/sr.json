@@ -5,5 +5,72 @@
     "bags": "Torbe",
     "aboutus": "O nama",
     "contact": "Kontakt"
+  },
+  "HOME": {
+    "ourShop": "Naša ponuda",
+    "universeHeading": "LAPISTA UNIVERSE",
+    "universeText": "Novi koncept mode, protumačen kroz ekskluzivnost naših modela. Svaka nova kolekcija predstavlja estetsko putovanje kroz vijugave linije, potpetice, boje i ekskluzivne materijale. Cipela Lapista nije samo dodatak za nošenje, već manifestacija osećaja koji treba videti i dodirnuti.",
+    "universeTextBold": "Posebnoj ženi je potrebna posebna cipela.Postanite deo našeg sveta.",
+    "universeMore": "Više o nama",
+    "ourWorldHeading": "POSTANITE DEO NAŠEG SVETA.",
+    "ourWorld": "Luksuzno ručno izrađene kreacije, ponosno napravljene u Italiji, spremne da vašoj odeći daju dodir glamura čineći vaš stil jedinstvenim.",
+    "FOURIMAGES": {
+      "shoes": "CIPELE",
+      "sandals": "SANDALE",
+      "boots": "CIZME",
+      "bags": "TORBE"
+    }
+  },
+  "ABOUT": {
+    "ourStory": "NAŠA PRIČA",
+    "passion": "GDE VAS MOŽE VODITI STRAST?",
+    "ourTarget": "Naš cilj je da želje skrivene u srcu svake žene pretvorimo u stvarnost,a to je ono što svaku od naših cipela cini jedinstvenim stilskim iskustvom. Od 2010 godine ova strast je postala lajtmotiv Italijanske kompanije IDENTITÀ,dajući iskren i strastven doprinos svetu mode. Idelana i umetnicka avangarda ne odriče se tradicionalno ručno izrađene proizvodnje gde je svaki pojedinačni završetak isključivo ručno opšiven.",
+    "ourTarget2": "Opsesivna potraga za materijalima,precizan i tačan izbor modela čine ovu kompaniju jedinstvenom na svetskom tržištu. Fascinirani kvalitetom i modelima,koji su rangu velikih modnih kuća,odlučili smo da brend IDENTITÀ pretstavimo i u Srbiji.",
+    "slogan1": "“POSETI NAS I IZRAZI SVOJ IDENTITET”",
+    "slogan2": "“BUDI ŽENA SA IDENTITETOM”",
+    "ourObject": "U našem maloprodajnom objektu ”LA PISTA” u ulici Đorđa Stanojevića 11đ lokal 3 (zgrada Jorgovan) BELLVILE,Beograd ili poručite online. Pakete pripremljene sa najvećom pažnjom,sertifikatom o autentičnosti,oznakom porekla materijala,vrećicom za prašinu i kutijom,šaljemo u roku 24h na teritoriji Srbije."
+  },
+  "CONTACT": {
+    "phone": "Telefon",
+    "address": "Adresas",
+    "writeUs": "Pisite nam",
+    "writeUsText": "Cilj nam je da odgovorimo u roku od 24 sata, međutim, tokom zauzetih perioda poput praznika, rasprodaja i posebnih kampanja, možda će potrajati malo duže.",
+    "help": "Potrebna Vam je podrška",
+    "fillForm": "Jednostavno popunite obrazac i kliknite na 'pošalji' da biste poslali upit"
+  },
+  "CART": {
+    "deleteAll": "Obrisi sve",
+    "fillForm": "Popunite formu za porucivanje",
+    "itemAdded": "Proizvod je dodat u korpu"
+  },
+  "FOOTER": {
+    "ourShop": "Naša ponuda",
+    "shoes": "Cipele",
+    "sandals": "Sandale",
+    "boots": "Cizme",
+    "bags": "Torbe",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "privacy": "Privatnost",
+    "cookies": "Kolacici",
+    "support": "Korisnicka podrska",
+    "help": "Pomoc",
+    "follow": "Zapratite nas"
+  },
+  "CONTACTFORM": {
+    "name": "Ime",
+    "subject": "Naslov emaila",
+    "message": "Poruka",
+    "send": "Posalji"
+  },
+  "ORDERFORM": {
+    "name": "Ime",
+    "lastName": "Prezime",
+    "phone": "Telefon",
+    "city": "Grad",
+    "address": "Adresa",
+    "addressUnit": "Broj",
+    "note": "Napomena",
+    "send": "Poruci"
   }
 }

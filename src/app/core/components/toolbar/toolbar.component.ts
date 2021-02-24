@@ -41,15 +41,15 @@ export class ToolbarComponent implements OnInit {
     },
     {
       route: '/products/shoes',
-      name: 'Obuća'
+      name: 'TOOLBAR.shoes'
     },
     {
       route: '/products/bags',
-      name: 'Torbe'
+      name: 'TOOLBAR.bags'
     },
     {
       route: '/about',
-      name: 'O nama'
+      name: 'TOOLBAR.aboutus'
     },
     // {
     //   route: '',
@@ -57,7 +57,7 @@ export class ToolbarComponent implements OnInit {
     // },
     {
       route: '/contact',
-      name: 'Kontakt'
+      name: 'TOOLBAR.contact'
     }
   ];
 

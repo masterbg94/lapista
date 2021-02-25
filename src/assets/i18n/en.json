@@ -9,11 +9,11 @@
   "HOME": {
     "ourShop": "Our shop",
     "universeHeading": "LAPISTA UNIVERSE",
-    "universeText": "Novi koncept mode, protumačen kroz ekskluzivnost naših modela. Svaka nova kolekcija predstavlja estetsko putovanje kroz vijugave linije, potpetice, boje i ekskluzivne materijale. Cipela Lapista nije samo dodatak za nošenje, već manifestacija osećaja koji treba videti i dodirnuti.",
-    "universeTextBold": "Posebnoj ženi je potrebna posebna cipela.Postanite deo našeg sveta.",
-    "universeMore": "Više o nama",
-    "ourWorldHeading": "POSTANITE DEO NAŠEG SVETA.",
-    "ourWorld": "Luksuzno ručno izrađene kreacije, ponosno napravljene u Italiji, spremne da vašoj odeći daju dodir glamura čineći vaš stil jedinstvenim.",
+    "universeText": "A new concept of fashion, interpreted through the exclusivity of our models. Each new collection represents an aesthetic journey through winding lines, heels, colors and exclusive materials. The Lapista shoe is not just an accessory to wear, but a manifestation of feelings that need to be seen and touched.",
+    "universeTextBold": "A special woman needs a special shoe. Become a part of our world.",
+    "universeMore": "More about us",
+    "ourWorldHeading": "BECOME A PART OF OUR WORLD.",
+    "ourWorld": "Luxuriously handmade creations, proudly made in Italy, ready to give your clothes a touch of glamor, making your style unique.",
     "FOURIMAGES": {
       "shoes": "SHOES",
       "sandals": "SANDALS",
@@ -23,25 +23,34 @@
   },
   "ABOUT": {
     "ourStory": "OUR STORY",
-    "passion": "GDE VAS MOŽE VODITI STRAST?",
-    "ourTarget": "Naš cilj je da želje skrivene u srcu svake žene pretvorimo u stvarnost,a to je ono što svaku od naših cipela cini jedinstvenim stilskim iskustvom. Od 2010 godine ova strast je postala lajtmotiv Italijanske kompanije IDENTITÀ,dajući iskren i strastven doprinos svetu mode. Idelana i umetnicka avangarda ne odriče se tradicionalno ručno izrađene proizvodnje gde je svaki pojedinačni završetak isključivo ručno opšiven.",
-    "ourTarget2": "Opsesivna potraga za materijalima,precizan i tačan izbor modela čine ovu kompaniju jedinstvenom na svetskom tržištu. Fascinirani kvalitetom i modelima,koji su rangu velikih modnih kuća,odlučili smo da brend IDENTITÀ pretstavimo i u Srbiji.",
-    "slogan1": "“POSETI NAS I IZRAZI SVOJ IDENTITET”",
-    "slogan2": "“BUDI ŽENA SA IDENTITETOM”",
-    "ourObject": "U našem maloprodajnom objektu ”LA PISTA” u ulici Đorđa Stanojevića 11đ lokal 3 (zgrada Jorgovan) BELLVILE,Beograd ili poručite online. Pakete pripremljene sa najvećom pažnjom,sertifikatom o autentičnosti,oznakom porekla materijala,vrećicom za prašinu i kutijom,šaljemo u roku 24h na teritoriji Srbije."
+    "passion": "WHERE CAN PASSION LEAD YOU?",
+    "ourTarget": "Our goal is to turn the desires hidden in every woman’s heart into reality, and that is what makes each of our shoes a unique stylistic experience. Since 2010, this passion has become the leitmotif of the Italian company IDENTITÀ, making a sincere and passionate contribution to the world of fashion. The ideal and artistic avant-garde does not give up the traditional hand-made production where each individual finish is exclusively hand-stitched.",
+    "ourTarget2": "An obsessive search for materials, precise and accurate choice of models make this company unique in the world market. Fascinated by the quality and models, which are of the rank of large fashion houses, we decided to present the IDENTITÀ brand in Serbia as well.",
+    "slogan1": "“VISIT US AND EXPRESS YOUR IDENTITY”",
+    "slogan2": "“BE A WOMAN WITH IDENTITY”",
+    "ourObject": "In our retail facility \"LA PISTA\" in Djordja Stanojevica 11d store 3 (building Lilac) BELLVILE, Belgrade or order online. Packages prepared with the utmost care, certificate of authenticity, mark of origin of material, dust bag and box, we send within 24 hours in Serbia."
   },
   "CONTACT": {
     "phone": "Phone",
     "address": "Adress",
     "writeUs": "Write us",
-    "writeUsText": "Cilj nam je da odgovorimo u roku od 24 sata, međutim, tokom zauzetih perioda poput praznika, rasprodaja i posebnih kampanja, možda će potrajati malo duže.",
-    "help": "Potrebna Vam je podrška",
-    "fillForm": "Jednostavno popunite obrazac i kliknite na 'pošalji' da biste poslali upit"
+    "writeUsText": "Our goal is to respond within 24 hours, however, during busy periods such as holidays, sales and special campaigns, it may take a little longer.",
+    "help": "You need support?",
+    "fillForm": "Simply fill out the form and click on ‘submit’ to submit your inquiry"
   },
   "CART": {
     "deleteAll": "Delete all",
     "fillForm": "Fill form to request order",
-    "itemAdded": "Item added in cart"
+    "itemAdded": "Item added in cart",
+    "emptyCart": "Your cart is empty",
+    "emptyCardAddMore": "Add a product to order",
+    "name": "Name",
+    "color": "Color",
+    "size": "Size",
+    "heelName": "Heels size",
+    "price": "Price",
+    "itemInCart": "Item added to cart",
+    "closeSnack":"Close"
   },
   "FOOTER": {
     "ourShop": "Our shop",
@@ -71,6 +80,29 @@
     "address": "Address",
     "addressUnit": "Unit number",
     "note": "Note",
-    "send": "Send order"
-  }
+    "send": "Send order",
+    "fillForm": "Fill out the order form"
+  },
+  "ITEMDETAIL": {
+    "sale": "Sale",
+    "color": "COLOR",
+    "size": "SIZE",
+    "heelSize": "Heel size",
+    "description": "DESCRIPTION",
+    "addToCart": "ADD TO CART"
+  },
+  "ITEMDESCRIPTION": {
+    "desc1": "",
+    "desc2": "",
+    "desc3": "",
+    "desc4": "",
+    "desc5": "",
+    "desc6": "",
+    "desc7": "",
+    "desc8": "",
+    "desc9": "",
+    "desc10": ""
+  },
+  "black": "BLACK",
+  "blue": "BLUE"
 }

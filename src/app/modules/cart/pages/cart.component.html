@@ -3,8 +3,8 @@
   <div class="container text-center">
     <h2 *ngIf="shoppingItems && shoppingItems.length > 0 ;else prazna">Korpa</h2>
     <ng-template #prazna>
-      <h2>Vaša korpa je prazna</h2>
-      <p>Dodajte proizvod da bi ste poručili</p>
+      <h2>{{'CART.emptyCart'|translate}}</h2>
+      <p>{{'CART.emptyCardAddMore'|translate}}</p>
     </ng-template>
   </div>
 
@@ -21,19 +21,19 @@
         />
       </div>
       <div class="col-lg-5 d-flex flex-column shopping-cart-item-info align-items-center justify-content-center">
-        <span>Name:
+        <span>{{'CART.name'|translate}}:
           <p>{{ item.name }}</p>
         </span>
-        <span>Color:
+        <span>{{'CART.color'|translate}}:
           <p>{{ item.color }}</p>
         </span>
-        <span *ngIf="item?.size">Size:
+        <span *ngIf="item?.size">{{'CART.size'|translate}}:
           <p>{{ item.size }}</p>
         </span>
-        <span *ngIf="item?.heel?.heelName">Heel:
+        <span *ngIf="item?.heel?.heelName">{{'CART.heelName'|translate}}:
           <p>{{ item.heel.heelName }}</p>
         </span>
-        <span>Price:
+        <span>{{'CART.price'|translate}}:
           <p>{{ item.price }}</p>
         </span>
        <!-- <span>Description:
@@ -44,7 +44,7 @@
     <div class="d-flex col-lg-8 flex-grow-1 m-0 p-0 order-buttons"
          *ngIf="shoppingItems && shoppingItems.length > 0">
 <!--      <button class="mr-3">Poruči</button>-->
-      <button class="cart-delete-all" (click)="deleteLocalStorage()"><b>Obriši sve</b></button>
+      <button class="cart-delete-all" (click)="deleteLocalStorage()"><b>{{'CART.deleteAll'|translate}}</b></button>
     </div>
   </div>
 

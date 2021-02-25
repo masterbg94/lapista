@@ -4,16 +4,29 @@
 
       <!-- ZA GRUPNI PRIKAZ /products -->
       <div class="prod-item text-center" *ngIf="!parametar">
-        <img src="{{product?.colors[0]?.image}}" alt="" class="img-fluid" [routerLink]="'/product/' + product.id" style="cursor: pointer">
+        <img src="{{product?.colors[0]?.image}}" alt="" class="img-fluid" [routerLink]="'/product/' + product.id"
+             style="cursor: pointer">
         <p><b>{{product?.name.toUpperCase()}}</b></p>
-        <p>{{product?.price}} RSD</p>
+        <p [ngStyle]="{'text-decoration': product?.sale != 0 ? 'line-through' : 'none'}">{{product?.price}} RSD</p>
+
+        <p *ngIf="product?.sale != 0" class="mb-2">
+          <b>{{ product?.price - (product?.price / 100) * product?.sale }},00RSD</b>
+        </p>
       </div>
 
       <!-- ZA PTIKAZ SVIH SA BOJAMA /products/${param} -->
       <div class="prod-item text-center">
         <img src="{{product?.image}}" alt="" class="img-fluid" [routerLink]="'/product/' + product?.item?.id" style="cursor: pointer">
         <p><b>{{product?.item?.name.toUpperCase()}}</b></p>
-        <p>{{product?.item?.price}} RSD</p>
+<!--        <p>{{product?.item?.price}} RSD</p>-->
+        <!-- new -->
+        <p class="m-0" [ngStyle]="{'text-decoration': product?.item?.sale != 0 ? 'line-through' : 'none'}">{{product?.item?.price}},00 RSD</p>
+
+        <p *ngIf="product?.item?.sale != 0" class="mb-2">
+          <b>{{ product?.item?.price - (product?.item?.price / 100) * product?.item?.sale }},00 RSD</b>
+        </p>
+        <!-- new -->
+
       </div>
 
 

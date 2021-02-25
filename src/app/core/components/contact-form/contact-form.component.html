@@ -3,9 +3,9 @@
 >
   <div class="container mx-0" style="border-top: 10px solid #f4f4f4;">
     <div class="d-flex flex-column my-3">
-      <p style="font-size: 14px;"><b>Potrebna Vam je podrška</b></p>
+      <p style="font-size: 14px;"><b>{{'CONTACT.help'|translate}}</b></p>
       <p style="font-size: 14px;">
-        Jednostavno popunite obrazac i kliknite na 'pošalji' da biste poslali upit
+        {{'CONTACT.fillForm'|translate}}
       </p>
     </div>
     <div class="form" style="width: 100%;">
@@ -14,7 +14,7 @@
         <div class="d-flex flex-wrap">
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Ime</mat-label>
+              <mat-label>{{'CONTACTFORM.name'|translate}}</mat-label>
               <input
                 matInput
                 placeholder="Unesite Vaše ime"
@@ -34,7 +34,7 @@
           </div>
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Naslov poruke</mat-label>
+              <mat-label>{{'CONTACTFORM.subject'|translate}}</mat-label>
               <input
                 matInput
                 placeholder="Naslov poruke"
@@ -44,7 +44,7 @@
           </div>
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Poruka</mat-label>
+              <mat-label>{{'CONTACTFORM.message'|translate}}</mat-label>
               <input
                 matInput
                 placeholder="Vaša poruka"
@@ -65,7 +65,7 @@
             (click)="sendMail()"
             [disabled]="!sendMailForm.valid"
           >
-            POŠALjI
+            {{'CONTACTFORM.send'|translate}}
           </button>
         </div>
       </form>

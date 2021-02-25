@@ -109,6 +109,9 @@ export class DataService {
     return this.http.get(api_endpoint + `size/decrement/${id}`);
   }
 
+  /**
+   *  For mails & orders
+   */
   sendMail(data) {
     return this.http.post(api_endpoint + 'sendmail', data);
   }

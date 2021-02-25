@@ -1,11 +1,23 @@
 <p>
   <b>{{ detailText.name.toUpperCase() }}</b>
 </p>
-<p class="mb-2">{{ detailText.price }},00 RSD</p>
+<p class="mb-2"
+  [ngStyle]="{'text-decoration': (detailText?.sale && detailText?.sale != 0) ? 'line-through' : 'none'}">
+  {{ detailText.price }},00 RSD
+</p>
+
+<div class="d-flex flex-row" *ngIf="detailText?.sale && detailText?.sale != 0">
+  <span ><b>{{'ITEMDETAIL.sale'| translate }}</b>
+    <p class="mb-2">
+      <b>{{ detailText.price - (detailText.price / 100) * detailText?.sale }},00RSD</b>
+    </p></span>
+</div>
 
 <div class="d-flex flex-column">
   <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
-  <p class="text-uppercase"><b>BOJA: </b> {{ selectedColor?.name.toUpperCase() }}</p>
+  <p class="text-uppercase">
+    <b>{{'ITEMDETAIL.color'| translate }}: </b> {{ selectedColor?.name.toLowerCase() | translate }}
+  </p>
 
   <div class="color-choice d-flex py-3">
     <div
@@ -18,10 +30,9 @@
     </div>
   </div>
 
-  <div class="select-size d-flex flex-column mt-2"
-       *ngIf="!isBag">
+  <div class="select-size d-flex flex-column mt-2" *ngIf="!isBag">
     <p class="text-uppercase mb-2">
-      <b>VELIČINA: </b> {{ selectedSize?.sizeName }}
+      <b>{{'ITEMDETAIL.size'| translate }}: </b> {{ selectedSize?.sizeName }}
     </p>
     <div class="shoe-numbers" *ngIf="selectedColor">
       <button
@@ -35,10 +46,9 @@
     </div>
   </div>
 
-  <div class="select-heel d-flex flex-column mt-2"
-       *ngIf="!isBag">
+  <div class="select-heel d-flex flex-column mt-2" *ngIf="!isBag">
     <p class="text-uppercase mb-2">
-      <b>VISINA POTPETICE: </b> {{ selectedHeel?.heelName}}
+      <b>{{'ITEMDETAIL.heelSize'| translate }}: </b> {{ selectedHeel?.heelName }}
     </p>
     <div class="shoe-heels">
       <button
@@ -47,30 +57,30 @@
         (click)="selectHeel(h)"
         [class.heel-number-selected]="selectedHeel?.heelName === h?.heelName"
         [class.heel-number-disabled]="h?.heelCount <= 0"
-        [ngStyle]="{'text-decoration' : h?.heelCount <= 0 ? 'line-through' : 'none'}"
+        [ngStyle]="{
+          'text-decoration': h?.heelCount <= 0 ? 'line-through' : 'none'
+        }"
         [disabled]="h.heelCount <= 0"
       >
         <b>{{ h.heelName }}</b>
       </button>
     </div>
   </div>
-
 </div>
 
-<p class="m-0 p-0"><b>OPIS:</b></p>
+<p class="m-0 p-0"><b>{{'ITEMDETAIL.description'| translate }}:</b></p>
 <p class="mb-2">{{ detailText.description }}</p>
 
 <div class="add-to-cart mt-3">
-  <button class="add-to-cart-button" *ngIf="!isBag"
-          (click)="updateCart('shoe')"
-          [disabled]="!selectedHeel"
+  <button
+    class="add-to-cart-button"
+    *ngIf="!isBag"
+    (click)="updateCart('shoe')"
+    [disabled]="!selectedHeel"
   >
-    DODAJ U KORPU
+      {{'ITEMDETAIL.addToCart'| translate }}
   </button>
-  <button class="add-to-cart-button"
-          *ngIf="isBag"
-          (click)="updateCart('bag')"
-  >
-    DODAJ U KORPU
+  <button class="add-to-cart-button" *ngIf="isBag" (click)="updateCart('bag')">
+      {{'ITEMDETAIL.addToCart'| translate }}
   </button>
 </div>

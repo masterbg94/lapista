@@ -17,7 +17,7 @@
     "FOURIMAGES": {
       "shoes": "CIPELE",
       "sandals": "SANDALE",
-      "boots": "CIZME",
+      "boots": "ČIZME",
       "bags": "TORBE"
     }
   },
@@ -39,21 +39,30 @@
     "fillForm": "Jednostavno popunite obrazac i kliknite na 'pošalji' da biste poslali upit"
   },
   "CART": {
-    "deleteAll": "Obrisi sve",
-    "fillForm": "Popunite formu za porucivanje",
-    "itemAdded": "Proizvod je dodat u korpu"
+    "deleteAll": "Obriši sve",
+    "fillForm": "Popunite formu za poručivanje",
+    "itemAdded": "Proizvod je dodat u korpu",
+    "emptyCart": "Vaša korpa je prazna",
+    "emptyCardAddMore": "Dodajte proizvod da bi ste poručili",
+    "name": "Ime",
+    "color": "Boja",
+    "size": "Veličina",
+    "heelName": "Visina podpetice",
+    "price": "Cena",
+    "itemInCart": "Proizvod je dodat u korpu",
+    "closeSnack":"Close"
   },
   "FOOTER": {
     "ourShop": "Naša ponuda",
     "shoes": "Cipele",
     "sandals": "Sandale",
-    "boots": "Cizme",
+    "boots": "Čizme",
     "bags": "Torbe",
     "about": "O nama",
     "contact": "Kontakt",
     "privacy": "Privatnost",
-    "cookies": "Kolacici",
-    "support": "Korisnicka podrska",
+    "cookies": "Kolačici",
+    "support": "Korisnička podrska",
     "help": "Pomoc",
     "follow": "Zapratite nas"
   },
@@ -61,7 +70,7 @@
     "name": "Ime",
     "subject": "Naslov emaila",
     "message": "Poruka",
-    "send": "Posalji"
+    "send": "Pošalji"
   },
   "ORDERFORM": {
     "name": "Ime",
@@ -71,6 +80,29 @@
     "address": "Adresa",
     "addressUnit": "Broj",
     "note": "Napomena",
-    "send": "Poruci"
-  }
+    "send": "Poruči",
+    "fillForm": "Popunite formu za poručivanje"
+  },
+  "ITEMDETAIL": {
+    "sale": "Sniženo",
+    "color": "BOJA",
+    "size": "VELIČINA",
+    "heelSize": "VISINA PODPETICE",
+    "description": "OPIS",
+    "addToCart": "DODAJ U KORPU"
+  },
+  "ITEMDESCRIPTION": {
+    "desc1": "",
+    "desc2": "",
+    "desc3": "",
+    "desc4": "",
+    "desc5": "",
+    "desc6": "",
+    "desc7": "",
+    "desc8": "",
+    "desc9": "",
+    "desc10": ""
+  },
+  "black": "CRNA",
+  "blue": "PLAVA"
 }

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-text',
@@ -19,7 +20,8 @@ export class ProductDetailTextComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private translate: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -76,7 +78,7 @@ export class ProductDetailTextComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify(a));
       console.log(JSON.parse(localStorage.getItem('cart')).length);
 
-      this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
+      this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));
     } else {
       const dataForCart = {
         name: this.detailText.name,
@@ -96,7 +98,7 @@ export class ProductDetailTextComponent implements OnInit {
       localStorage.setItem('cart', JSON.stringify(a));
       console.log(JSON.parse(localStorage.getItem('cart')).length);
 
-      this.openSnackBar('Proizvod je dodat u korpu', 'Zatvori');
+      this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));
     }
 
 

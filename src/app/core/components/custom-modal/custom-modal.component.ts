@@ -47,7 +47,7 @@ export class CustomModalComponent implements OnInit {
     this.getAllColors();
     this.getAllSizes();
 
-    console.log('this.inputData',this.inputData);
+    console.log('this.inputData', this.inputData);
     if (this.inputData.type === 'edit') {
       this.setCategory(this.inputData.what);
     }
@@ -183,19 +183,19 @@ export class CustomModalComponent implements OnInit {
     } else if (this.inputData.what === 'size') {
       const saveDataRaw = this.sizeGroup.getRawValue();
       this.saveData = {
-        item: saveDataRaw.item,
+        // item: saveDataRaw.item,
         color: parseFloat(saveDataRaw.color) ,
-        sizeName: saveDataRaw.sizeName,
-        // sizeCount: saveDataRaw.sizeCount,
+        sizeName: parseFloat(saveDataRaw.sizeName),
+        // sizeCount: saveDataRaw.sizeCount
       };
     } else if (this.inputData.what === 'heel') {
       const saveDataRaw = this.heelGroup.getRawValue();
       this.saveData = {
-        item: saveDataRaw.item,
-        color: saveDataRaw.color,
+        // item: saveDataRaw.item,
+        // color: saveDataRaw.color,
         size: saveDataRaw.size,
-        heelName: saveDataRaw.heelName,
-        heelCount: saveDataRaw.heelCount,
+        heelName: parseFloat(saveDataRaw.heelName),
+        heelCount: parseFloat(saveDataRaw.heelCount),
       };
       console.log(this.saveData);
     }
@@ -206,7 +206,7 @@ export class CustomModalComponent implements OnInit {
         .subscribe(
           (res: any) => {
             this.activeModal.close();
-            this.dataService.emitAddNewFromModal.emit(true);
+            // this.dataService.emitAddNewFromModal.emit(true);
             // alert('Successfully updated');
             // TODO: Make snackbar if success
           },
@@ -220,7 +220,7 @@ export class CustomModalComponent implements OnInit {
         .subscribe(
           (res: any) => {
             this.activeModal.close();
-            this.dataService.emitAddNewFromModal.emit(true);
+            // this.dataService.emitAddNewFromModal.emit(true);
             alert('Successfully updated');
           },
           (error: any) => {
@@ -283,10 +283,6 @@ export class CustomModalComponent implements OnInit {
         console.log(error);
       }
     );
-  }
-
-  changed(e) {
-    console.log('changed', e);
   }
 
   /**

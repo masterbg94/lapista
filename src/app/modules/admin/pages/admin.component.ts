@@ -130,6 +130,14 @@ export class AdminComponent implements OnInit {
     );
   }
 
+  getAllData(){
+    this.getAllCategories();
+    this.getAllProducts();
+    this.getAllColors();
+    this.getAllSizes();
+    this.getAllHeels();
+  }
+
   ngOnInit(): void {
     this.selectedData = 'category';
     this.getDataForSelected(this.selectedData);
@@ -138,6 +146,7 @@ export class AdminComponent implements OnInit {
         (res) => {
           if (res) {
             window.location.reload();
+            // this.getAllData();
           }
         }
       )

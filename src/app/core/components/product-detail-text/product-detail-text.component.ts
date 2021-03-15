@@ -83,7 +83,7 @@ export class ProductDetailTextComponent implements OnInit {
       const dataForCart = {
         name: this.detailText.name,
         price: this.detailText.price,
-        image:  this.selectedColor ? this.selectedColor.image : this.detailText.image,
+        image:  this.selectedColor ? 'https://lapista.rs/assets/img/items/' + this.selectedColor.image : this.detailText.image,
         color: this.selectedColor.name,
         size: this.selectedSize.sizeName,
         heel: this.selectedHeel,

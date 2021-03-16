@@ -1,12 +1,14 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import {CustomModalService} from './core/services/custom-modal.service';
+import {SaleModalComponent} from './core/components/sale-modal/sale-modal.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'La Pista';
   languages: any[] = [
     {
@@ -24,7 +26,7 @@ export class AppComponent {
   ];
   currentLang = this.languages[1];
 
-  constructor(private translateService: TranslateService) {
+  constructor(private translateService: TranslateService, private modalService: CustomModalService) {
     translateService.addLangs(['sr', 'en']);
     translateService.setDefaultLang('sr');
     // default vrednost za jezik koja se izvlaci iz browsera ako ima ako ne onda setuje 'sr'
@@ -38,5 +40,9 @@ export class AppComponent {
     this.translateService.use(l.value);
     this.currentLang = l;
     // this.langDroped = !this.langDroped;
+  }
+
+  ngOnInit(): void {
+    this.modalService.openModal(SaleModalComponent);
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {CustomModalService} from './core/services/custom-modal.service';
 import {SaleModalComponent} from './core/components/sale-modal/sale-modal.component';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,7 @@ export class AppComponent implements OnInit {
   ];
   currentLang = this.languages[1];
 
-  constructor(private translateService: TranslateService, private modalService: CustomModalService) {
+  constructor(private translateService: TranslateService, private modalService: NgbModal) {
     translateService.addLangs(['sr', 'en']);
     translateService.setDefaultLang('sr');
     // default vrednost za jezik koja se izvlaci iz browsera ako ima ako ne onda setuje 'sr'
@@ -43,6 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.modalService.openModal(SaleModalComponent);
+    this.modalService.open(SaleModalComponent, { centered: true });
   }
 }

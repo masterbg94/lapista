@@ -31,9 +31,12 @@
   </div>
 
   <div class="select-size d-flex flex-column mt-2" *ngIf="!isBag">
-    <p class="text-uppercase mb-2">
-      <b>{{'ITEMDETAIL.size'| translate }}: </b> {{ selectedSize?.sizeName }}
-    </p>
+    <div class="d-flex justify-content-between">
+      <p class="text-uppercase mb-2">
+        <b>{{'ITEMDETAIL.size'| translate }}: </b> {{ selectedSize?.sizeName }}
+      </p>
+      <p (click)="openModal()" style="cursor: pointer;font-size: 14px;text-decoration: underline">{{'ITEMDETAIL.sizeChart'| translate }}</p>
+    </div>
     <div class="shoe-numbers" *ngIf="selectedColor">
       <button
         class="size-number"

@@ -89,7 +89,8 @@
     "size": "VELIČINA",
     "heelSize": "VISINA PODPETICE",
     "description": "OPIS",
-    "addToCart": "DODAJ U KORPU"
+    "addToCart": "DODAJ U KORPU",
+    "sizeChart": "Tabela velicina"
   },
   "ITEMDESCRIPTION": {
     "desc1": "",

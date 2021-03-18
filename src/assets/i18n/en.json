@@ -89,7 +89,8 @@
     "size": "SIZE",
     "heelSize": "Heel size",
     "description": "DESCRIPTION",
-    "addToCart": "ADD TO CART"
+    "addToCart": "ADD TO CART",
+    "sizeChart": "Size chart"
   },
   "ITEMDESCRIPTION": {
     "desc1": "",

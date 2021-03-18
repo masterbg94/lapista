@@ -2,6 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {TranslateService} from '@ngx-translate/core';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {SizeTableModalComponent} from '../size-table-modal/size-table-modal.component';
 
 @Component({
     selector: 'app-product-text',
@@ -21,7 +23,8 @@ export class ProductDetailTextComponent implements OnInit {
     constructor(
         private dataService: DataService,
         private snackBar: MatSnackBar,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private modal: NgbModal
     ) {
     }
 
@@ -160,5 +163,9 @@ export class ProductDetailTextComponent implements OnInit {
         this.snackBar.open(message, action, {
             duration: this.durationInSeconds * 1000,
         });
+    }
+
+    openModal(){
+        this.modal.open(SizeTableModalComponent, {scrollable: true});
     }
 }

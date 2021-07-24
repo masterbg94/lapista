@@ -44,6 +44,6 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.modalService.open(SaleModalComponent, { centered: true });
+    this.modalService.open(SaleModalComponent, { centered: true , size: 'lg' });
   }
 }

@@ -1,4 +1,8 @@
 .one-of-three{
   cursor: pointer;
   margin-bottom: 15px;
+  img{
+    height: 100%;
+    object-fit: cover;
+  }
 }

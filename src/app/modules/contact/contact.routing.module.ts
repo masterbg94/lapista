@@ -3,16 +3,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {ContactComponent} from './pages/contact.component';
 
 const ROUTES: Routes = [
-  {
-    path: '',
-    component: ContactComponent
-  }
+    {
+        path: '',
+        component: ContactComponent
+    }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(ROUTES)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(ROUTES)],
+    exports: [RouterModule]
 })
 export class ContactRoutingModule {
-
 }

@@ -1,7 +1,12 @@
-.one-of-three{
+.one-of-three {
   cursor: pointer;
   margin-bottom: 15px;
-  img{
+  //center 3 images
+  display: flex;
+  justify-content: center;
+
+  img {
+    max-height: 600px;
     height: 100%;
     object-fit: cover;
   }

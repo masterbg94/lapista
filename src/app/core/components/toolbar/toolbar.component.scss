@@ -15,22 +15,37 @@
 
 .toolbar-main-menu {
   max-width: 800px;
+  justify-content: space-evenly;
 
   p.toolbar-main-menu-item {
     cursor: pointer;
-    border: 1px solid rgba(0, 0, 0, 0);
+    //border: 1px solid rgba(0, 0, 0, 0);
     //transition: 0.5s;
-    padding: 5px 25px;
+    //padding: 5px 25px;
+    font-weight: normal;
     color: $app-header-font;
     font-size: 15px;
-    font-weight: bold;
+    //font-weight: bold;
     outline: none;
+    border: 2px solid transparent;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    transition: 0.5s;
 
     &:hover {
-      //border: 1px solid rgba(0,0,0,0.8);
+      //@include magic-border(2px, blue, 2.3s, 0);
       //transition: 0.5s;
-      background: #eeeeee;
+      //background: #eeeeee;
+      transition: 0.5s;
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
     }
+
+    &.active-item {
+      border: 2px solid #ff0000;
+      color: #ff0000;
+    }
+
+
   }
 }
 

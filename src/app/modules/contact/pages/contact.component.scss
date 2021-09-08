@@ -1,8 +1,20 @@
 agm-map {
   height: 360px;
 }
-.box-heading {
-  text-transform: uppercase;
+
+.mobile-center {
+  .box-heading {
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  a, p {
+    font-size: 14px;
+    font-weight: 300;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -12,6 +24,12 @@ agm-map {
     .box-heading {
       margin-bottom: 6px;
       margin-top: 12px;
+      font-size: 14px;
+    }
+
+    a, p {
+      font-size: 12px;
+      font-weight: 300;
     }
   }
 }

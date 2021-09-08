@@ -94,11 +94,13 @@
     class="toolbar-container mt-3 d-flex justify-content-center"
     *ngIf="innerWidth > 768"
   >
-    <div class="toolbar-main-menu d-flex flex-grow-1 justify-content-center">
+    <div class="toolbar-main-menu d-flex flex-grow-1 ">
       <p
         class="toolbar-main-menu-item"
         *ngFor="let m of menu"
         [routerLink]="m.route"
+        [routerLinkActive]="['active-item']"
+        [routerLinkActiveOptions]="{exact:true}"
       >
         {{ m.name | translate }}
       </p>

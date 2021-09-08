@@ -8,13 +8,53 @@
   width: 100%;
 }
 
+.form {
+  .d-flex.flex-wrap#form-fields {
+    .col-12 {
+      padding: 0;
+    }
+  }
+
+  button.send-email {
+    border-radius: 0 !important;
+    outline: none;
+    border: 2px solid black;
+    color: black;
+
+    ::ng-deep.mat-button-wrapper {
+      font-weight: bold !important;
+      text-transform: uppercase !important;
+    }
+
+    // Stavljen ng if na button
+    &:disabled {
+      color: rgba(0, 0, 0, 0.32) !important;
+      border: 2px solid rgba(0, 0, 0, 0.32) !important;
+      cursor: not-allowed;
+
+      ::ng-deep.mat-button-wrapper {
+        font-weight: 300 !important;
+      }
+    }
+  }
+}
+
 ::ng-deep {
+  mat-form-field * {
+    cursor: pointer;
+  }
+
   .mat-form-field-appearance-outline .mat-form-field-outline-end,
   .mat-form-field-appearance-outline .mat-form-field-outline-start {
     border-radius: 0 !important;
   }
 }
-button {
-  border-radius: 0 !important;
-  outline: none;
+
+@media screen and (max-width: 576px) {
+  form {
+    .d-flex.flex-wrap#form-fields {
+      width: 100%;
+      margin: 0 !important;
+    }
+  }
 }

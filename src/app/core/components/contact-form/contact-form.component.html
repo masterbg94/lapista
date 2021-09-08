@@ -1,7 +1,7 @@
 <div
   class="container-fluid d-flex flex-column align-items-center justify-content-center"
 >
-  <div class="container mx-0" style="border-top: 10px solid #f4f4f4;">
+  <div class="container mx-0 m-0 p-0" style="border-top: 10px solid #f4f4f4;">
     <div class="d-flex flex-column my-3">
       <p style="font-size: 14px;"><b>{{'CONTACT.help'|translate}}</b></p>
       <p style="font-size: 14px;">
@@ -11,7 +11,7 @@
     <div class="form" style="width: 100%;">
 
       <form action="" [formGroup]="sendMailForm">
-        <div class="d-flex flex-wrap">
+        <div class="d-flex flex-wrap" id="form-fields">
           <div class="col-12 flex-grow-1">
             <mat-form-field appearance="outline" class="example-full-width">
               <mat-label>{{'CONTACTFORM.name'|translate}}</mat-label>
@@ -56,11 +56,11 @@
           </div>
         </div>
 
-        <div class="row d-flex justify-content-center">
+        <div class="row d-flex justify-content-end" *ngIf="sendMailForm.valid">
           <button
             mat-stroked-button
             color="primary"
-            class="my-3"
+            class="my-3 send-email"
             style="width: 250px; height: 40px;"
             (click)="sendMail()"
             [disabled]="!sendMailForm.valid"

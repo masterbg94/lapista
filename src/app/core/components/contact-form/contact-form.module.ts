@@ -1,17 +1,21 @@
 import {NgModule} from '@angular/core';
-import {ContactFormComponent} from './contact-form.component';
-import {CustomMaterialModule} from '../../../modules/custom-material.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import {CommonModule} from '@angular/common';
+
+import {ContactFormComponent} from './contact-form.component';
+
 import {TranslateModule} from '@ngx-translate/core';
+import {CustomMaterialModule} from '../../../modules/custom-material.module';
 
 @NgModule({
     imports: [
         CustomMaterialModule,
         ReactiveFormsModule,
-        TranslateModule
+        TranslateModule,
+        CommonModule
     ],
-  exports: [ContactFormComponent],
-  declarations: [ContactFormComponent]
+    exports: [ContactFormComponent],
+    declarations: [ContactFormComponent]
 })
 export class ContactFormModule {
 

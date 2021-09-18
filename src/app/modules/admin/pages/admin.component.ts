@@ -20,6 +20,8 @@ export class AdminComponent implements OnInit {
   dataSource;
   selectedData;
   subscription: Subscription[] = [];
+  // search items
+  searchValue: any;
 
   constructor(private breakpointObserver: BreakpointObserver,
               private dataService: DataService,
@@ -151,5 +153,10 @@ export class AdminComponent implements OnInit {
         }
       )
     );
+  }
+
+  /** Search items */
+  changedInput(x) {
+    console.log('typed search', x);
   }
 }

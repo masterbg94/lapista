@@ -6,7 +6,6 @@
     fixedInViewport="true"
     [attr.role]="'dialog'"
     [mode]="'side'"
-    opened
   >
     <mat-toolbar>
       <img src="assets/img/LaPista-Logo-main.png" alt="" height="20px" />
@@ -27,26 +26,26 @@
       </mat-list-item>
       -->
 
-      <mat-list-item (click)="getDataForSelected('category')">
+      <mat-list-item (click)="getDataForSelected('category');drawer.close()">
         <a matLine>Kategorije</a>
         <button mat-icon-button>
           <mat-icon>home</mat-icon>
         </button>
       </mat-list-item>
 
-      <mat-list-item (click)="getDataForSelected('item')">
+      <mat-list-item (click)="getDataForSelected('item');drawer.close()">
         <a matLine>Proizvodi</a>
       </mat-list-item>
 
-      <mat-list-item (click)="getDataForSelected('color')">
+      <mat-list-item (click)="getDataForSelected('color');drawer.close()">
         <a matLine>Boje</a>
       </mat-list-item>
 
-      <mat-list-item (click)="getDataForSelected('size')">
+      <mat-list-item (click)="getDataForSelected('size');drawer.close()">
         <a matLine>Brojevi</a>
       </mat-list-item>
 
-      <mat-list-item (click)="getDataForSelected('heel')">
+      <mat-list-item (click)="getDataForSelected('heel');drawer.close()">
         <a matLine>Stikla</a>
       </mat-list-item>
     </mat-nav-list>
@@ -65,6 +64,9 @@
         </button>
         <p class="m-0 p-0">Admin Panel</p>
       </div>
+      <input matInput type="search" placeholder="Pretrazi stavke..."
+             [(ngModel)]="searchValue"
+             (ngModelChange)="changedInput($event)">
 
       <!-- Add new -->
       <button
@@ -90,7 +92,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let a of dataSource">
+            <tr *ngFor="let a of dataSource | filter: searchValue ">
               <td scope="row">{{ a.id }}</td>
               <td>{{ a.name }}</td>
               <td class="edit-td">
@@ -119,7 +121,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let p of dataSource">
+            <tr *ngFor="let p of dataSource | filter: searchValue">
               <td scope="row">{{ p.id }}</td>
               <td>{{ p?.category?.name }}</td>
               <td>{{ p?.name }}</td>
@@ -151,7 +153,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let c of dataSource">
+            <tr *ngFor="let c of dataSource | filter: searchValue">
               <td scope="row">{{ c.id }}</td>
               <td scope="row">{{ c.item?.name }}</td>
               <td>{{ c.hex }}</td>
@@ -182,7 +184,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let s of dataSource">
+            <tr *ngFor="let s of dataSource | filter: searchValue">
               <td scope="row">{{ s.id }}</td>
               <td scope="row">{{ s.color?.name }}</td>
               <td scope="row">{{ s.color?.item?.name }}</td>
@@ -214,7 +216,7 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let s of dataSource">
+          <tr *ngFor="let s of dataSource | filter: searchValue">
             <td scope="row">{{ s.id }}</td>
             <td scope="row">{{ s?.size?.color?.item?.name }}</td>
             <td scope="row">{{ s?.size?.color?.name }}</td>

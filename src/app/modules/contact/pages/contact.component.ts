@@ -5,7 +5,7 @@ import {Component} from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-  title = 'My first AGM project';
-  lat = 44.806478688037366;
-  lng = 20.40524263327664;
+  title = 'La Pista';
+  lat = 44.80643839777886;
+  lng = 20.405816737403303;
 }

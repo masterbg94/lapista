@@ -1,0 +1,13 @@
+.slider-wrapper {
+  .slider-content {
+    app-slider {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .slider-content {
+    width: 100%;
+  }
+}

@@ -50,6 +50,7 @@ const ROUTES: Routes = [
         path: 'admin',
         component: AdminLayoutComponent,
         canActivate: [AuthGuard],
+        data: {title: 'La Pista - Admin panel'},
         children: [
             {
                 path: '',
@@ -59,7 +60,8 @@ const ROUTES: Routes = [
     },
     {
         path: 'login',
-        loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule)
+        loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
+        data: {title: 'La Pista - Login to panel'},
     }
 ];
 

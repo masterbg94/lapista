@@ -51,9 +51,10 @@
 
 .count-in-cart {
   position: absolute;
-  bottom: -8px;
-  //right: -8px;
+  bottom: 20px;
+  left: 5px;
   background: red;
+  color: white;
   border-radius: 20px;
   width: 16px;
   height: 16px;
@@ -100,4 +101,26 @@ p.selected-language {
     padding: 0 !important;
     margin: 0 !important;
   }
+}
+
+// new menu for mobile
+.toolbar-mobile{
+ &-wrapper{
+   .toolbar-mobile-left{
+     &_toggler-icon{
+
+     }&_logo{
+
+     }
+     &_mobile-menu{
+
+     }
+   }
+   .toolbar-mobile-right{
+     &_search{
+     }
+     &_language{
+     }
+   }
+ }
 }

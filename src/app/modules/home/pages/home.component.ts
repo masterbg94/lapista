@@ -3,28 +3,41 @@ import {DataService} from '../../../core/services/data.service';
 import {take} from 'rxjs/operators';
 import {BasicResponse} from '../../../core/models/data.models';
 import {HttpClient} from '@angular/common/http';
+import {pipe} from 'rxjs';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor(private dataService: DataService, private http: HttpClient) {
-  }
+    randomItems: any[] = [];
 
-  ngOnInit(): void {
-    this.dataService.getAllCategoriesWithDetails().pipe(take(1)).subscribe(
-        (resp: any) => {
-          console.log('categ.with details', resp.data);
-        }
-    );
+    constructor(private dataService: DataService, private http: HttpClient) {
+    }
 
-    this.dataService.getAllCategories().pipe(take(1)).subscribe(
-        (resp: BasicResponse) => {
-          console.log('categ.', resp.data);
-        }
-    );
-  }
+    ngOnInit(): void {
+        this.dataService.getAllItems().pipe(take(1)).subscribe(
+            (response: any) => {
+                let testData = response.data.filter((x) => x.category.name == 'pumps');
+                console.log('pumps', testData);
+                for (var _i = 0; _i < 7; _i++) {
+                    this.randomItems.push(testData[_i]);
+                }
+                console.log('random', this.randomItems);
+            }
+        );
+        // this.dataService.getAllCategoriesWithDetails().pipe(take(1)).subscribe(
+        //     (resp: any) => {
+        //       console.log('categ.with details', resp.data);
+        //     }
+        // );
+        //
+        // this.dataService.getAllCategories().pipe(take(1)).subscribe(
+        //     (resp: BasicResponse) => {
+        //       console.log('categ.', resp.data);
+        //     }
+        // );
+    }
 
 }

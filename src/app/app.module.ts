@@ -14,6 +14,7 @@ import {NgxMaskModule} from 'ngx-mask';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {SaleModalComponent} from './core/components/sale-modal/sale-modal.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 export function TranslationLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -37,6 +38,7 @@ export function TranslationLoaderFactory(http: HttpClient) {
         provide: TranslateLoader, useFactory: TranslationLoaderFactory, deps: [HttpClient]
       }
     }),
+      IvyCarouselModule
   ],
   providers: [
     MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER,

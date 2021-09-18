@@ -4,6 +4,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { HomeComponent } from './pages/home.component';
 import {HomeThreeImagesModule} from '../../core/components/home-three-images/home-three-images.module';
 import {HomeFourImagesModule} from '../../core/components/home-four-images/home-four-images.module';
+import {SliderModule} from '../../core/components/slider/slider.module';
 
 /**
  * This is Home application module
@@ -15,7 +16,8 @@ import {HomeFourImagesModule} from '../../core/components/home-four-images/home-
   imports: [
     HomeRoutingModule,
     HomeThreeImagesModule,
-    HomeFourImagesModule
+    HomeFourImagesModule,
+    SliderModule
   ],
   declarations: [
     HomeComponent

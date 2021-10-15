@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.modalService.open(SaleModalComponent, {centered: true, size: 'lg'});
+        // this.modalService.open(SaleModalComponent, {centered: true, size: 'lg'});
         //    Router title
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd),

@@ -12,6 +12,9 @@ p {
   //user-select: none;
   //font-family: $main-font;
   font-weight: 300;
+  // for double touch on phone
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
 }
 
 html, body {
@@ -21,6 +24,10 @@ html, body {
 body {
   margin: 0;
   font-family: $main-font;
+
+  .material-icons {
+    font-family: 'Material Icons' !important;
+  }
 }
 
 /* Importing Bootstrap SCSS file. */

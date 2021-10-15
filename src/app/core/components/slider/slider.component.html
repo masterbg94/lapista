@@ -1,8 +1,16 @@
-<carousel *ngIf="slideItems.length">
+<carousel *ngIf="slideItems.length"
+          [autoplay]="sliderSettings.autoplay"
+          [autoplayInterval]="sliderSettings.autoplayInterval"
+          [pauseOnHover]="sliderSettings.pauseOnHover"
+          [transitionDuration]="sliderSettings.transitionDuration"
+          [loop]="sliderSettings.loop"
+          [arrowsTheme]="sliderSettings.arrowsTheme"
+          [arrowsOutside]="sliderSettings.arrowsOutside"
+>
     <div class="carousel-cell" *ngFor="let item of slideItems">
         <div class="d-flex flex-column align-items-center ">
             <div class="random-image">
-                <img [src]="'../../../../assets/img/items/' + item?.colors[0].image">
+                <img [src]="'../../../../assets/img/items/' + item?.colors[0]?.image">
             </div>
             <p class="random-title">{{item.name | uppercase}}</p>
             <p class="random-price">
@@ -11,7 +19,7 @@
             </p>
             <b>{{ item?.price - (item?.price / 100) * item?.sale }},00 RSD</b>
             <!--            <p class="mt-2"><b>{{item.sale}}%</b></p>-->
-            <button class="btn-random mt-2" [routerLink]="'/product/'+item.id">Detaljnije</button>
+            <button class="btn-random mt-2" [routerLink]="'/product/'+item.id">{{'more'|translate}}</button>
         </div>
     </div>
 </carousel>

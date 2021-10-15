@@ -118,4 +118,8 @@ export class ToolbarComponent implements OnInit {
     toggleMobileMenu() {
         this.mobileMenu = !this.mobileMenu;
     }
+
+    mobileMenuClose() {
+        this.mobileMenu = false;
+    }
 }

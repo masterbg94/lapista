@@ -1,4 +1,4 @@
-<div class="container-fluid" *ngIf="innerWidth > 1024">
+<div class="container-fluid" *ngIf="innerWidth > 576">
     <div class="toolbar-top d-flex justify-content-between align-items-center">
         <div style="max-width: 25px;" *ngIf="innerWidth > 768">
             <div class="d-flex position-relative align-items-center"
@@ -110,15 +110,17 @@
 <!--https://identitashoes.com/shop.png-->
 
 <!-- NEW MENU DESIGN FOR MOBILE DEVICES -->
-<div class="container-fluid toolbar-mobile p-0" style="border-bottom: 1px solid black;height: 40px" *ngIf="innerWidth < 1024">
-    <div class="toolbar-mobile-left_mobile-menu position-absolute"
-         style="width: 240px;background: darkgrey;z-index: 11;top: 40px;"
+<!--MOBILE MENU -->
+<div class="container-fluid toolbar-mobile p-0 d-flex align-items-center"
+     *ngIf="innerWidth < 576" style="max-width: 576px;width: 100%">
+    <div class="toolbar-mobile-left_mobile-menu "
          *ngIf="mobileMenu">
-        <ul style="text-decoration: none;list-style: none">
-            <li>Master 1</li>
-            <li>Master 2</li>
-            <li>Master 3</li>
-            <li>Master 4</li>
+        <ul>
+            <li *ngFor="let route of menu"
+                [routerLink]="route.route"
+                [routerLinkActive]="['active-item-mobile']"
+                [routerLinkActiveOptions]="{exact:true}"
+                (click)="mobileMenuClose()">{{route.name | translate}}</li>
         </ul>
     </div>
     <div class="container toolbar-mobile-wrapper d-flex align-content-center justify-content-between">
@@ -126,23 +128,35 @@
             <div class="d-flex">
                 <a style="height: 30px;width: 30px" class="toolbar-mobile-left_toggler-icon"
                    (click)="toggleMobileMenu()">
-                    <img src="../../../../assets/img/menu-icon/004-menu.png"
-                         alt="La Pista Mobile menu icon"
-                         style="height: 20px">
+<!--                    <img src="../../../../assets/img/menu-icon/004-menu.png"-->
+<!--                         alt="La Pista Mobile menu icon">-->
+                    <mat-icon aria-hidden="false" aria-label="La pista menu icon" style="color: black">menu</mat-icon>
+
                 </a>
                 <div class="toolbar-mobile-left_logo">
-                    <img src="assets/img/svg/lapista-logo-mobile.svg" alt="" style="height: 100%">
+                    <img src="assets/img/svg/lapista-logo-mobile.svg" [routerLink]="'/'" alt="La Pista-Belville Delta City">
                 </div>
             </div>
         </div>
+        <!-- LANG OK -->
         <div class="toolbar-mobile-right d-flex">
-<!--            <div class="toolbar-mobile-right_search">-->
-<!--                <input type="search">-->
-<!--            </div>-->
-            <div class="toolbar-mobile-right_language position-relative">
-                <!--Lang-->
-
-                <!--Lang-->
+            <div class="d-flex position-relative align-items-center"
+                 #languageContainer
+                 (click)="showLanguages()">
+                <!--<p class="m-0 selected-language">
+                    {{selectedLanguage.name}}
+                </p>-->
+                <img class="img-fluid ml-2" [src]="selectedLanguage.img" alt="" style="max-height: 20px">
+            </div>
+            <div class="d-flex position-absolute lang-container" *ngIf="languageMenu">
+                <div class="d-flex flex-column lang-content">
+                    <div class="d-flex justify-content-between lang-item" *ngFor="let l of languages"
+                         style="cursor: pointer"
+                         (click)="setLanguage(l)">
+<!--                        <p *ngIf="innerWidth > 576">{{l.name}}</p>-->
+                        <img class="img-fluid m-0" [src]="l.img" alt="" style="max-height: 20px">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

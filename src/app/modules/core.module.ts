@@ -9,6 +9,7 @@ import { MainLayoutComponent } from '../layouts/main/main-layout.component';
 import {AdminLayoutComponent} from '../layouts/admin/admin-layout.component';
 import {AuthenticationService} from '../core/services/authentication.service';
 import {TranslateModule} from '@ngx-translate/core';
+import {MatIconModule} from '@angular/material/icon';
 
 /**
  * The core module is used to hold all root-level providers.
@@ -19,7 +20,7 @@ import {TranslateModule} from '@ngx-translate/core';
 @NgModule({
   // Place all forRoot() imports here
   // Translate module here to prevent loading app module, but can add in app module also
-  imports: [CommonModule, RouterModule, TranslateModule],
+    imports: [CommonModule, RouterModule, TranslateModule, MatIconModule],
   // Place all services/providers/injection tokens here
   providers: [
     // Provide your app wide services here

@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {SliderComponent} from './slider.component';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import {RouterModule} from '@angular/router';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
     declarations: [SliderComponent],
@@ -12,7 +13,8 @@ import {RouterModule} from '@angular/router';
     imports: [
         CommonModule,
         IvyCarouselModule,
-        RouterModule
+        RouterModule,
+        TranslateModule
     ]
 })
 export class SliderModule {

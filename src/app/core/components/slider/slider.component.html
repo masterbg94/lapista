@@ -17,7 +17,7 @@
                 <!--                <b [class.price&#45;&#45;line-through]="item.sale!=0">{{item.price}},00 RSD</b>-->
                 {{item.price}},00 RSD - <b>{{item?.sale}}%</b>
             </p>
-            <b>{{ item?.price - (item?.price / 100) * item?.sale }},00 RSD</b>
+            <span class="sale-price">{{ item?.price - (item?.price / 100) * item?.sale }},00 RSD</span>
             <!--            <p class="mt-2"><b>{{item.sale}}%</b></p>-->
             <button class="btn-random mt-2" [routerLink]="'/product/'+item.id">{{'more'|translate}}</button>
         </div>

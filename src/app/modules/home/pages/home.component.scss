@@ -1,3 +1,12 @@
+.home-background {
+  //max-height: 750px;
+  height: 750px;
+  background-image: url("src/assets/img/lapista-home-background.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
 .slider-wrapper {
   .slider-content {
     app-slider {

@@ -1,10 +1,30 @@
-<div class="slider-wrapper d-flex justify-content-center" style="overflow: hidden">
-    <div class="slider-content d-flex justify-content-center" style="max-width: 840px;width: 100%">
-        <app-slider style="z-index: 10" [slideItems]="randomItems"></app-slider>
+<div class="container-fluid d-flex flex-column">
+    <div class="slider-wrapper d-flex justify-content-center" style="overflow: hidden">
+        <div class="slider-content d-flex justify-content-center" style="max-width: 840px;width: 100%">
+            <app-slider style="z-index: 10" [slideItems]="randomItems"></app-slider>
+        </div>
+    </div>
+    <div class="container justify-content-center d-flex">
+        <button class="lapista-button-default-bold my-2" [routerLink]="'products/shoes'">{{'viewAll' | translate}}</button>
     </div>
 </div>
 <!--<div class="container-fluid m-0 p-0 home-background">-->
 <!--    <button>NEW COLL</button>-->
 <!--</div>-->
 <!--<app-home-three-images></app-home-three-images>-->
+<div class="container-fluid">
+    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center">
+            <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                <img src="./assets/img/lapista-new-1.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                <img src="./assets/img/lapista-new-2.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 my-2">
+                <img src="./assets/img/lapista-new-1.jpg" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
 <app-home-four-images></app-home-four-images>

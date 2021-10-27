@@ -4,11 +4,36 @@ import {DataService} from '../../services/data.service';
 import {NavigationEnd, Router} from '@angular/router';
 import {filter} from 'rxjs/operators';
 import {TranslateService} from '@ngx-translate/core';
+import {transition, trigger, useAnimation} from '@angular/animations';
+import {SidebarCloseAnimation, SidebarOpenAnimation} from '../animations';
+
+const animationParams = {
+    menuWidth: '250px',
+    animationStyle: '500ms ease'
+};
 
 @Component({
     selector: 'app-toolbar',
     templateUrl: './toolbar.component.html',
-    styleUrls: ['./toolbar.component.scss']
+    styleUrls: ['./toolbar.component.scss'],
+    animations: [
+        trigger('sideMenu', [
+            transition(':enter', [
+                useAnimation(SidebarOpenAnimation, {
+                    params: {
+                        ...animationParams
+                    }
+                })
+            ]),
+            transition(':leave', [
+                useAnimation(SidebarCloseAnimation, {
+                    params: {
+                        ...animationParams
+                    }
+                })
+            ])
+        ])
+    ]
 })
 export class ToolbarComponent implements OnInit {
     @ViewChild('languageContainer') languageContainer: ElementRef;

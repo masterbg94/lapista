@@ -89,11 +89,9 @@
                 }}</span>
         </div>
     </div>
-    <div
-            class="toolbar-container mt-3 d-flex justify-content-center"
-            *ngIf="innerWidth > 768"
-    >
-        <div class="toolbar-main-menu d-flex flex-grow-1 ">
+    <div class="toolbar-container mt-3 d-flex justify-content-center"
+         *ngIf="innerWidth > 768">
+        <div class="toolbar-main-menu d-flex flex-grow-1">
             <p
                     class="toolbar-main-menu-item"
                     *ngFor="let m of menu"
@@ -110,10 +108,11 @@
 <!-- NEW MENU DESIGN FOR MOBILE DEVICES -->
 <div class="container-fluid toolbar-mobile p-0 d-flex align-items-center"
      *ngIf="innerWidth < 576" style="max-width: 576px;width: 100%">
-    <div class="toolbar-mobile-left_mobile-menu "
-         *ngIf="mobileMenu">
+    <div class="toolbar-mobile-left_mobile-menu side-menu"
+         *ngIf="mobileMenu" [@sideMenu]>
         <ul>
             <li *ngFor="let route of menu"
+                class="menu-item"
                 [routerLink]="route.route"
                 [routerLinkActive]="['active-item-mobile']"
                 [routerLinkActiveOptions]="{exact:true}"
@@ -138,6 +137,15 @@
         </div>
         <!-- LANG OK -->
         <div class="toolbar-mobile-right d-flex">
+            <div class="d-flex justify-content-end m-0 p-0 position-relative"
+                 [routerLink]="'/cart'"
+                 style="cursor: pointer;">
+                <img src="../../../../assets/img/shopping_cart.png"
+                     alt="La Pista korpa kupovina"
+                     class="img-fluid position-relative cart-image"
+                     style="height: 25px;"/>
+                <span class="count-in-cart" *ngIf="returnCountInCart() > 0">{{returnCountInCart()}}</span>
+            </div>
             <div class="d-flex position-relative align-items-center"
                  #languageContainer
                  (click)="showLanguages()">

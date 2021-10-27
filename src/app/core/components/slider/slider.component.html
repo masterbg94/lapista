@@ -19,7 +19,7 @@
             </p>
             <span class="sale-price">{{ item?.price - (item?.price / 100) * item?.sale }},00 RSD</span>
             <!--            <p class="mt-2"><b>{{item.sale}}%</b></p>-->
-            <button class="btn-random mt-2" [routerLink]="'/product/'+item.id">{{'more'|translate}}</button>
+            <button class="lapista-button-default mt-2" [routerLink]="'/product/'+item.id">{{'more'|translate}}</button>
         </div>
     </div>
 </carousel>

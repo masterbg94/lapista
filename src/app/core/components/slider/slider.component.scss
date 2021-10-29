@@ -13,33 +13,33 @@ carousel {
     font-family: $main-font !important;
   }
 
-  span.sale-price{
+  span.sale-price {
     font-weight: 500;
   }
 
-/*  .carousel-cell {
-    //width: 300px !important;
-    //padding: 15px;
-    //background: red;
+  /*  .carousel-cell {
+      //width: 300px !important;
+      //padding: 15px;
+      //background: red;
 
-    button.btn-random {
-      border-radius: 0;
-      border: 2px solid black;
-      height: 40px;
-      padding: 6px 12px;
-      background: transparent;
-      outline: none;
-      font-weight: normal;
-      font-size: 13px;
+      button.btn-random {
+        border-radius: 0;
+        border: 2px solid black;
+        height: 40px;
+        padding: 6px 12px;
+        background: transparent;
+        outline: none;
+        font-weight: normal;
+        font-size: 13px;
+      }
     }
-  }
 
-  ::ng-deep {
-    // For carousel left/right arrow background color
-    .carousel-arrow {
-      background-color: rgba(255, 255, 255, 0.5) !important;
-    }
-  }*/
+    ::ng-deep {
+      // For carousel left/right arrow background color
+      .carousel-arrow {
+        background-color: rgba(255, 255, 255, 0.5) !important;
+      }
+    }*/
 }
 
 .price--line-through {

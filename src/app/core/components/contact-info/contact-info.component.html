@@ -1,0 +1,49 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map: -->
+<div class="container fluid mt-5">
+    <div class="container">
+       <div class="row">
+<!--           <div class="col-lg-4">-->
+<!--               <img src="/assets/img/lapista-ulaz.PNG" alt="La Pista butik cipele" class="img-fluid">-->
+<!--           </div>-->
+           <div class="col-lg-12 d-flex flex-wrap">
+               <div class="col-lg-3 col-md-6 d-flex justify-content-center">
+                   <div class="d-flex flex-column mobile-center">
+                       <p class="box-heading"><b>{{'CONTACT.phone'|translate}}</b></p>
+                       <a href="tel:+38166369569" mask="(000)00 000 00 00">+381 66 369 569</a>
+                   </div>
+               </div>
+               <div class="col-lg-3 col-md-6 d-flex justify-content-center">
+                   <div class="d-flex flex-column mobile-center">
+                       <p class="box-heading"><b>WHATSAPP</b></p>
+                       <a href="https://wa.me/+38166369569">+381 66 369 569</a>
+                       <p class="box-heading"><b>VIBER</b></p>
+                       <a href="viber://chat/?number=%2B38166369569">+381 66 369 569</a>
+                   </div>
+               </div>
+               <div class="col-lg-3 col-md-12 d-flex justify-content-center">
+                   <div class="d-flex flex-column mobile-center">
+                       <p class="box-heading"><b>{{'CONTACT.address'|translate}}</b></p>
+                       <p class="m-0">Djordja Stanojevića 11dj , lokal 3</p>
+                       <p class="m-0">Zgrada Jorgovan , Belville</p>
+                   </div>
+               </div>
+               <div class="col-lg-3 col-md-12 d-flex justify-content-center">
+                   <div class="d-flex flex-column mobile-center">
+                       <p class="box-heading"><b>{{'CONTACT.writeUs'|translate}}</b></p>
+                       <p >{{'CONTACT.writeUsText'|translate}}</p>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+</div>
+
+<div class="my-3">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="16" [scrollwheel]="false">
+        <agm-marker [markerClickable]="true"
+                    [iconUrl]="'../../../../assets/img/marker.png'"
+                    [latitude]="lat" [longitude]="lng"
+                    [title]="title"></agm-marker>
+    </agm-map>
+</div>

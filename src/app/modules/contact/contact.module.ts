@@ -4,15 +4,14 @@ import { ContactRoutingModule } from './contact.routing.module';
 import { ContactFormModule } from '../../core/components/contact-form/contact-form.module';
 import { AgmCoreModule } from '@agm/core';
 import {TranslateModule} from '@ngx-translate/core';
+import {ContactInfoModule} from '../../core/components/contact-info/contact-info.module';
 
 @NgModule({
     imports: [
         ContactRoutingModule,
         ContactFormModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDf0Z-oUxKPN65T17S_6eLWwyVc74UW4-A',
-        }),
         TranslateModule,
+        ContactInfoModule,
     ],
   declarations: [ContactComponent],
 })

@@ -1,89 +1,88 @@
-<p>
-  <b>{{ detailText.name.toUpperCase() }}</b>
-</p>
-<p class="mb-2"
-  [ngStyle]="{'text-decoration': (detailText?.sale && detailText?.sale != 0) ? 'line-through' : 'none'}">
-  {{ detailText.price }},00 RSD
+<p class="lapista-product-detail-heading">{{ detailText.name.toUpperCase() }}</p>
+<p class="lapista-product-detail-price mb-2"
+   [ngStyle]="{'text-decoration': (detailText?.sale && detailText?.sale != 0) ? 'line-through' : 'none'}">
+    {{ detailText.price }},00 RSD
 </p>
 
-<div class="d-flex flex-row" *ngIf="detailText?.sale && detailText?.sale != 0">
-  <span ><b>{{'ITEMDETAIL.sale'| translate }}</b>
-    <p class="mb-2">
-      <b>{{ detailText.price - (detailText.price / 100) * detailText?.sale }},00RSD</b>
-    </p></span>
+<div class="lapista-product-detail-sale d-flex flex-row" *ngIf="detailText?.sale && detailText?.sale != 0">
+  <span>
+    <b>{{'ITEMDETAIL.sale'| translate }}</b>
+    <p class="mb-2">{{ detailText.price - (detailText.price / 100) * detailText?.sale }},00RSD</p>
+  </span>
 </div>
 
 <div class="d-flex flex-column">
-  <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
-  <p class="text-uppercase">
-    <b>{{'ITEMDETAIL.color'| translate }}: </b> {{ selectedColor?.name.toLowerCase() | translate }}
-  </p>
-
-  <div class="color-choice d-flex py-3">
-    <div
-      class="color-box-wrapper"
-      *ngFor="let c of detailText.colors"
-      [class.color-box-wrapper-selected]="selectedColor?.name === c?.name"
-      (click)="emitChangedColor(c)"
-    >
-      <div class="color-box mr-3" [ngStyle]="{ background: c.hex }"></div>
-    </div>
-  </div>
-
-  <div class="select-size d-flex flex-column mt-2" *ngIf="!isBag">
-    <div class="d-flex justify-content-between">
-      <p class="text-uppercase mb-2">
-        <b>{{'ITEMDETAIL.size'| translate }}: </b> {{ selectedSize?.sizeName }}
-      </p>
-      <p (click)="openModal()" style="cursor: pointer;font-size: 14px;text-decoration: underline">{{'ITEMDETAIL.sizeChart'| translate }}</p>
-    </div>
-    <div class="shoe-numbers" *ngIf="selectedColor">
-      <button
-        class="size-number"
-        *ngFor="let s of selectedColor?.sizes"
-        (click)="selectSize(s)"
-        [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
-      >
-        <b>{{ s?.sizeName }}</b>
-      </button>
-    </div>
-  </div>
-
-  <div class="select-heel d-flex flex-column mt-2" *ngIf="!isBag">
-    <p class="text-uppercase mb-2">
-      <b>{{'ITEMDETAIL.heelSize'| translate }}: </b> {{ selectedHeel?.heelName }}
+    <!--  <p *ngFor="let c of detailText.colors" (click)="emitChangedColor(c)">{{c.name}} + {{c.status}}</p>-->
+    <p class="text-uppercase">
+        <b>{{'ITEMDETAIL.color'| translate }}: </b> {{ selectedColor?.name.toLowerCase() | translate }}
     </p>
-    <div class="shoe-heels">
-      <button
-        class="heel-number"
-        *ngFor="let h of selectedSize?.heel"
-        (click)="selectHeel(h)"
-        [class.heel-number-selected]="selectedHeel?.heelName === h?.heelName"
-        [class.heel-number-disabled]="h?.heelCount <= 0"
-        [ngStyle]="{
+
+    <div class="color-choice d-flex py-3">
+        <div
+                class="color-box-wrapper"
+                *ngFor="let c of detailText.colors"
+                [class.color-box-wrapper-selected]="selectedColor?.name === c?.name"
+                (click)="emitChangedColor(c)"
+        >
+            <div class="color-box mr-3" [ngStyle]="{ background: c.hex }"></div>
+        </div>
+    </div>
+
+    <div class="select-size d-flex flex-column mt-2" *ngIf="!isBag">
+        <div class="d-flex justify-content-between">
+            <p class="text-uppercase mb-2">
+                <b>{{'ITEMDETAIL.size'| translate }}: </b> {{ selectedSize?.sizeName }}
+            </p>
+            <p (click)="openModal()"
+               style="cursor: pointer;font-size: 14px;text-decoration: underline">{{'ITEMDETAIL.sizeChart'| translate }}</p>
+        </div>
+        <div class="shoe-numbers" *ngIf="selectedColor">
+            <button
+                    class="size-number"
+                    *ngFor="let s of selectedColor?.sizes"
+                    (click)="selectSize(s)"
+                    [class.size-number-selected]="selectedSize?.sizeName === s?.sizeName"
+            >
+                <b>{{ s?.sizeName }}</b>
+            </button>
+        </div>
+    </div>
+
+    <div class="select-heel d-flex flex-column mt-2" *ngIf="!isBag">
+        <p class="text-uppercase mb-2">
+            <b>{{'ITEMDETAIL.heelSize'| translate }}: </b> {{ selectedHeel?.heelName }}
+        </p>
+        <div class="shoe-heels">
+            <button
+                    class="heel-number"
+                    *ngFor="let h of selectedSize?.heel"
+                    (click)="selectHeel(h)"
+                    [class.heel-number-selected]="selectedHeel?.heelName === h?.heelName"
+                    [class.heel-number-disabled]="h?.heelCount <= 0"
+                    [ngStyle]="{
           'text-decoration': h?.heelCount <= 0 ? 'line-through' : 'none'
         }"
-        [disabled]="h.heelCount <= 0"
-      >
-        <b>{{ h.heelName }}</b>
-      </button>
+                    [disabled]="h.heelCount <= 0"
+            >
+                <b>{{ h.heelName }}</b>
+            </button>
+        </div>
     </div>
-  </div>
 </div>
 
 <p class="m-0 p-0"><b>{{'ITEMDETAIL.description'| translate }}:</b></p>
 <p class="mb-2">{{ detailText.description }}</p>
 
 <div class="add-to-cart mt-3">
-  <button
-    class="add-to-cart-button"
-    *ngIf="!isBag"
-    (click)="updateCart('shoe')"
-    [disabled]="!selectedHeel"
-  >
-      {{'ITEMDETAIL.addToCart'| translate }}
-  </button>
-  <button class="add-to-cart-button" *ngIf="isBag" (click)="updateCart('bag')">
-      {{'ITEMDETAIL.addToCart'| translate }}
-  </button>
+    <button
+            class="add-to-cart-button"
+            *ngIf="!isBag"
+            (click)="updateCart('shoe')"
+            [disabled]="!selectedHeel"
+    >
+        {{'ITEMDETAIL.addToCart'| translate }}
+    </button>
+    <button class="add-to-cart-button" *ngIf="isBag" (click)="updateCart('bag')">
+        {{'ITEMDETAIL.addToCart'| translate }}
+    </button>
 </div>

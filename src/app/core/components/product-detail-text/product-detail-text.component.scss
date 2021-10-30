@@ -1,3 +1,35 @@
+@import "src/app/styles/paleta";
+
+* {
+  font-family: $main-font;
+}
+
+p.lapista-product-detail-heading {
+  font-size: 35px;
+  font-weight: 300;
+  color: $main-dark;
+}
+p.lapista-product-detail-price{
+  font-size: 18px;
+  color: $main-light;
+  font-weight: 600;
+}
+
+.lapista-product-detail-sale{
+  span{
+    b{
+      font-weight: 400;
+      font-size: 16px;
+      margin: 0;
+    }
+    p{
+      font-size: 24px;
+      color: $main-light;
+      font-weight: 600;
+    }
+  }
+}
+
 .color-choice {
   flex-wrap: wrap;
 

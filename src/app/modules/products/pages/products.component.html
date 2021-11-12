@@ -1,4 +1,14 @@
 <div class="container">
+    <div class="row d-flex justify-content-end"
+         *ngIf="bgImageText"
+         style="margin:0 0 30px 0">
+        <div class="products-heading_bg"
+             [ngStyle]="{'background-image': 'url('+bgImageText.bgImage+')'}">
+            <div class="products-heading_text">
+                <p> {{'Woman ' + bgImageText.bgText | translate}}</p>
+            </div>
+        </div>
+    </div>
     <div class="row" *ngIf="allShoes">
         <div class="col-lg-4 col-md-4 col-sm-6 col-6" *ngFor="let product of allShoes">
             <!-- ZA GRUPNI PRIKAZ /products -->

@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
     allShoes;
     allProd;
     parametar = '';
+    bgImageText: { bgImage: string, bgText: string } =  { bgImage: '', bgText: '' };
 
     constructor(
         private productService: ProductService,
@@ -26,6 +27,7 @@ export class ProductsComponent implements OnInit {
             this.parametar = r.category;
             if (this.parametar) {
                 if (this.parametar === 'all') {
+                    this.bgImageText = null;
                     this.dataService.getAllColors().subscribe(
                         (res: any) => {
                             this.allShoes = res.data;
@@ -72,11 +74,31 @@ export class ProductsComponent implements OnInit {
         );
     }
 
-    getAllProductColor(filter) {
+    getAllProductColor(param) {
+        // Get all colors because need to show all shoes in every color
+        console.log('param', param);
+
+        switch (param) {
+            case 'sandals': {
+                this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
+                this.bgImageText.bgText = param;
+                break;
+            }
+            case 'pumps': {
+                this.bgImageText.bgImage = '/assets/img/lapista-new-2.jpg';
+                this.bgImageText.bgText = param;
+                break;
+            }
+            case 'boots': {
+                this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
+                this.bgImageText.bgText = param;
+                break;
+            }
+        }
         this.dataService.getAllColors().subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(
-                    (x) => x.item.category.name.toLowerCase() === filter
+                    (x) => x.item.category.name.toLowerCase() === param
                 );
                 console.log('all with param by cat.', this.allShoes);
             },

@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
     allShoes;
     allProd;
     parametar = '';
-    bgImageText: { bgImage: string, bgText: string } =  { bgImage: '', bgText: '' };
+    bgImageText: { bgImage: string, bgText: string } = {bgImage: '', bgText: ''};
 
     constructor(
         private productService: ProductService,
@@ -25,6 +25,7 @@ export class ProductsComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe((r) => {
             this.parametar = r.category;
+            console.log('r', r);
             if (this.parametar) {
                 if (this.parametar === 'all') {
                     this.bgImageText = null;
@@ -42,11 +43,14 @@ export class ProductsComponent implements OnInit {
                 } else if (this.parametar === 'shoes') {
                     // this.getProducts(this.parametar);
                     this.getAllShoesOnly();
+                } else if (this.parametar === 'new') {
+                    // this.getProducts(this.parametar);
+                    this.getNewShoes();
                 } else {
                     this.getAllProductColor(this.parametar);
                 }
             }
-            // For /products without parametar
+            // For /products without parametar // samo kroz / products
             else {
                 this.dataService.getAllItems().subscribe(
                     (res: any) => {
@@ -122,6 +126,18 @@ export class ProductsComponent implements OnInit {
                 alert(
                     'doslo je do greske , ukoliko ne bude uskoro otklonjena obratite nam se'
                 );
+            }
+        );
+    }
+
+    // TODO: Treba izmeniti i proveriti backend za ovo, da vraca sa backa ove podatke umesto filtera ovde
+    getNewShoes() {
+        this.dataService.getAllColors().subscribe(
+            (res: any) => {
+                this.allShoes = res.data.filter(x => x.item.isnew === 1);
+                console.log('samo nove cipe', this.allShoes);
+            }, (error: any) => {
+                console.log('error', error);
             }
         );
     }

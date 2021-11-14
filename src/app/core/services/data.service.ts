@@ -12,7 +12,7 @@ export class DataService {
 
   constructor(private http: HttpClient) {
   }
-
+  // CATEGORIES
   getAllCategories() {
     return this.http.get(api_endpoint + 'category');
   }
@@ -36,7 +36,9 @@ export class DataService {
   updateCategory(id, data) {
     return this.http.put(api_endpoint + `category/${id}`, data);
   }
+  // END CATEGORIES
 
+  // ITEMS
   createItem(data) {
     return this.http.post(api_endpoint + 'item', data);
   }
@@ -69,7 +71,12 @@ export class DataService {
     return this.http.put(api_endpoint + `item/${id}`, data);
   }
 
+  getNewItems() {
+    return this.http.get(api_endpoint + 'item/new');
+  }
+  // END ITEMS
 
+  // COLORS
   getAllColors() {
     return this.http.get(api_endpoint + 'color');
   }
@@ -85,11 +92,9 @@ export class DataService {
   getSizeById(id) {
     return this.http.get(api_endpoint + `size/${id}`);
   }
+  // END COLORS
 
-  /**
-   * HEELS
-   * */
-
+  // HEELS
   getAllHeels() {
     return this.http.get(api_endpoint + 'heel');
   }
@@ -108,6 +113,7 @@ export class DataService {
   decrementSize(id) {
     return this.http.get(api_endpoint + `size/decrement/${id}`);
   }
+  // END HEELS
 
   /**
    *  For mails & orders

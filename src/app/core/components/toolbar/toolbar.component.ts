@@ -62,17 +62,17 @@ export class ToolbarComponent implements OnInit {
             name: 'TOOLBAR.home'
         },
         {
-            route: '/products/new',
-            name: 'TOOLBAR.new'
+            route: '/products/la-pista',
+            name: 'TOOLBAR.lapista'
         },
         {
-            route: '/products/shoes',
-            name: 'TOOLBAR.shoes'
+            route: '/products/identita',
+            name: 'TOOLBAR.identita'
         },
-        {
-            route: '/products/bags',
-            name: 'TOOLBAR.bags'
-        },
+        // {
+        //     route: '/products/bags',
+        //     name: 'TOOLBAR.bags'
+        // },
         {
             route: '/about',
             name: 'TOOLBAR.aboutus'

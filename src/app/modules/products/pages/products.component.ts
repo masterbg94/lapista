@@ -40,10 +40,10 @@ export class ProductsComponent implements OnInit {
                             );
                         }
                     );
-                } else if (this.parametar === 'shoes') {
+                } else if (this.parametar === 'identita') {
                     // this.getProducts(this.parametar);
                     this.getAllShoesOnly();
-                } else if (this.parametar === 'new') {
+                } else if (this.parametar === 'la-pista') {
                     // this.getProducts(this.parametar);
                     this.getNewShoes();
                 } else {
@@ -135,7 +135,7 @@ export class ProductsComponent implements OnInit {
         this.dataService.getAllColors().subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(x => x.item.isnew === 1);
-                console.log('samo nove cipe', this.allShoes);
+                // console.log('samo nove cipe', this.allShoes);
             }, (error: any) => {
                 console.log('error', error);
             }

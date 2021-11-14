@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row d-flex justify-content-end"
-         *ngIf="bgImageText"
+         *ngIf="bgImageText.bgImage.length"
          style="margin:0 0 30px 0">
         <div class="products-heading_bg"
              [ngStyle]="{'background-image': 'url('+bgImageText.bgImage+')'}">

@@ -25,6 +25,26 @@ export class ProductsComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe((r) => {
             this.parametar = r.category;
+            if (this.parametar !== 'la-pista' && this.parametar !== 'identita') {
+                switch (this.parametar) {
+                    case 'sandals': {
+                        this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
+                        this.bgImageText.bgText = this.parametar;
+                        break;
+                    }
+                    case 'pumps': {
+                        this.bgImageText.bgImage = '/assets/img/lapista-new-2.jpg';
+                        this.bgImageText.bgText = this.parametar;
+                        break;
+                    }
+                    case 'boots': {
+                        this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
+                        this.bgImageText.bgText = this.parametar;
+                        break;
+                    }
+                }
+            }
+
             console.log('r', r);
             if (this.parametar) {
                 if (this.parametar === 'all') {
@@ -82,23 +102,7 @@ export class ProductsComponent implements OnInit {
         // Get all colors because need to show all shoes in every color
         console.log('param', param);
 
-        switch (param) {
-            case 'sandals': {
-                this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
-                this.bgImageText.bgText = param;
-                break;
-            }
-            case 'pumps': {
-                this.bgImageText.bgImage = '/assets/img/lapista-new-2.jpg';
-                this.bgImageText.bgText = param;
-                break;
-            }
-            case 'boots': {
-                this.bgImageText.bgImage = '/assets/img/lapista-new-1.jpg';
-                this.bgImageText.bgText = param;
-                break;
-            }
-        }
+
         this.dataService.getAllColors().subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(
@@ -118,7 +122,7 @@ export class ProductsComponent implements OnInit {
         this.dataService.getAllColors().subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(
-                    (x) => x.item.category.name.toLowerCase() !== 'bags'
+                    (x) => ((x.item.category.name.toLowerCase() !== 'bags') && (x.item?.isnew == 0))
                 );
                 console.log('all shoes.', this.allShoes);
             },

@@ -1,3 +1,58 @@
+@import "~src/app/styles/paleta";
+
+.background-image{
+  background-image: linear-gradient(to right, #ffffff, rgba(202, 202, 202, 0.6), rgba(202, 202, 202, 0.2), rgba(202, 202, 202, 0.6), #ffffff), url("src/assets/img/bg-img.png");
+  //background-image: url("https://i.shgcdn.com/c91614c2-1e9a-4ab2-858d-635504a03dff/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: bottom;
+  //background-attachment: fixed;
+  //height: 450px;
+  max-height: 90vh;
+  background-repeat: no-repeat;
+  margin-bottom: 40px;
+  .bg-img-content{
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    h1{
+      margin-bottom: 60px;
+      font-family: $main-font;
+      color: $main-dark;
+      font-size: 46px;
+      font-weight: 700;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px){
+  .background-image{
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 1180px){
+  .background-image{
+    height: 80vh;
+  }
+}
+@media screen and (max-width: 998px){
+  .background-image{
+    height: 70vh;
+  }
+}
+@media screen and (max-width: 768px){
+  .background-image{
+    height: 60vh;
+  }
+}
+@media screen and (min-width:576px) and (max-width: 768px){
+  .background-image{
+    height: 40vh;
+  }
+}
 .home-background {
   //max-height: 750px;
   height: 750px;

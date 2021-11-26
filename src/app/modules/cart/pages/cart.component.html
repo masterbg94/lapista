@@ -7,12 +7,10 @@
       <p>{{'CART.emptyCardAddMore'|translate}}</p>
     </ng-template>
   </div>
-
   <div class="container shopping-cart-container d-flex flex-column align-items-center">
     <div
       class="col-lg-8 col-md-10 col-sm-12 d-flex shopping-cart-item"
-      *ngFor="let item of shoppingItems"
-    >
+      *ngFor="let item of shoppingItems">
       <div class="col-lg-7 shopping-cart-item-image">
         <img
           [src]="item.image "
@@ -20,7 +18,7 @@
           class="img-fluid"
         />
       </div>
-      <div class="col-lg-5 d-flex flex-column shopping-cart-item-info align-items-center justify-content-center">
+      <div class="col-lg-5 d-flex flex-column shopping-cart-item-info align-items-end justify-content-center">
         <span>{{'CART.name'|translate}}:
           <p>{{ item.name }}</p>
         </span>
@@ -43,16 +41,10 @@
     </div>
     <div class="d-flex col-lg-8 flex-grow-1 m-0 p-0 order-buttons"
          *ngIf="shoppingItems && shoppingItems.length > 0">
-<!--      <button class="mr-3">Poruči</button>-->
       <button class="cart-delete-all" (click)="deleteLocalStorage()"><b>{{'CART.deleteAll'|translate}}</b></button>
     </div>
   </div>
-
-<!--  <div class="container d-flex justify-content-end">-->
-<!--    <button (click)="deleteLocalStorage()">Delete all</button>-->
-<!--  </div>-->
   <app-order-form-component
     *ngIf="shoppingItems && shoppingItems.length > 0">
   </app-order-form-component>
-
 </div>

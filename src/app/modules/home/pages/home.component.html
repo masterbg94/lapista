@@ -1,7 +1,7 @@
 <div class="background-image container-fluid position-relative d-flex justify-content-center align-items-center">
     <div class="container position-absolute bg-img-content">
-        <h1>{{'NewCollectionTitle' | translate}}</h1>
-        <button class="lapista-button-default position-relative">{{'viewNewCollection' | translate}}</button>
+        <h1 style="background: rgba(0,0,0,0.3);padding: 12px;border-radius: 16px;">{{'NewCollectionTitle' | translate}}</h1>
+        <button class="lapista-button-default position-relative" [routerLink]="'products/la-pista'">{{'viewNewCollection' | translate}}</button>
     </div>
 </div>
 
@@ -12,13 +12,10 @@
         </div>
     </div>
     <div class="container justify-content-center d-flex">
-        <button class="lapista-button-default-bold my-2" [routerLink]="'products/shoes'">{{'viewAll' | translate}}</button>
+        <button class="lapista-button-default-bold my-2"
+                [routerLink]="'products/shoes'">{{'viewAll' | translate}}</button>
     </div>
 </div>
-<!--<div class="container-fluid m-0 p-0 home-background">-->
-<!--    <button>NEW COLL</button>-->
-<!--</div>-->
-<!--<app-home-three-images></app-home-three-images>-->
 <div class="container-fluid">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center">

@@ -72,7 +72,8 @@
   </div>
   <div class="d-flex">
     <button class="btn btn-success w-100 cart-order-button"
-            [disabled]="!sendOrderForm.valid"
+            *ngIf="sendOrderForm.valid"
+            [disabled]="sendOrderForm.pristine || sendOrderForm.invalid"
             (click)="sendFormData()">
       <b class="text-uppercase">{{ 'ORDERFORM.send' | translate }}</b>
     </button>

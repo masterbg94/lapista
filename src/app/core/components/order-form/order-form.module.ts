@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CustomMaterialModule} from '../../../modules/custom-material.module';
 import {NgxMaskModule} from 'ngx-mask';
 import {TranslateModule} from '@ngx-translate/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   declarations: [OrderFormComponent],
@@ -12,7 +13,8 @@ import {TranslateModule} from '@ngx-translate/core';
         CustomMaterialModule,
         ReactiveFormsModule,
         NgxMaskModule,
-        TranslateModule
+        TranslateModule,
+        CommonModule
     ],
   exports: [OrderFormComponent],
 })

@@ -22,13 +22,13 @@ export class OrderFormComponent {
 
   initForm() {
     this.sendOrderForm = this._formBuilder.group({
-      firstName: [null],
-      lastName: [null],
-      email: [''],
-      phone: [null, Validators.maxLength(10)],
-      city: [null],
-      address: [null],
-      addressUnit: [null],
+      firstName: [null, [Validators.required, Validators.min(3)]],
+      lastName: [null, [Validators.required, Validators.min(3)]],
+      email: [null, [Validators.required, Validators.email]],
+      phone: [null, [Validators.required, Validators.maxLength(10)]],
+      city: [null, Validators.required],
+      address: [null, Validators.required],
+      addressUnit: [null, Validators.required],
       note: [''],
       data: [JSON.parse(localStorage.getItem('cart'))]
       // data: localStorage.getItem('cart')
@@ -38,11 +38,8 @@ export class OrderFormComponent {
   sendFormData() {
     const sendData = this.sendOrderForm.getRawValue();
     const sendDataJson = JSON.stringify(sendData);
-    // console.log('sendData', sendData);
-    // console.log('sendData', sendDataJson);
     this.dataService.sendOrder(sendData).subscribe(
       (resp: any) => {
-        // alert('successfull send');
         this.decrementOnPurchase();
         this.openSnackBar('Uspesno ste izvrsili porudzbinu!', 'Zatvori');
         this.sendOrderForm.reset();

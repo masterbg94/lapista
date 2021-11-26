@@ -1,8 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'app-home-four-images',
-  templateUrl: './home-four-images.component.html',
-  styleUrls: ['./home-four-images.component.scss'],
+    selector: 'app-home-four-images',
+    templateUrl: './home-four-images.component.html',
+    styleUrls: ['./home-four-images.component.scss']
 })
-export class HomeFourImagesComponent {}
+export class HomeFourImagesComponent {
+    // @ts-ignore
+  Arr: Array;
+    num = 4;
+}

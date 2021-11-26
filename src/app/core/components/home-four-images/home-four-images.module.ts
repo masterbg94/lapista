@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { HomeFourImagesComponent } from './home-four-images.component';
 import {RouterModule} from '@angular/router';
 import {TranslateModule} from '@ngx-translate/core';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
-  declarations: [HomeFourImagesComponent],
+    declarations: [HomeFourImagesComponent],
     imports: [
         RouterModule,
-        TranslateModule
+        TranslateModule,
+        CommonModule
     ],
   exports: [HomeFourImagesComponent],
 })

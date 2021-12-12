@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainLayoutComponent} from './layouts/main/main-layout.component';
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthGuard} from './core/guards/auth.guard';
+import {ErrorPageComponent} from './core/components/error-page/error-page.component';
 
 const ROUTES: Routes = [
     {
@@ -24,9 +25,16 @@ const ROUTES: Routes = [
                 loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
                 data: {title: 'La pista category'}
             },
+            // Za identita modele
             {
                 path: 'product/:id',
                 loadChildren: () => import('./modules/product-detail/product-detail.module').then(m => m.ProductDetailModule),
+                data: {title: 'La pista single product'}
+            },
+            // Za lapista modele
+            {
+                path: 'lapista/:colorid',
+                loadChildren: () => import('./modules/lapista-products/lapista-products.module').then(m => m.LapistaProductsModule),
                 data: {title: 'La pista single product'}
             },
             {
@@ -62,7 +70,18 @@ const ROUTES: Routes = [
         path: 'login',
         loadChildren: () => import('./modules/login/login.module').then(m => m.LoginModule),
         data: {title: 'La Pista - Login to panel'},
-    }
+    },
+    {
+        path: '**',
+        component: ErrorPageComponent,
+        // data: {title: 'La Pista - Error page'},
+        // children: [
+        //     {
+        //         path: '',
+        //         component: ErrorPageComponent
+        //     }
+        // ],
+    },
 ];
 
 @NgModule({

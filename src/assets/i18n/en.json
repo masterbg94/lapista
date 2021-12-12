@@ -115,5 +115,9 @@
   "Woman sandals": "Woman Sandals",
   "Woman boots": "Woman Boots",
   "Woman pumps": "Woman Pumps",
-  "NewCollectionTitle": "New La Pista collection"
+  "NewCollectionTitle": "New La Pista collection",
+  "errorPageTitle": "Bad Url",
+  "errorPageTitle2": "Invalid page",
+  "errorPageMessage": "Go back to other page",
+  "LEATHER": "Leather"
 }

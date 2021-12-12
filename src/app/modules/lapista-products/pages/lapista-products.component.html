@@ -1,0 +1,17 @@
+<div class="container-fluid">
+    <div class="container">
+        <div *ngIf="shoeByColor">
+            <div class="col-12 d-flex flex-wrap">
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <app-product-img [detailImage]="shoeByColor?.image"></app-product-img>
+                </div>
+                <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                    <app-product-text
+                            [detailText]="shoeByColor"
+                            [productTextType]="'lapista-type'">
+                    </app-product-text>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

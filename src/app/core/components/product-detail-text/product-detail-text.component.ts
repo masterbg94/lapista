@@ -12,6 +12,7 @@ import {SizeTableModalComponent} from '../size-table-modal/size-table-modal.comp
 })
 export class ProductDetailTextComponent implements OnInit {
     @Input() detailText;
+    @Input() productTextType = 'identita-type';
     public selectedColor;
     public selectedSize;
     public selectedHeel;
@@ -29,12 +30,17 @@ export class ProductDetailTextComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        console.log(this.detailText);
-        this.selectedColor = this.detailText.colors[0];
-        if (this.detailText.category.name === 'Bags') {
-            this.isBag = true;
-            console.log('torba', this.isBag);
+        if (this.productTextType === 'identita-type') {
+            this.selectedColor = this.detailText.colors[0];
+            if (this.detailText.category.name === 'Bags') {
+                this.isBag = true;
+                console.log('torba', this.isBag);
+            }
+        } else {
+            console.log('@Input(): this.detailText', this.detailText);
+            console.log('@Input() productTextType', this.productTextType);
         }
+
     }
 
     emitChangedColor(x) {
@@ -59,11 +65,6 @@ export class ProductDetailTextComponent implements OnInit {
     }
 
     updateCart(x) {
-        console.log(this.detailText);
-        // this.itemForSizeId = this.detailText.colors.filter(
-        //   x => x.id === 2
-        // );
-
         if (x === 'bag') {
             const dataForCart = {
                 name: this.detailText.name,
@@ -79,6 +80,28 @@ export class ProductDetailTextComponent implements OnInit {
             a = JSON.parse(localStorage.getItem('cart')) || [];
             // Push the new data (whether it be an object or anything else) onto the array
             a.push(dataForCart);
+            // Alert the array value
+            localStorage.setItem('cart', JSON.stringify(a));
+            console.log(JSON.parse(localStorage.getItem('cart')).length);
+
+            this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));
+        } else if (x === 'lapista') {
+            // console.log('lapista');
+            // console.log('this.detailText', this.detailText);
+            const  dataForCartLapista = {
+                name: this.detailText.item.name,
+                price: this.detailText.item.price,
+                image: 'https://lapista.rs/assets/img/items/' + this.detailText.image,
+                color: this.detailText.name,
+                size: this.selectedSize.sizeName,
+                heel: this.selectedHeel,
+                description: this.detailText.description,
+            };
+            let a = [];
+            // Parse the serialized data back into an aray of objects
+            a = JSON.parse(localStorage.getItem('cart')) || [];
+            // Push the new data (whether it be an object or anything else) onto the array
+            a.push(dataForCartLapista);
             // Alert the array value
             localStorage.setItem('cart', JSON.stringify(a));
             console.log(JSON.parse(localStorage.getItem('cart')).length);
@@ -105,7 +128,6 @@ export class ProductDetailTextComponent implements OnInit {
 
             this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));
         }
-
 
         /*
         let testIds = [10, 11];
@@ -141,7 +163,7 @@ export class ProductDetailTextComponent implements OnInit {
     */
 
     returnHeelCount(size) {
-        console.log('szh', size.heel.length);
+        // console.log('szh', size.heel.length);
         if (size?.heel?.length === 2) {
             if (size?.heel[0]?.heelCount <= 0 && size?.heel[1]?.heelCount <= 0) {
                 // console.log(false);
@@ -165,7 +187,7 @@ export class ProductDetailTextComponent implements OnInit {
         });
     }
 
-    openModal(){
+    openModal() {
         this.modal.open(SizeTableModalComponent, {scrollable: true});
     }
 }

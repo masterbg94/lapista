@@ -28,10 +28,19 @@
             </div>
             <!-- ZA PTIKAZ SVIH SA BOJAMA /products/${param} -->
             <div class="prod-item text-center">
-                <img src="../../../../assets/img/items/{{product?.image}}" class="img-fluid"
+                <img *ngIf="parametar!='la-pista'"
+                     src="../../../../assets/img/items/{{product?.image}}"
+                     class="img-fluid"
                      srcset="../../../../assets/img/items/375px/{{product?.image}} 375w,../../../../assets/img/items/500px/{{product?.image}} 500w"
                      alt="La pista-Belville-single product image"
                      [routerLink]="'/product/' + product?.item?.id" style="cursor: pointer">
+
+                <img *ngIf="parametar=='la-pista'"
+                     src="../../../../assets/img/items/{{product?.image}}" class="img-fluid"
+                     srcset="../../../../assets/img/items/375px/{{product?.image}} 375w,../../../../assets/img/items/500px/{{product?.image}} 500w"
+                     alt="La pista-Belville-single product image"
+                     [routerLink]="'/lapista/' + product?.id" style="cursor: pointer">
+
                 <p><b>{{product?.item?.name.toUpperCase()}}</b></p>
                 <!--        <p>{{product?.item?.price}} RSD</p>-->
                 <!-- new -->

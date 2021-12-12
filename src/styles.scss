@@ -17,6 +17,10 @@ p {
   touch-action: manipulation;
 }
 
+* :not(i) {
+  font-family: $main-font;
+}
+
 html, body {
   height: 100%;
 }

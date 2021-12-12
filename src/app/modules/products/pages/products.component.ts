@@ -3,6 +3,7 @@ import {ProductService} from '../../../core/services/product.service';
 import {FootwearModel} from '../../../core/models/footwear-model';
 import {DataService} from '../../../core/services/data.service';
 import {ActivatedRoute} from '@angular/router';
+import {take} from 'rxjs/operators';
 
 @Component({
     templateUrl: './products.component.html',
@@ -25,6 +26,8 @@ export class ProductsComponent implements OnInit {
     ngOnInit(): void {
         this.route.params.subscribe((r) => {
             this.parametar = r.category;
+            console.log('product.component.ts r.category:', r);
+            /* TODO: Izbaciti ovaj uslov ispod ako ne treba */
             if (this.parametar !== 'la-pista' && this.parametar !== 'identita') {
                 switch (this.parametar) {
                     case 'sandals': {
@@ -45,7 +48,7 @@ export class ProductsComponent implements OnInit {
                 }
             }
 
-            console.log('r', r);
+
             if (this.parametar) {
                 if (this.parametar === 'all') {
                     this.bgImageText = null;
@@ -98,12 +101,11 @@ export class ProductsComponent implements OnInit {
         );
     }
 
+    /* SVI MODELI / staro */
     getAllProductColor(param) {
         // Get all colors because need to show all shoes in every color
         console.log('param', param);
-
-
-        this.dataService.getAllColors().subscribe(
+        this.dataService.getAllColors().pipe(take(1)).subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(
                     (x) => x.item.category.name.toLowerCase() === param
@@ -118,8 +120,9 @@ export class ProductsComponent implements OnInit {
         );
     }
 
+    /* SAMO IDENTITA MODELI */
     getAllShoesOnly() {
-        this.dataService.getAllColors().subscribe(
+        this.dataService.getAllColors().pipe(take(1)).subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(
                     (x) => ((x.item.category.name.toLowerCase() !== 'bags') && (x.item?.isnew == 0))
@@ -135,11 +138,13 @@ export class ProductsComponent implements OnInit {
     }
 
     // TODO: Treba izmeniti i proveriti backend za ovo, da vraca sa backa ove podatke umesto filtera ovde
+    /* SAMO LAPISTA MODELI */
     getNewShoes() {
-        this.dataService.getAllColors().subscribe(
+        this.dataService.getAllColors().pipe(take(1)).subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(x => x.item.isnew === 1);
-                // console.log('samo nove cipe', this.allShoes);
+                localStorage.setItem('lapista-shoes', JSON.stringify(this.allShoes));
+                console.log('samo nove cipe', this.allShoes);
             }, (error: any) => {
                 console.log('error', error);
             }

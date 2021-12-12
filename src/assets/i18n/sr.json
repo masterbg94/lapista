@@ -115,5 +115,9 @@
   "Woman sandals": "Sandale",
   "Woman boots": "Čizme",
   "Woman pumps": "Cipele",
-  "NewCollectionTitle": "Nova La Pista kolekcija"
+  "NewCollectionTitle": "Nova La Pista kolekcija",
+  "errorPageTitle": "Nevazeca ruta",
+  "errorPageTitle2": "Nepostojeca stranica",
+  "errorPageMessage": "Molimo izaberite na drugu stranicu",
+  "LEATHER": "Koza"
 }

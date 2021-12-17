@@ -65,10 +65,10 @@ export class ToolbarComponent implements OnInit {
             route: '/products/la-pista',
             name: 'TOOLBAR.lapista'
         },
-        {
-            route: '/products/identita',
-            name: 'TOOLBAR.identita'
-        },
+        // {
+        //     route: '/products/identita',
+        //     name: 'TOOLBAR.identita'
+        // },
         // {
         //     route: '/products/bags',
         //     name: 'TOOLBAR.bags'

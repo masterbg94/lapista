@@ -150,7 +150,7 @@
     <p class="mb-2">{{ detailText?.item?.description | translate | uppercase }}</p>
 
     <button class="add-to-cart-button"
-
+            [disabled]="!selectedHeel"
             (click)="updateCart('lapista')">
         {{'ITEMDETAIL.addToCart'| translate }}
     </button>

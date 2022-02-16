@@ -90,7 +90,7 @@ export class ProductDetailTextComponent implements OnInit {
             // console.log('this.detailText', this.detailText);
             const  dataForCartLapista = {
                 name: this.detailText.item.name,
-                price: this.detailText.item.price,
+                price: this.detailText.item.sale !== 0 ? (this.detailText.item.price - (this.detailText.item.price / 100 * this.detailText.item.sale)) : this.detailText.item.price,
                 image: 'https://lapista.rs/assets/img/items/' + this.detailText.image,
                 color: this.detailText.name,
                 size: this.selectedSize.sizeName,
@@ -104,6 +104,7 @@ export class ProductDetailTextComponent implements OnInit {
             a.push(dataForCartLapista);
             // Alert the array value
             localStorage.setItem('cart', JSON.stringify(a));
+            // Test cart after adding product to cart
             console.log(JSON.parse(localStorage.getItem('cart')).length);
 
             this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));

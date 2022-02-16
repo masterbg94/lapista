@@ -143,8 +143,8 @@ export class ProductsComponent implements OnInit {
         this.dataService.getAllColors().pipe(take(1)).subscribe(
             (res: any) => {
                 this.allShoes = res.data.filter(x => x.item.isnew === 1);
-                localStorage.setItem('lapista-shoes', JSON.stringify(this.allShoes));
-                console.log('samo nove cipe', this.allShoes);
+                // localStorage.setItem('lapista-shoes', JSON.stringify(this.allShoes));
+                // console.log('samo nove cipe', this.allShoes);
             }, (error: any) => {
                 console.log('error', error);
             }

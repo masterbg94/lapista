@@ -39,10 +39,11 @@
                      src="../../../../assets/img/items/{{product?.image}}" class="img-fluid"
                      srcset="../../../../assets/img/items/375px/{{product?.image}} 375w,../../../../assets/img/items/500px/{{product?.image}} 500w"
                      alt="La pista-Belville-single product image"
-                     [routerLink]="'/lapista/' + product?.id" style="cursor: pointer">
+                     [routerLink]="'/lapista/' + product?.id" style="cursor: pointer;padding: 12px">
 
                 <p><b>{{product?.item?.name.toUpperCase()}}</b></p>
                 <!--        <p>{{product?.item?.price}} RSD</p>-->
+
                 <!-- new -->
                 <p class="m-0"
                    [ngStyle]="{'text-decoration': product?.item?.sale != 0 ? 'line-through' : 'none'}">{{product?.item?.price}}
@@ -51,6 +52,7 @@
                     <b>{{ product?.item?.price - (product?.item?.price / 100) * product?.item?.sale }},00 RSD</b>
                 </p>
                 <!-- new -->
+
             </div>
         </div>
     </div>

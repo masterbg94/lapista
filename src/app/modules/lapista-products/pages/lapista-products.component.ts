@@ -34,15 +34,15 @@ export class LapistaProductsComponent implements OnInit {
     /* Get single shoe with specific color id */
     /* USED LOCAL STORAGE because like this i can get all info about product */
     getColorById(id) {
-        /*this.dataService.getColorById(id).subscribe(
+        this.dataService.getColorById(id).subscribe(
             (response: any) => {
                 this.shoeByColor = response.data;
                 console.log('this.shoeByColor', this.shoeByColor);
             }, error => {
                 console.log(error);
             }
-        );*/
-        this.shoeByColor = this.allLapistaShoes.find(x => x.id == id);
+        );
+        // this.shoeByColor = this.allLapistaShoes.find(x => x.id == id);
         console.log('shoe by color', this.shoeByColor);
     }
 }

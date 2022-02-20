@@ -13,34 +13,34 @@ const ROUTES: Routes = [
             {
                 path: '',
                 loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
-                data: {title: 'La pista home'}
+                data: {title: 'La pista zenska obuca Novi Beograd , Djordja Stanojevica 11dj lokal 3'}
             },
             {
                 path: 'products',
                 loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
-                data: {title: 'Lapista products'}
+                data: {title: 'Lapista proizvodi'}
             },
             {
                 path: 'products/:category',
                 loadChildren: () => import('./modules/products/products.module').then(m => m.ProductsModule),
-                data: {title: 'La pista category'}
+                data: {title: 'La pista | obuca proizvodi'}
             },
             // Za identita modele
             {
                 path: 'product/:id',
                 loadChildren: () => import('./modules/product-detail/product-detail.module').then(m => m.ProductDetailModule),
-                data: {title: 'La pista single product'}
+                data: {title: 'La pista | obuca'}
             },
             // Za lapista modele
             {
                 path: 'lapista/:colorid',
                 loadChildren: () => import('./modules/lapista-products/lapista-products.module').then(m => m.LapistaProductsModule),
-                data: {title: 'La pista single product'}
+                data: {title: 'La pista | Lapista obuca'}
             },
             {
                 path: 'about',
                 loadChildren: () => import('./modules/about/about.module').then(m => m.AboutModule),
-                data: {title: 'La pista about'}
+                data: {title: 'La pista | O nama'}
             },
             {
                 path: 'contact',

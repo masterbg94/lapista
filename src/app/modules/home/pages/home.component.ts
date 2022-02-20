@@ -27,17 +27,6 @@ export class HomeComponent implements OnInit {
                 console.log('random', this.randomItems);
             }
         );
-        // this.dataService.getAllCategoriesWithDetails().pipe(take(1)).subscribe(
-        //     (resp: any) => {
-        //       console.log('categ.with details', resp.data);
-        //     }
-        // );
-        //
-        // this.dataService.getAllCategories().pipe(take(1)).subscribe(
-        //     (resp: BasicResponse) => {
-        //       console.log('categ.', resp.data);
-        //     }
-        // );
     }
 
 }

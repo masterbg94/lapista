@@ -10,5 +10,6 @@ export const ColorConst = {
     BROWN: '#964B00',
     BORDO: '#4C0013',
     PURPLE: '#800080',
+    GREEN: '#008000',
     GRAY: '#808080'
 };

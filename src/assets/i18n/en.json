@@ -53,7 +53,7 @@
     "heelName": "Heels size",
     "price": "Price",
     "itemInCart": "Item added to cart",
-    "closeSnack":"Close"
+    "closeSnack": "Close"
   },
   "FOOTER": {
     "ourShop": "Our shop",
@@ -107,8 +107,6 @@
     "desc9": "",
     "desc10": ""
   },
-  "black": "BLACK",
-  "blue": "BLUE",
   "more": "More",
   "viewAll": "View all",
   "viewNewCollection": "New collection",
@@ -119,5 +117,17 @@
   "errorPageTitle": "Bad Url",
   "errorPageTitle2": "Invalid page",
   "errorPageMessage": "Go back to other page",
-  "LEATHER": "Leather"
+  "LEATHER": "The upper part is made of artificial premium materials, which will fit perfectly into any clothing combination. The inner part is made of leather, which makes these shoes a great choice for everyday wear",
+  "PINK": "Pink",
+  "BLACK": "Black",
+  "BEIGE": "Beige",
+  "BLUE": "Blue",
+  "LIGHTBLUE": "Light blue",
+  "GOLD": "Gold",
+  "SILVER": "Silver",
+  "RED": "Red",
+  "BROWN": "Brown",
+  "BORDEAUX": "Bordeaux",
+  "GRAY": "Gray",
+  "PURPLE": "Purple"
 }

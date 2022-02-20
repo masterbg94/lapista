@@ -96,18 +96,26 @@
          *ngIf="detailText?.item?.sale && detailText?.item?.sale != 0">
         <span>
             <b>{{'ITEMDETAIL.sale'| translate }}</b>
-            <p class="mb-2">{{ detailText?.item?.price - (detailText?.item?.price / 100) * detailText?.item?.sale }},00RSD</p>
+            <p class="mb-2">{{ detailText?.item?.price - (detailText?.item?.price / 100) * detailText?.item?.sale }}
+                ,00RSD</p>
         </span>
     </div>
     <!---->
     <!-- COLOR -->
     <div class="d-flex">
         <p class="mr-3">{{'ITEMDETAIL.color' | translate}}:</p>
-        <p class="mr-1">{{detailText?.name | translate}}</p>
-        <div class="lapista-shoe-color" style="height: 24px;width: 24px"
-             [style.background-color]="detailText?.hex">
+        <p class="mr-1">{{detailText?.name.toUpperCase() | translate}}</p>
+        <div class="lapista-shoe-color"
+             *ngIf="detailText.name.toUpperCase()!='MULTICOLOR';else multicolor"
+             style="height: 24px;width: 24px"
+             [style.background-color]="returnColorFromConst(detailText.name.toUpperCase())">
         </div>
-    </div> <!-- end COLOR -->
+        <ng-template #multicolor>
+            <img src="assets/img/multicolor.png" style="height: 24px;width: 24px" alt="lapista-multicolor-icon">
+        </ng-template>
+    </div>
+    <!-- end COLOR -->
+
     <!-- SIZE -->
     <div class="lapista-size d-flex flex-column">
         <div class="shoe-numbers">
@@ -123,7 +131,7 @@
     </div>
     <!-- END SIZE -->
 
-<!--    HEEL -->
+    <!--    HEEL -->
     <div class="select-heel d-flex flex-column mt-2" *ngIf="!isBag">
         <p class="text-uppercase mb-2">
             <b>{{'ITEMDETAIL.heelSize'| translate }}: </b> {{ selectedHeel?.heelName }}
@@ -144,10 +152,10 @@
             </button>
         </div>
     </div>
-<!--   END  HEEL -->
+    <!--   END  HEEL -->
 
     <p class="m-0 p-0"><b>{{'ITEMDETAIL.description'| translate }}:</b></p>
-    <p class="mb-2">{{ detailText?.item?.description | translate | uppercase }}</p>
+    <p class="mb-2">{{ detailText?.item?.description | translate }}</p>
 
     <button class="add-to-cart-button"
             [disabled]="!selectedHeel"

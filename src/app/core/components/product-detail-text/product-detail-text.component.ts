@@ -4,6 +4,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {TranslateService} from '@ngx-translate/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {SizeTableModalComponent} from '../size-table-modal/size-table-modal.component';
+import {ColorConst} from '../../color-const';
 
 @Component({
     selector: 'app-product-text',
@@ -30,17 +31,18 @@ export class ProductDetailTextComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        // ako se prikazuje item sa izborom za boju , na lapista modelima ne
         if (this.productTextType === 'identita-type') {
             this.selectedColor = this.detailText.colors[0];
             if (this.detailText.category.name === 'Bags') {
                 this.isBag = true;
                 console.log('torba', this.isBag);
             }
-        } else {
-            console.log('@Input(): this.detailText', this.detailText);
-            console.log('@Input() productTextType', this.productTextType);
         }
-
+        /*else {
+            console.log('@Input() productTextType', this.productTextType);
+            console.log('@Input(): this.detailText', this.detailText);
+        }*/
     }
 
     emitChangedColor(x) {
@@ -88,7 +90,7 @@ export class ProductDetailTextComponent implements OnInit {
         } else if (x === 'lapista') {
             // console.log('lapista');
             // console.log('this.detailText', this.detailText);
-            const  dataForCartLapista = {
+            const dataForCartLapista = {
                 name: this.detailText.item.name,
                 price: this.detailText.item.sale !== 0 ? (this.detailText.item.price - (this.detailText.item.price / 100 * this.detailText.item.sale)) : this.detailText.item.price,
                 image: 'https://lapista.rs/assets/img/items/' + this.detailText.image,
@@ -129,25 +131,6 @@ export class ProductDetailTextComponent implements OnInit {
 
             this.openSnackBar(this.translate.instant('CART.itemInCart'), this.translate.instant('CART.closeSnack'));
         }
-
-        /*
-        let testIds = [10, 11];
-        for (let t of testIds) {
-          this.dataService.decrementSize(t).subscribe(
-            (res: any) => {
-              console.log(res);
-            }
-          );
-        }
-        */
-        // TODO: Prebaciti na kraj porudzbine
-        /*
-        let ls = JSON.parse(localStorage.getItem('cart'));
-        // console.log(ls);
-        let mapirano = ls.map(x => x?.heel?.id);
-        // console.log(mapirano);
-        this.decrementHeels(mapirano);
-        */
     }
 
     // TODO: Prebaciti na kraj porudzbine
@@ -164,7 +147,6 @@ export class ProductDetailTextComponent implements OnInit {
     */
 
     returnHeelCount(size) {
-        // console.log('szh', size.heel.length);
         if (size?.heel?.length === 2) {
             if (size?.heel[0]?.heelCount <= 0 && size?.heel[1]?.heelCount <= 0) {
                 // console.log(false);
@@ -176,10 +158,6 @@ export class ProductDetailTextComponent implements OnInit {
                 return true;
             }
         }
-        // else {
-        //   // console.log(true);
-        //   return true;
-        // }
     }
 
     openSnackBar(message, action) {
@@ -190,5 +168,10 @@ export class ProductDetailTextComponent implements OnInit {
 
     openModal() {
         this.modal.open(SizeTableModalComponent, {scrollable: true});
+    }
+
+    /*Return color*/
+    returnColorFromConst(x) {
+        return ColorConst[x.toUpperCase()];
     }
 }

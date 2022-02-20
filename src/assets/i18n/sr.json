@@ -53,7 +53,7 @@
     "heelName": "Visina podpetice",
     "price": "Cena",
     "itemInCart": "Proizvod je dodat u korpu",
-    "closeSnack":"Close"
+    "closeSnack": "Zatvori"
   },
   "FOOTER": {
     "ourShop": "Naša ponuda",
@@ -107,8 +107,6 @@
     "desc9": "",
     "desc10": ""
   },
-  "black": "CRNA",
-  "blue": "PLAVA",
   "more": "Detaljnije",
   "viewAll": "Pogledaj sve",
   "viewNewCollection": "Nova kolekcija",
@@ -119,5 +117,17 @@
   "errorPageTitle": "Nevazeca ruta",
   "errorPageTitle2": "Nepostojeca stranica",
   "errorPageMessage": "Molimo izaberite na drugu stranicu",
-  "LEATHER": "Koza"
+  "LEATHER": "Gornji deo je urađen od veštačkih premium materijala, koji ćete savršeno uklopiti u svaku odevnu kombinacija. Unutrašnji deo je kožni, što ove cipele čini odličnim izborom za svakodnevno nosenje",
+  "PINK": "Roze",
+  "BLACK": "Crna",
+  "BEIGE": "Bež",
+  "BLUE": "Plava",
+  "LIGHTBLUE": "Svetlo plava",
+  "GOLD": "Zlatna",
+  "SILVER": "Srebrna",
+  "RED": "Crvena",
+  "BROWN": "Braon",
+  "BORDEAUX": "Bordo",
+  "GRAY": "Siva",
+  "PURPLE": "Ljubičasta"
 }

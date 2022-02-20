@@ -10,39 +10,31 @@ import {ActivatedRoute} from '@angular/router';
 export class LapistaProductsComponent implements OnInit {
     colorIdParam;
     shoeByColor;
-    allLapistaShoes;
 
     constructor(private dataService: DataService, private routeSnap: ActivatedRoute) {
     }
 
     ngOnInit(): void {
-        this.allLapistaShoes = JSON.parse(localStorage.getItem('lapista-shoes'));
-        console.log('allLapistaShoes', this.allLapistaShoes);
         this.getRouteId();
-        this.getColorById(this.colorIdParam);
+        this.getItemByColorId(this.colorIdParam);
     }
 
     getRouteId() {
         this.routeSnap.params.subscribe(
             (resp: any) => {
                 this.colorIdParam = resp.colorid;
-                console.log('colorIdParam', this.colorIdParam);
             }
         );
     }
 
-    /* Get single shoe with specific color id */
-    /* USED LOCAL STORAGE because like this i can get all info about product */
-    getColorById(id) {
+    getItemByColorId(id) {
         this.dataService.getColorById(id).subscribe(
             (response: any) => {
                 this.shoeByColor = response.data;
-                console.log('this.shoeByColor', this.shoeByColor);
+                // console.log('this.shoeByColor', this.shoeByColor);
             }, error => {
-                console.log(error);
+                console.log('Greska:', error);
             }
         );
-        // this.shoeByColor = this.allLapistaShoes.find(x => x.id == id);
-        console.log('shoe by color', this.shoeByColor);
     }
 }

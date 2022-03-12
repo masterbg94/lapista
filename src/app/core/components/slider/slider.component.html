@@ -1,4 +1,4 @@
-<carousel *ngIf="slideItems.length"
+<carousel class="sale-items" *ngIf="slideItems.length && slideType==='product'"
           [autoplay]="sliderSettings.autoplay"
           [autoplayInterval]="sliderSettings.autoplayInterval"
           [pauseOnHover]="sliderSettings.pauseOnHover"
@@ -23,3 +23,23 @@
         </div>
     </div>
 </carousel>
+
+<carousel class="sale-items" *ngIf="slideItems.length && slideType==='basic'"
+          [autoplay]="sliderSettings.autoplay"
+          [autoplayInterval]="sliderSettings.autoplayInterval"
+          [pauseOnHover]="sliderSettings.pauseOnHover"
+          [transitionDuration]="sliderSettings.transitionDuration"
+          [loop]="sliderSettings.loop"
+          [arrowsTheme]="sliderSettings.arrowsTheme"
+          [arrowsOutside]="sliderSettings.arrowsOutside"
+          [cellsToShow]="sliderSettings.cellsToShow"
+          [objectFit]="sliderSettings.objectFit"
+          [height]="sliderSettings.height"
+>
+    <div class="carousel-cell" *ngFor="let item of slideItems">
+        <img [src]="'/assets/img/slide-images/'+item"
+             style="object-fit: cover"
+             alt="lapista-slide-images" class="img-fluid">
+    </div>
+</carousel>
+

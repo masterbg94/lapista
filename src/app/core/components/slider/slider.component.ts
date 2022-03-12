@@ -1,6 +1,5 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FootwearModel} from '../../models/footwear-model';
-import {CarouselComponent} from 'angular-responsive-carousel';
 import {SliderCarouselModel} from '../../models/slider-carousel.model';
 
 @Component({
@@ -9,13 +8,15 @@ import {SliderCarouselModel} from '../../models/slider-carousel.model';
     styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit, OnChanges {
-    @Input() slideItems: FootwearModel[];
+    @Input() slideItems: FootwearModel[] | Array<string>;
+    @Input() slideType = 'product';
+
     sliderSettings: SliderCarouselModel =
         {
-        height: 100,
+        height: 300,
         width: 100,
-        cellWidth: 50,
-        cellsToShow: 2,
+        cellWidth: '100%',
+        cellsToShow: 4,
         // cellsToScroll: number,
         loop: true,
         // overflowCellsLimit: number,
@@ -23,7 +24,7 @@ export class SliderComponent implements OnInit, OnChanges {
         freeScroll: false,
         autoplayInterval: 3000,
         pauseOnHover: true,
-        dots: false,
+        dots: true,
         objectFit: 'contain',
         margin: 10,
         transitionDuration: 500,

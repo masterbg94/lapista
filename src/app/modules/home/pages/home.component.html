@@ -1,21 +1,23 @@
 <div class="background-image container-fluid position-relative d-flex justify-content-center align-items-center">
     <div class="container position-absolute bg-img-content">
         <h1 style="background: rgba(0,0,0,0.3);padding: 12px;border-radius: 16px;">{{'NewCollectionTitle' | translate}}</h1>
-        <button class="lapista-button-default position-relative" [routerLink]="'products/la-pista'">{{'viewNewCollection' | translate}}</button>
+        <button class="lapista-button-default position-relative"
+                [routerLink]="'products/la-pista'">{{'viewNewCollection' | translate}}</button>
     </div>
 </div>
 
 <div class="container-fluid d-flex flex-column p-0">
     <div class="slider-wrapper d-flex justify-content-center" style="overflow: hidden">
         <div class="slider-content d-flex justify-content-center" style="max-width: 840px;width: 100%">
-            <app-slider style="z-index: 10" [slideItems]="randomItems"></app-slider>
+            <app-slider style="z-index: 10" [slideItems]="randomItems" [slideType]="'product'"></app-slider>
         </div>
     </div>
-<!--    <div class="container justify-content-center d-flex">-->
-<!--        <button class="lapista-button-default-bold my-2"-->
-<!--                [routerLink]="'products/lapista'">{{'NewCollectionTitle' | translate}}</button>-->
-<!--    </div>-->
 </div>
+
+<div class="container-fluid" style="max-width: 1080px;margin-top: 45px;margin-bottom: 45px">
+    <app-slider style="z-index: 10" [slideItems]="slideImages" [slideType]="'basic'"></app-slider>
+</div>
+
 <div class="container-fluid">
     <div class="container">
         <div class="d-flex flex-wrap justify-content-center">
@@ -26,7 +28,7 @@
                 <img src="./assets/img/lapista-new-2.jpg" alt="" class="img-fluid">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 my-2">
-                <img src="./assets/img/lapista-new-1.jpg" alt="" class="img-fluid">
+                <img src="./assets/img/lapista-new-3.jpg" alt="" class="img-fluid">
             </div>
         </div>
     </div>

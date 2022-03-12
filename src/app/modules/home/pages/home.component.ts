@@ -12,6 +12,17 @@ import {pipe} from 'rxjs';
 })
 export class HomeComponent implements OnInit {
     randomItems: any[] = [];
+    slideImages = [
+        'lapista-slide-1.jpg',
+        'lapista-slide-2.jpg',
+        'lapista-slide-3.jpg',
+        'lapista-slide-4.jpg',
+        'lapista-slide-5.jpg',
+        'lapista-slide-6.jpg',
+        'lapista-slide-7.jpg',
+        'lapista-slide-8.jpg',
+        'lapista-slide-9.jpg',
+    ];
 
     constructor(private dataService: DataService, private http: HttpClient) {
     }

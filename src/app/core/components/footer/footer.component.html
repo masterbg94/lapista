@@ -1,56 +1,77 @@
 <div class="container-fluid mt-5 py-5" style="border-top: 1px solid #606060;">
-  <div class="col-12 d-flex flex-wrap footer-content">
+    <div class="col-12 d-flex flex-wrap footer-content justify-content-center">
+        <div class="new-order d-flex justify-content-between align-items-center">
+          <p [routerLink]="'/products/pumps'">{{"FOOTER.shoes" | translate}}</p>
+          <p [routerLink]="'/about'">{{"FOOTER.about" | translate}}</p>
+          <p [routerLink]="'/contact'">{{"FOOTER.contact" | translate}}</p>
+          <a href="https://www.facebook.com/la.pista.100" target="_blank" class="mr-3">
+            <img
+                    src="/assets/img/facebook.png"
+                    alt=""
+                    class="img-fluid"
+                    style="height: 30px;"
+            />
+          </a>
+          <a href="https://www.instagram.com/web.lapista" target="_blank">
+            <img
+                    src="/assets/img/instagram.png"
+                    alt=""
+                    class="img-fluid"
+                    style="height: 30px;"
+            />
+          </a>
+        </div>
 
-    <div class="col-md-3 col-sm-6">
-      <p [routerLink]="'/products/all'"><b>{{"FOOTER.ourShop" | translate}}</b></p>
-      <p [routerLink]="'/products/pumps'">{{"FOOTER.shoes" | translate}}</p>
-      <p [routerLink]="'/products/sandals'">{{"FOOTER.sandals" | translate}}</p>
-      <p [routerLink]="'/products/boots'">{{"FOOTER.boots" | translate}}</p>
-      <p [routerLink]="'/products/bags'">{{"FOOTER.bags" | translate}}</p>
+        <!--<div class="col-md-3 col-sm-6">
+          <p [routerLink]="'/products/all'"><b>{{"FOOTER.ourShop" | translate}}</b></p>
+          <p [routerLink]="'/products/pumps'">{{"FOOTER.shoes" | translate}}</p>
+          <p [routerLink]="'/products/sandals'">{{"FOOTER.sandals" | translate}}</p>
+          <p [routerLink]="'/products/boots'">{{"FOOTER.boots" | translate}}</p>
+          <p [routerLink]="'/products/bags'">{{"FOOTER.bags" | translate}}</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p><b>LA PISTA</b></p>
+          <p [routerLink]="'/about'">{{"FOOTER.about" | translate}}</p>
+          <p [routerLink]="'/contact'">{{"FOOTER.contact" | translate}}</p>
+          <p>{{"FOOTER.privacy" | translate}}</p>
+          <p>{{"FOOTER.cookies" | translate}}</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <p><b>{{"FOOTER.support" | translate}}</b></p>
+          <p>{{"FOOTER.help" | translate}}</p>
+        </div>
+        <div class="col-md-3 col-sm-6 d-flex flex-column">
+          <p><b>{{"FOOTER.follow" | translate}}</b></p>
+          <div class="d-flex">
+            <a
+              href="https://www.facebook.com/la.pista.100"
+              target="_blank"
+              class="mr-3"
+            >
+              <img
+                src="/assets/img/facebook.png"
+                alt=""
+                class="img-fluid"
+                style="height: 30px;"
+              />
+            </a>
+            <a href="https://www.instagram.com/web.lapista" target="_blank">
+              <img
+                src="/assets/img/instagram.png"
+                alt=""
+                class="img-fluid"
+                style="height: 30px;"
+              />
+            </a>
+          </div>
+        </div>-->
     </div>
-    <div class="col-md-3 col-sm-6">
-      <p><b>LA PISTA</b></p>
-      <p [routerLink]="'/about'">{{"FOOTER.about" | translate}}</p>
-      <p [routerLink]="'/contact'">{{"FOOTER.contact" | translate}}</p>
-      <p>{{"FOOTER.privacy" | translate}}</p>
-      <p>{{"FOOTER.cookies" | translate}}</p>
-    </div>
-    <div class="col-md-3 col-sm-6">
-      <p><b>{{"FOOTER.support" | translate}}</b></p>
-      <p>{{"FOOTER.help" | translate}}</p>
-    </div>
-    <div class="col-md-3 col-sm-6 d-flex flex-column">
-      <p><b>{{"FOOTER.follow" | translate}}</b></p>
-      <div class="d-flex">
-        <a
-          href="https://www.facebook.com/la.pista.100"
-          target="_blank"
-          class="mr-3"
-        >
-          <img
-            src="/assets/img/facebook.png"
-            alt=""
-            class="img-fluid"
-            style="height: 30px;"
-          />
-        </a>
-        <a href="https://www.instagram.com/web.lapista" target="_blank">
-          <img
-            src="/assets/img/instagram.png"
-            alt=""
-            class="img-fluid"
-            style="height: 30px;"
-          />
-        </a>
-      </div>
-    </div>
-  </div>
 </div>
 <div
-  class="container-fluid text-center d-flex align-items-center justify-content-center"
-  style="border-top: 1px solid #606060; height: 40px;"
+        class="container-fluid text-center d-flex align-items-center justify-content-center"
+        style="border-top: 1px solid #606060; height: 40px;"
 >
-  <p style="font-size: 12px; margin: 0; padding: 0;">
-    © Copyright 2022 - LaPista
-  </p>
+    <p style="font-size: 12px; margin: 0; padding: 0;">
+        © Copyright 2022 - LaPista
+    </p>
 </div>

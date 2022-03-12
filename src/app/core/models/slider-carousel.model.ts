@@ -7,7 +7,7 @@ export class SliderCarouselModel {
     arrowsOutside?: boolean;
     freeScroll?: boolean;
     autoplay?: boolean;
-    cellWidth?: number;
+    cellWidth?: number|any;
     borderRadius?: number;
     arrowsTheme?: string;
     loop?: boolean;

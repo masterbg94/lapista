@@ -13,12 +13,11 @@
     &-info {
       padding: 15px;
 
-      span {
-        margin: 0;
-        padding: 0;
-        display: inline-flex;
-
-        p {
+      p{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        span{
           margin-bottom: 5px;
           margin-left: 10px;
           padding: 0;

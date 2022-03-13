@@ -19,21 +19,21 @@
         />
       </div>
       <div class="col-lg-5 d-flex flex-column shopping-cart-item-info align-items-end justify-content-center">
-        <span>{{'CART.name'|translate}}:
-          <p>{{ item.name }}</p>
-        </span>
-        <span>{{'CART.color'|translate}}:
-          <p>{{ item.color }}</p>
-        </span>
-        <span *ngIf="item?.size">{{'CART.size'|translate}}:
-          <p>{{ item.size }}</p>
-        </span>
-        <span *ngIf="item?.heel?.heelName">{{'CART.heelName'|translate}}:
-          <p>{{ item.heel.heelName }}</p>
-        </span>
-        <span>{{'CART.price'|translate}}:
-          <p>{{ item.price }}</p>
-        </span>
+        <p>{{'CART.name'|translate}}:
+          <span>{{ item.name }}</span>
+        </p>
+        <p>{{'CART.color'|translate}}:
+          <span>{{ item.color }}</span>
+        </p>
+        <p *ngIf="item?.size">{{'CART.size'|translate}}:
+          <span>{{ item.size }}</span>
+        </p>
+        <p *ngIf="item?.heel?.heelName">{{'CART.heelName'|translate}}:
+          <span>{{ item.heel.heelName }}</span>
+        </p>
+        <p>{{'CART.price'|translate}}:
+          <span>{{ item.price }}</span>
+        </p>
        <!-- <span>Description:
           <p>{{ item.description }}</p>
         </span>-->
